@@ -6,15 +6,8 @@ def get_fraction(prompt):
     while True:
         try:
             x, y = input(prompt).split("/")
-            if x.isnumeric() and y.isnumeric() and y != 0 and x > y
-            x = int(x)
-            y = int(y)
-            if y == 0:
-                continue
-            if x > y:
-                continue
-
-            return x, y
+            if x.isnumeric() and y.isnumeric() and y != 0 and x > y:
+                return int(x), int(y)
         except ValueError:
             pass
 
