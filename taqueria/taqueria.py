@@ -11,27 +11,17 @@ menu = {
 }
 
 def main():
-    x, y = get_fraction("Fraction: ")
-    percentage = x / y * 100
-    if percentage <= 1:
-        print("E")
-    elif percentage >= 99:
-        print("F")
-    else:
-        print(f"{percentage:.0f}%")
+    while True:
+        item = get_item("Item: ")
+        
+    print(get_item)
 
 def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
-            if menu[item] != "":
-                
-
-
-            x = int(x)
-            y = int(y)
-            if y != 0 and x <= y:
-                return x, y
+            if menu[item]:
+                return menu[item]
         except ValueError:
             pass
 
