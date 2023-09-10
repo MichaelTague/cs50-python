@@ -7,7 +7,7 @@ def main():
     elif percentage >= 99:
         print("F")
     else:
-        print(f"{percentage:.f0}%")
+        print(f"{percentage:.0f}%")
 
 def get_fraction(prompt):
     while True:
