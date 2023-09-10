@@ -11,12 +11,10 @@ menu = {
 }
 
 def main():
-    while True:
-        item = get_item("Item: ")
-        if item is None:
-            
-
-    print(get_item)
+    total = 0.00
+    while item = get_item("Item: ")
+        total = menu[item]
+        print(f"Total: {total:.2f})
 
 def get_item(prompt):
     while True:
