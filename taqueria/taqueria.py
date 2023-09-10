@@ -13,7 +13,9 @@ menu = {
 def main():
     while True:
         item = get_item("Item: ")
-        
+        if item is None:
+            
+
     print(get_item)
 
 def get_item(prompt):
@@ -22,6 +24,8 @@ def get_item(prompt):
             item = input(prompt).title()
             if menu[item]:
                 return menu[item]
+        except EOFError:
+            return None
         except ValueError:
             pass
 
