@@ -25,6 +25,7 @@ def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
+            print("get_item, item:", item)
             if menu[item]:
                 return menu[item]
         except EOFError:
