@@ -1,6 +1,5 @@
 def main():
     x, y = get_fraction("Fraction: ")
-    print(x, y)
     percentage = x / y * 100
     if percentage <= 1:
         print("E")
