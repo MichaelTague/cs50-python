@@ -31,5 +31,7 @@ def get_item(prompt):
             return None
         except ValueError:
             pass
+        except KeyError:
+            pass
 
 main()
