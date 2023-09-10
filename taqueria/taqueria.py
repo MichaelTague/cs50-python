@@ -18,14 +18,13 @@ def main():
         if item == None:
             break
 
-        total = menu[item]
+        total = total + menu[item]
         print(f"Total: {total:.2f}")
 
 def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
-            print("gi>>>: ", item)
             if menu[item]:
                 return menu[item]
         except EOFError:
