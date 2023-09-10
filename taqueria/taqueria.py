@@ -24,13 +24,11 @@ def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
-            if menu[item]:
+            if item in menu:
                 return menu[item]
         except EOFError:
             return None
         except ValueError:
-            pass
-        except KeyError:
             pass
 
 main()
