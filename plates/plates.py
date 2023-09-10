@@ -7,8 +7,7 @@ def main():
 
 
 def is_valid(s):
-    return is_proper_length(s)
-    #and starts_with_two_alphas(s) and is_first_digit_not_zero(s) and digits_right(s) and s.isalnum()
+    return is_proper_length(s) and starts_with_two_alphas(s) and is_first_digit_not_zero(s) and are_digits_right(s) and s.isalnum()
 
 def is_proper_length(s):
     return 2 <= len(s) <= 6
@@ -24,7 +23,7 @@ def is_first_digit_not_zero(s):
             return True
     return True
 
-def digits_right(s):
+def are_digits_right(s):
     seen_digit = False
     for c in s:
         if c.isalpha():
