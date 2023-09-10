@@ -7,7 +7,7 @@ def main():
 
 
 def is_valid(s):
-    return is_proper_length(s) and starts_with_two_alphas(s) and is_first_digit_not_zero(s) and are_digits_right(s) and s.isupper()
+    return is_proper_length(s) and starts_with_two_alphas(s) and is_first_digit_not_zero(s) and are_digits_right(s) and s.isupper() and s.isalnum()
 
 def is_proper_length(s):
     return 2 <= len(s) <= 6
