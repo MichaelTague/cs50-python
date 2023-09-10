@@ -1,7 +1,7 @@
 camel_case = input("camelCase: ")
 print("snake_case: ", end="")
 for c in camel_case:
-    if c.isUpper():
+    if c.isupper():
         print("_", end="")
         print(c.lower(), end="")
     else:
