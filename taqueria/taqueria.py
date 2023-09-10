@@ -13,29 +13,23 @@ menu = {
 def main():
     total = 0.00
     while True:
-        item = get_item("Item: ")
-        print(">>>>> Item: ", item)
-        if item == None:
+        amount = get_item("Item: ")
+        if amount == None:
             break
-
-        total = total + menu[item]
-        print(f"Total: {total:.2f}")
+        total = total + amount
+        print(f"Total: ${total:.2f}")
 
 def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
-            print("get_item, item:", item)
             if menu[item]:
                 return menu[item]
         except EOFError:
-            print("get_item, EOFError")
             return None
         except ValueError:
-            print("get_item, ValueError")
             pass
         except KeyError:
-            print("get_item, KeyError")
             pass
 
 main()
