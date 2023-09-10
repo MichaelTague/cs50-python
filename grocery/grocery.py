@@ -1,7 +1,8 @@
 list = {}
 
 def main():
-    
+    while True:
+        
 
 
 def get_list():
