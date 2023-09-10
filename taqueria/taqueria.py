@@ -29,10 +29,13 @@ def get_item(prompt):
             if menu[item]:
                 return menu[item]
         except EOFError:
+            print("get_item, EOFError")
             return None
         except ValueError:
+            print("get_item, ValueError")
             pass
         except KeyError:
+            print("get_item, KeyError")
             pass
 
 main()
