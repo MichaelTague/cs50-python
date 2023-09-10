@@ -4,5 +4,5 @@ fruits = {
 }
 
 item = input("Item: ").lower()
-
-print(fruits[item])
+if item in fruits:
+    print(fruits[item])
