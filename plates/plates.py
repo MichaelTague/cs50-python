@@ -31,6 +31,6 @@ def are_digits_right(s):
                 return False
         else:
             seen_digit = True
-
+    return True
 
 main()
