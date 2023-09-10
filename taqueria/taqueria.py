@@ -24,6 +24,8 @@ def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
+            if menu[item] != "":
+                
 
 
             x = int(x)
