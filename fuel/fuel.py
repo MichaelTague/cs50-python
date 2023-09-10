@@ -1,6 +1,6 @@
 def main():
-    x, y = get_fraction("Fraction: ")
-    print(x, y)
+    a = get_fraction("Fraction: ")
+    print(a)
 
 def get_fraction(prompt):
     while True:
