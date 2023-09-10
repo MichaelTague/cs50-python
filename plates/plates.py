@@ -18,6 +18,17 @@ def is_valid(s):
                 if s[i] == "0":
                     return False
                 first_digit == false
-                
+
+def is_proper_length(s):
+    return 2 <= len(s) <= 6
+
+def is_first_digit_not_zero(s):
+    for c in s:
+        if c.isdigit():
+            if c == "0":
+                return False
+            return True
+    return True
+
 
 main()
