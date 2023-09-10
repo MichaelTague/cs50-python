@@ -7,6 +7,7 @@ def main():
 
 
 def is_valid(s):
+    return is_proper_length(s) and starts_with_two_alphas(s) and is_first_digit_not_zero(s) and digits_right(s)
 
 def is_proper_length(s):
     return 2 <= len(s) <= 6
@@ -30,6 +31,6 @@ def digits_right(s):
                 return False
         else:
             seen_digit = True
-    
+
 
 main()
