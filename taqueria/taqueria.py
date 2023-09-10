@@ -12,14 +12,20 @@ menu = {
 
 def main():
     total = 0.00
-    while item = get_item("Item: ")
+    while True:
+        item = get_item("Item: ")
+        print(">>>>> Item: ", item)
+        if item == None:
+            break
+
         total = menu[item]
-        print(f"Total: {total:.2f})
+        print(f"Total: {total:.2f}")
 
 def get_item(prompt):
     while True:
         try:
             item = input(prompt).title()
+            print("gi>>>: ", item)
             if menu[item]:
                 return menu[item]
         except EOFError:
