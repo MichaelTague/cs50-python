@@ -15,6 +15,7 @@ def main():
     while True:
         amount = get_item("Item: ")
         if amount == None:
+            print()
             break
         total = total + amount
         print(f"Total: ${total:.2f}")
