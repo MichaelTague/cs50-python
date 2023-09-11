@@ -8,7 +8,7 @@ def get_list():
     list = {}
     while True:
         try:
-            item = input()
+            item = input().upper()
             list[item] = list.get(item, 0) + 1
         except EOFError:
             return list
