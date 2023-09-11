@@ -1,10 +1,9 @@
-list = {}
-
 def main():
-    get_list()
+    list = get_list()
     print(list)
 
 def get_list():
+    list = {}
     while True:
         try:
             item = input()
