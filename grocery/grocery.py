@@ -1,6 +1,8 @@
 def main():
     list = get_list()
-    print(dict(sorted(list.items())))
+    for item in list.keys():
+        print(item)
+
 
 def get_list():
     list = {}
