@@ -1,6 +1,6 @@
 def main():
     list = get_list()
-    for item in list.keys():
+    for item in list.items():
         print(item)
 
 
