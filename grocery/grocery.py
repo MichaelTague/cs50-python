@@ -1,6 +1,6 @@
 def main():
     list = get_list()
-    print(list)
+    print(list.sort())
 
 def get_list():
     list = {}
