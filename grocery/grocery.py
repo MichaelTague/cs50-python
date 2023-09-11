@@ -1,7 +1,7 @@
 def main():
     list = get_list()
-    for item in list.items():
-        print(item)
+    for k, v in sorted(list.items()):
+        print(v, k)
 
 
 def get_list():
