@@ -11,6 +11,6 @@ def get_list():
             item = input()
             list[item] = list.get(item, 0) + 1
         except EOFError:
-            return None
+            return list
 
 main()
