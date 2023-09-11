@@ -1,6 +1,6 @@
 def main():
     list = get_list()
-    print(list.sort())
+    print(dict(sorted(list.items())))
 
 def get_list():
     list = {}
