@@ -32,12 +32,12 @@ def process_date(date):
         m, d, y = date.split("/")
     else:
         m, d, y = date.split(" ")
-        if d.find(",") < 0:
+        if find(d, ",") < 0:
             return None
         d, junk = d.split(",")
-        if months.find(m) < 0:
+        if find(months, m) < 0:
             return None
-        m = months.find(m)
+        m = find(months, m)
     try:
         y = int(y)
         m = int(m)
@@ -51,5 +51,11 @@ def process_date(date):
     if d < 1 or d > 31:
         return None
     return [y, m, d]
+
+def find(list, key):
+    try:
+        return list.index(key)
+    except AttributeError:
+        return -1
 
 main()
