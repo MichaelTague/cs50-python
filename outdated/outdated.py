@@ -15,7 +15,8 @@ months = [
 ]
 
 def main():
-    print(get_date("Date: "))
+    y, m, d = get_date("Date: ")
+    print(f"{y:04}-{m:02}-{d:02}")
 
 def get_date(prompt):
     while True:
