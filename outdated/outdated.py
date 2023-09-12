@@ -15,13 +15,15 @@ months = [
 ]
 
 def main():
-
+    print(get_date("Date: "))
 
 def get_date(prompt):
     while True:
         try:
-            item = input(prompt)
-            list[item] = list.get(item, 0) + 1
+            date = input(prompt)
+            date = process_date(date)
+            if date != None:
+                return date
         except EOFError:
             return list
 
