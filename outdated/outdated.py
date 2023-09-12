@@ -26,7 +26,8 @@ def get_date(prompt):
             return list
 
 def is_valid_date(date):
-    if date.index("/") >
+    if date.find("/") >= 0:
+        parts = date.split("/")
     pass
 
 
