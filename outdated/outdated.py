@@ -15,11 +15,6 @@ months = [
 ]
 
 def main():
-    print(months.index("May"))
-    exit()
-    list = get_list()
-    for k, v in sorted(list.items()):
-        print(v, k)
 
 
 def get_date(prompt):
@@ -31,6 +26,7 @@ def get_date(prompt):
             return list
 
 def is_valid_date(date):
+    if date.index("/") >
     pass
 
 
