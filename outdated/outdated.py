@@ -21,7 +21,7 @@ def main():
 def get_date(prompt):
     while True:
         try:
-            date = input(prompt)
+            date = input(prompt).trim()
             date = process_date(date)
             if date != None:
                 return date
@@ -56,7 +56,7 @@ def process_date(date):
 def find(list, key):
     try:
         return list.index(key)
-    except AttributeError:
+    except ValueError:
         return -1
 
 main()
