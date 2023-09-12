@@ -21,7 +21,7 @@ def main():
 def get_date(prompt):
     while True:
         try:
-            date = input(prompt).trim()
+            date = input(prompt).strip()
             date = process_date(date)
             if date != None:
                 return date
