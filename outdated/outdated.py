@@ -35,10 +35,19 @@ def process_date(date):
         d, junk = d.split(",")
         if months.find(m) < 0:
             return None
-
-
-
-    pass
-
+        m = months.find(m)
+    try:
+        y = int(y)
+        m = int(m)
+        d = int(d)
+    except ValueError:
+        return None
+    if y < 1000 or y > 9999:
+        return None
+    if m < 1 or m > 12:
+        return None
+    if d < 1 or d > 31:
+        return None
+    return [y, m, d]
 
 main()
