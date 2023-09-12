@@ -25,11 +25,19 @@ def get_date(prompt):
         except EOFError:
             return list
 
-def is_valid_date(date):
+def process_date(date):
     if date.find("/") >= 0:
         m, d, y = date.split("/")
     else:
-        m
+        m, d, y = date.split(" ")
+        if d.find(",") < 0:
+            return None
+        d, junk = d.split(",")
+        if months.find(m) < 0:
+            return None
+
+
+
     pass
 
 
