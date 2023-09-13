@@ -1,4 +1,4 @@
 import sys
 from pyfiglet import Figlet
 
-print(sys.argv())
+print(len(sys.argv))
