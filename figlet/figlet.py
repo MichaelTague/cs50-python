@@ -24,9 +24,6 @@ def main():
             sys.exti()
     figlet.setFont(font=font)
     message = input("Input: ")
-    print("Output:)
-
-
-
+    print("Output:", figlet.renderText(message))
 
 main()
