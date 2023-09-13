@@ -17,9 +17,12 @@ def main():
             print("First argument should be '-f' or '--font'")
             print("Syntax: python pyfiglet.py ((-f | --font) <font-name>))")
             sys.exit()
-        if sys.argv[2] not in figlet.getFonts():
+        font = sys.argv[2]
+        if font not in figlet.getFonts():
             print("Font given is not in the Figlets list of fonts")
             print("Syntax: python pyfiglet.py ((-f | --font) <font-name>))")
+            sys.exti()
+
 
 
 
