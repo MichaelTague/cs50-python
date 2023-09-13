@@ -3,5 +3,9 @@ import emoji
 def main():
     while True:
         try:
-            in = input("Input: ")
-            
+            sentence = input("Input: ")
+            print(emoji.emojize(sentence))
+        except EOFError:
+            return
+
+main()
