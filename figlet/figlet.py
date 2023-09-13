@@ -22,7 +22,8 @@ def main():
             print("Font given is not in the Figlets list of fonts")
             print("Syntax: python pyfiglet.py ((-f | --font) <font-name>))")
             sys.exti()
-
+    message = input("Input: ")
+    
 
 
 
