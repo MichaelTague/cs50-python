@@ -1,13 +1,11 @@
 import random
 
 def main():
-    level = get_level("Level: ")
+    level = get_natural_number("Level: ")
     goal = random.randrange(1, level)
     while True:
         try:
-            guess = int(input("Guess: ").strip())
-            if guess < 1:
-                continue
+            guess = get_natural_number("Guess: ")
             if guess < goal:
                 print("Too small!")
             elif guess > goal:
@@ -18,7 +16,7 @@ def main():
         except ValueError:
             continue
 
-def get_level(prompt):
+def get_natural_number(prompt):
     while True:
         try:
             level = int(input(prompt))
