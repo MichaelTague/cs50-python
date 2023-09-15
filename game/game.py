@@ -8,9 +8,6 @@ def main():
             guess = get_natural_number("Guess: ")
         except ValueError:
             continue
-        if level == 6 and guess == 4:
-            print("Just right!")
-            break
         if guess < goal:
             print("Too small!")
         elif guess > goal:
