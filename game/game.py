@@ -21,6 +21,8 @@ def get_natural_number(prompt):
         try:
             level = int(input(prompt))
             if level > 0:
+                with open('output.txt', 'a') as file
+                    print(level, file=file)
                 return level
         except ValueError:
             pass
