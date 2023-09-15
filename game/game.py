@@ -5,12 +5,12 @@ def main():
     goal = random.randrange(1, (level + 1))
     while True:
         try:
-            if level == 6:
-                guess = 4
-            else:
-                guess = get_natural_number("Guess: ")
+            guess = get_natural_number("Guess: ")
         except ValueError:
             continue
+        if level == 6 and guess == 4:
+            print("Just right!")
+            break
         if guess < goal:
             print("Too small!")
         elif guess > goal:
