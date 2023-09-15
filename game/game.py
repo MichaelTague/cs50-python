@@ -2,7 +2,7 @@ import random
 
 def main():
     level = get_natural_number("Level: ")
-    goal = random.randrange(1, level)
+    goal = random.randrange(1, (level + 1))
     while True:
         try:
             guess = get_natural_number("Guess: ")
