@@ -6,7 +6,7 @@ def main():
     if len(sys.argv) != 1 and len(sys.argv) != 3:
         print("Two or no arguments")
         print("Syntax: python pyfiglet.py ((-f | --font) <font-name>))")
-        sys.exit(1)
+        sys.exit(1k)
 
     figlet = Figlet()
 
