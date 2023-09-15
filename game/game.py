@@ -6,15 +6,15 @@ def main():
     while True:
         try:
             guess = get_natural_number("Guess: ")
-            if guess < goal:
-                print("Too small!")
-            elif guess > goal:
-                print("Too large!")
-            else:
-                print("Just right!")
-                return
         except ValueError:
             continue
+        if guess < goal:
+            print("Too small!")
+        elif guess > goal:
+            print("Too large!")
+        else:
+            print("Just right!")
+            break
 
 def get_natural_number(prompt):
     while True:
