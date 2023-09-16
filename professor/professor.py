@@ -6,6 +6,8 @@ def main():
         x = generate_integer(level)
         y = generate_integer(level)
         z = x + y
+        for j in range(3)
+        
         problem = str(x) + " + " + str(y) + " = "
         answer = input(problem)
 
