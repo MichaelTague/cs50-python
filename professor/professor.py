@@ -28,8 +28,12 @@ def get_level():
             return int(level)
 
 def generate_integer(level):
-    # level is int from 1 to 3 meaning # of digits.
-    return random.randrange(0, 10 ** level)
+    if level == 1:
+        return random.randrange(0, 10)
+    elif level == 2:
+        return random.randrange(10, 100)
+    else
+        return random.randrange(100, 1000)
 
 if __name__ == "__main__":
     main()
