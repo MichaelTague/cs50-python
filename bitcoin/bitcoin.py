@@ -1,9 +1,14 @@
 import sys
 
 def main()
-    if sys.argv == 0:
+    if len(sys.argv) == 1:
         sys.exit("Missing command-line argument")
-    if sys.arg
+    if ! is_float(sys.argv[1]):
+        sys.exit("Command-line argument is not a number")
+    n = float(sys.argv[1])
+    if n < 0:
+        sys.exit("Negative number of bitcoin")
+    
 
 
 def is_float(s):
