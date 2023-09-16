@@ -15,8 +15,7 @@ def main():
             print("Too large!")
         else:
             print("Just right!")
-            break
-            #sys.exit()  # It is wild that the check routine for CS50 Python
+            sys.exit()  # It is wild that the check routine for CS50 Python
                         # requires an exit using "sys.check()" rather than
                         # just allowing a natural exit.  Previously I had
                         # "break" here which would just allow the program to
@@ -39,4 +38,3 @@ def get_natural_number(prompt):
             pass
 
 main()
-sys.exit()
