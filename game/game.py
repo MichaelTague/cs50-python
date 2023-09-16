@@ -15,7 +15,9 @@ def main():
             print("Too large!")
         else:
             print("Just right!")
-            sys.exit()
+            sys.exit()  # It is wild that the check routine for this
+                        # can tell the difference between a sys.exit() here
+                        # versus a simple break which will allow a natural exit.
 
 def get_natural_number(prompt):
     while True:
