@@ -4,8 +4,8 @@ import random
 def main():
     level = get_level()
     for i in range(10):
-
-
+        problem = generate_integer(level) + " + " + generate_integer(level) + " = "
+        answer = input(problem)
 
 def get_level():
     while True:
@@ -14,7 +14,7 @@ def get_level():
             return int(level)
 
 def generate_integer(level):
-    return random.
+    return random.randrange(0, 10.pow(level))  # level is int from 1 to 3 meaning # of digits.
 
 
 if __name__ == "__main__":
