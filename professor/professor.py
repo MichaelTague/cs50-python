@@ -17,6 +17,8 @@ def main():
             print("EEE")
         if success == True:
             score += 1
+        else:
+            print(problem + z)
     print("Score:", score)
 
 def get_level():
