@@ -15,13 +15,19 @@ def main():
             print("Too large!")
         else:
             print("Just right!")
-           # sys.exit()  # It is wild that the check routine for this
-                        # can tell the difference between a sys.exit() here
-                        # versus a simple break which will allow a natural exit.
-                        # But it does!   The "check50 cs50/problems/2022/python/game"
-                        # kept saying I was never completing when clearly I was,
-                        # using sys.exit() fixed it.
             break
+            #sys.exit()  # It is wild that the check routine for CS50 Python
+                        # requires an exit using "sys.check()" rather than
+                        # just allowing a natural exit.  Previously I had
+                        # "break" here which would just allow the program to
+                        # exit.  But "check50 cs50/problems/2022/python/game"
+                        # would say:
+                        #
+                        #  :( game.py outputs "Just right!" when guess is correct
+                        #     timed out while waiting for program to exit
+                        #
+                        # I guess the "waiting for program to exit" actually meant
+                        # waiting for program to call "sys.exit()".
 
 def get_natural_number(prompt):
     while True:
@@ -33,3 +39,4 @@ def get_natural_number(prompt):
             pass
 
 main()
+sys.exit()
