@@ -32,7 +32,7 @@ def generate_integer(level):
         return random.randrange(0, 10)
     elif level == 2:
         return random.randrange(10, 100)
-    else
+    else:
         return random.randrange(100, 1000)
 
 if __name__ == "__main__":
