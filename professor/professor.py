@@ -1,12 +1,12 @@
 import random
 
 def main():
-    successes = 0
+    score = 0
     level = get_level()
     for _ in range(10):
         x = generate_integer(level)
         y = generate_integer(level)
-        z = int(x + y)
+        z = str(x + y)
         problem = str(x) + " + " + str(y) + " = "
         success = False
         for _ in range(3):
@@ -16,8 +16,8 @@ def main():
                 break
             print("EEE")
         if success == True:
-            successes += 1
-    
+            score += 1
+    print("Score:", score)
 
 def get_level():
     while True:
