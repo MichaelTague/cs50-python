@@ -16,7 +16,6 @@ def main():
         else:
             print("Just right!")
             sys.exit()
-            break
 
 def get_natural_number(prompt):
     while True:
