@@ -11,7 +11,8 @@ def main():
     if n < 0:
         sys.exit("Negative number of bitcoin")
     response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-    print(json.dumps(response.json(), indent=4))
+    print(response.json()["bpi"])
+    #print(json.dumps(response.json(), indent=4))
 
 def is_float(s):
     try:
