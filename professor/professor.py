@@ -6,7 +6,7 @@ def main():
     for _ in range(10):
         x = generate_integer(level)
         y = generate_integer(level)
-        z = x + y
+        z = int(x + y
         problem = str(x) + " + " + str(y) + " = "
         success = False
         for _ in range(3):
@@ -16,7 +16,7 @@ def main():
                 break
             print("EEE")
         if success == True:
-            successes = successes + 1
+            successes += 1
 
 def get_level():
     while True:
