@@ -1,10 +1,12 @@
 import random
 
-
 def main():
     level = get_level()
     for i in range(10):
-        problem = "" + generate_integer(level) + " + " + generate_integer(level) + " = "
+        x = generate_integer(level)
+        y = generate_integer(level)
+        z = x + y
+        problem = str(x) + " + " + str(y) + " = "
         answer = input(problem)
 
 def get_level():
