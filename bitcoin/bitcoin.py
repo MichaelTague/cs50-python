@@ -6,7 +6,7 @@ def main()
     if
 
 
-
+def is_float
 
 
 main()
