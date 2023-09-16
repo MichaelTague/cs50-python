@@ -1,15 +1,17 @@
 import sys
+import json
+import requests
 
-def main()
+def main():
     if len(sys.argv) == 1:
         sys.exit("Missing command-line argument")
-    if ! is_float(sys.argv[1]):
+    if not is_float(sys.argv[1]):
         sys.exit("Command-line argument is not a number")
     n = float(sys.argv[1])
     if n < 0:
         sys.exit("Negative number of bitcoin")
-    
-
+    response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+    print(json.dumps(response.json(), indent=4))
 
 def is_float(s):
     try:
