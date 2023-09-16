@@ -11,8 +11,11 @@ def main():
     if n < 0:
         sys.exit("Negative number of bitcoin")
     response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-    print(response.json()["bpi"])
-    #print(json.dumps(response.json(), indent=4))
+    try:
+        rate = response.json()["bpi"]["USD"]["rate"]
+    except ValueError:
+        sys.exit("Invalid Rate from CoinDesk")
+    print(rate)
 
 def is_float(s):
     try:
