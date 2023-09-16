@@ -1,15 +1,22 @@
 import random
 
 def main():
+    successes = 0
     level = get_level()
     for _ in range(10):
         x = generate_integer(level)
         y = generate_integer(level)
         z = x + y
-        for _ in range(3)
-
         problem = str(x) + " + " + str(y) + " = "
-        answer = input(problem)
+        success = False
+        for _ in range(3):
+            answer = input(problem)
+            if answer == str(z):
+                success = True
+                break
+            print("EEE")
+        if success == True:
+            successes = successes + 1
 
 def get_level():
     while True:
