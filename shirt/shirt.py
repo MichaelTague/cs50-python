@@ -9,7 +9,12 @@ def main():
         cs50 = Image.open(filename)
         filename = before_filename
         before = Image.open(before_filename)
+
         print("cs50", cs50.format, cs50.size, cs50.mode)
+        print("before", before.format, before.size, before.mode)
+
+        before.resize(cs50.size)
+
         print("before", before.format, before.size, before.mode)
     except FileNotFoundError:
         sys.exit("Could not open " + filename)
