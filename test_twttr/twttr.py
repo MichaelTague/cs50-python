@@ -1,3 +1,13 @@
+def main():
+
+def shorten(word):
+
+
+if 
+
+
+
+
 string = input("Input: ")
 for c in string:
     cl = c.lower()
