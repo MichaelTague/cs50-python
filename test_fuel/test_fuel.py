@@ -26,6 +26,6 @@ def test_value_error3():
         convert("4/3")
 
 def test_zero_division():
-    with pytest.raises(ValueError):
+    with pytest.raises(ZeroDivisionError):
         convert("4/0")
 
