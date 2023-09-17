@@ -26,7 +26,7 @@ def get_count(lines):
         if stripped_line.startswith("#"):
             print("Skipping:", stripped_line)
             continue
-        if lstripline == "":
+        if stripped_line == "":
             print("Skipping empty line:", stripped_line)
             continue
         count += 1
