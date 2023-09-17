@@ -18,7 +18,7 @@ def convert(fraction):
         raise ValueError
     if y == 0:
         raise ZeroDivisionError
-    return str(int(x * 100.0 / y + .5))
+    return int(x * 100.0 / y + .5)
 
 def gauge(percentage):
     if percentage <= 1:
