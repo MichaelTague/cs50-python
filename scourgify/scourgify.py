@@ -3,12 +3,12 @@ import csv
 from tabulate import tabulate
 
 def main():
-    file1, file2 = get_csv_filenames()
+    filename1, filename2 = get_csv_filenames()
     try:
-        with open(file1, "r") as file:
-            reader = csv.reader(file)
+        with open(filename1, "r") as file1, open(filename2, "w") as file2:
+            reader = csv.reader(file1)
             first_row = next(reader)
-            
+            print(")
             for something in reader:
                 print(something)
     except FileNotFoundError:
