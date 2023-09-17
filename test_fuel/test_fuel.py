@@ -11,7 +11,7 @@ def test_full():
 
 def test_ints():
     assert convert("1/200") == 0
-    assert convert("2/200") == 0
+    assert convert("2/200") == 1
 
 def test_value_error1():
     with pytest.raises(ValueError):
@@ -24,4 +24,8 @@ def test_value_error2():
 def test_value_error3():
     with pytest.raises(ValueError):
         convert("4/3")
+
+def test_zero_division():
+    with pytest.raises(ValueError):
+        convert("4/0")
 
