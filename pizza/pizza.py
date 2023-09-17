@@ -6,10 +6,11 @@ def main():
     filename = get_csv_filename()
     try:
         with open(filename, "r") as file:
-            lines = file.readlines()
+            lines = csv.DictReader(file)  #file.readlines()
     except FileNotFoundError:
         sys.exit("File does not exist")
-    print(tabulate(lines, headers='firstrow', tablefmt="pretty"))
+    print(lines)
+    #print(tabulate(lines, headers='firstrow', tablefmt="pretty"))
 
 def get_csv_filename():
     if len(sys.argv) == 1:
