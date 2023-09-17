@@ -3,7 +3,7 @@ import csv
 from tabulate import tabulate
 
 def main():
-    filename1, filename2 = get_csv_filenames()
+    filename1, filename2 = get_shirt_filenames()
     try:
         with open(filename1, "r") as file1, open(filename2, "w") as file2:
             reader = csv.reader(file1)
@@ -21,6 +21,7 @@ def get_shirt_filenames():
         sys.exit("Too few command-line arguments")
     if len(sys.argv) > 3:
         sys.exit("Too many command-line arguments")
+    suffix1 = 
     if not sys.argv[1].endswith(".csv"):
         sys.exit("Not a CSV file: " + sys.argv[1])
     if not sys.argv[2].endswith(".csv"):
