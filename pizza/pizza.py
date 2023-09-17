@@ -1,6 +1,6 @@
 import sys
 import csv
-import tabulate
+from tabulate import tabulate
 
 def main():
     filename = get_csv_filename()
