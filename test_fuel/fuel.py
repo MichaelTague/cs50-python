@@ -14,10 +14,10 @@ def convert(fraction):
     x, y = fraction.split("/")
     x = int(x)
     y = int(y)
-    if x > y:
-        raise ValueError
     if y == 0:
         raise ZeroDivisionError
+    if x > y:
+        raise ValueError
     return int(round(x * 100.0 / y))
 
 def gauge(percentage):
