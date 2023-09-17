@@ -19,11 +19,11 @@ def main():
         width_ratio = before_width / cs50_width
 
         after = before.resize((cs50_width, int(before_height / width_ratio)))
-        after_crop = after.crop((0))
+        after_crop = after.crop((0,200, 600, 800))
 
-        after.paste(cs50)
+        after_crop.paste(cs50)
 
-        after.save(after_filename)
+        after_crop.save(after_filename)
 
         print("after", after.format, after.size, after.mode)
     except FileNotFoundError:
