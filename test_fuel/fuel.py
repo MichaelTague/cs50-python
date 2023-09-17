@@ -1,5 +1,5 @@
 def main():
-    fraction = input("Fractin: ")
+    fraction = input("Fraction: ")
     percentage = convert(fraction)
     percentage = x / y * 100
     if percentage <= 1:
