@@ -13,6 +13,7 @@ def main():
         print("cs50", cs50.format, cs50.size, cs50.mode)
         print("before", before.format, before.size, before.mode)
 
+        
         after = before.resize(cs50.size)
 
 #        after.paste(cs50)
