@@ -15,6 +15,10 @@ def main():
 
         after = before.resize(cs50.size)
 
+        after.paste(cs50)
+
+        
+
         print("after", after.format, after.size, after.mode)
     except FileNotFoundError:
         sys.exit("Could not open " + filename)
