@@ -8,3 +8,6 @@ def test_h_word():
 
 def test_other():
     assert value("76 trombones") == 100
+
+def test_upper_case():
+    assert value("Hello") == 0
