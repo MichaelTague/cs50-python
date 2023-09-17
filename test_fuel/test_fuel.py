@@ -2,7 +2,10 @@ from fuel import convert, gauge
 import pytest
 
 def test_empty():
-    assert convert("1/200") == 1
+    assert gauge("1/200") == "E"
+
+def test_full():
+    assert gauge("195/200") == "F"
 
 def test_value_error():
     with pytest.raises(ValueError):
