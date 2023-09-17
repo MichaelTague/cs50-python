@@ -20,7 +20,10 @@ def get_python_filename():
     return sys.argv[1]
 
 def get_count(lines):
-    
+    count = 0
+    for line in lines:
+        
+
 
 if __name__ == "__main__":
     main()
