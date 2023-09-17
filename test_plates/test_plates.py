@@ -22,3 +22,7 @@ def test_short():
 def test_too_long():
     assert is_valid("AAAAAAA") == False
     assert is_valid("AAAAAA") == True
+
+def test_num_out_of_place():
+    assert is_valid("AA123BB") == False
+    assert is_valie("AABB123") == True
