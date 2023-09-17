@@ -15,7 +15,7 @@ def main():
 
         after = before.resize(cs50.size)
 
-        after.paste(cs50)
+#        after.paste(cs50)
 
         after.save(after_filename)
 
