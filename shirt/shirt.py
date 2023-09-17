@@ -17,7 +17,7 @@ def main():
 
         after.paste(cs50)
 
-        
+        after.save(after_filename)
 
         print("after", after.format, after.size, after.mode)
     except FileNotFoundError:
