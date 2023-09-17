@@ -1,5 +1,6 @@
 import sys
 import os
+import PIL
 
 def main():
     filename1, filename2 = get_shirt_filenames()
