@@ -9,6 +9,9 @@ def test_full():
     assert gauge(99) == "F"
     assert gauge(100) == "F"
 
+def test_ints():
+    assert convert("1/200") == 0
+
 def test_value_error1():
     with pytest.raises(ValueError):
         convert("cat/100")
@@ -20,6 +23,4 @@ def test_value_error2():
 def test_value_error3():
     with pytest.raises(ValueError):
         convert("4/3")
-
-def
 
