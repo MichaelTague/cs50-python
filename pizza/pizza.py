@@ -9,6 +9,7 @@ def main():
             lines = file.readlines()
     except FileNotFoundError:
         sys.exit("File does not exist")
+    print(lines)
 
 def get_csv_filename():
     if len(sys.argv) == 1:
