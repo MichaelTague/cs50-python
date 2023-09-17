@@ -1,5 +1,6 @@
 def main():
-    x, y = get_fraction("Fraction: ")
+    fraction = input("Fractin: ")
+    percentage = convert(fraction)
     percentage = x / y * 100
     if percentage <= 1:
         print("E")
@@ -8,7 +9,8 @@ def main():
     else:
         print(f"{percentage:.0f}%")
 
-def get_fraction(prompt):
+
+def convert(fraction):
     while True:
         try:
             x, y = input(prompt).split("/")
