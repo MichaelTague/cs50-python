@@ -29,3 +29,5 @@ def test_zero_division():
     with pytest.raises(ZeroDivisionError):
         convert("4/0")
 
+def test_percent():
+    assert gauge(50) == "50%"
