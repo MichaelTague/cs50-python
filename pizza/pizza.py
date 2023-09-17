@@ -3,7 +3,7 @@ import csv
 import tabulate
 
 def main():
-    filename = get_python_filename()
+    filename = get_csv_filename()
     try:
         with open(filename, "r") as file:
             lines = file.readlines()
@@ -12,7 +12,7 @@ def main():
     count = get_count(lines)
     print(count)
 
-def get_python_filename():
+def get_csv_filename():
     if len(sys.argv) == 1:
         sys.exit("Too few command-line arguments")
     if len(sys.argv) > 2:
