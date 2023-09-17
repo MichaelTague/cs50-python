@@ -7,6 +7,8 @@ def main():
     try:
         with open(file1, "r") as file:
             reader = csv.reader(file)
+            first_row = next(reader)
+            
             for something in reader:
                 print(something)
     except FileNotFoundError:
