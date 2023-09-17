@@ -13,8 +13,12 @@ def main():
         print("cs50", cs50.format, cs50.size, cs50.mode)
         print("before", before.format, before.size, before.mode)
 
-        
-        after = before.resize(cs50.size)
+        cs50_width, cs50_height = cs50.size
+        before_width, before_height = before.size
+
+        width_ratio = before_width / cs50_width
+
+        after = before.resize((cs50_width, before_height)
 
 #        after.paste(cs50)
 
