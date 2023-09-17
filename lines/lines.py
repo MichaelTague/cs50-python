@@ -22,7 +22,9 @@ def get_python_filename():
 def get_count(lines):
     count = 0
     for line in lines:
-        
+        lstripline = line.lstrip()
+        if lstripline.startswith(")
+
 
 
 if __name__ == "__main__":
