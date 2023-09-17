@@ -9,13 +9,13 @@ def main():
             reader = csv.reader(file)
             lines = list(reader)
     except FileNotFoundError:
-        sys.exit("File does not exist")
+        sys.exit("Could not read " + filename)
     print(tabulate(lines, headers='firstrow', tablefmt="grid"))
 
 def get_csv_filename():
     if len(sys.argv) == 1:
         sys.exit("Too few command-line arguments")
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 3:
         sys.exit("Too many command-line arguments")
     if not sys.argv[1].endswith(".csv"):
         sys.exit("Not a CSV file")
