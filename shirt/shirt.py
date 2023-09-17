@@ -4,8 +4,6 @@ import os
 def main():
     filename1, filename2 = get_shirt_filenames()
     try:
-        print(filename1, filename2)
-        sys.exit()
         with open(filename1, "r") as file1, open(filename2, "w") as file2:
             reader = csv.reader(file1)
             first_row = next(reader)
@@ -23,7 +21,7 @@ def get_shirt_filenames():
     if len(sys.argv) > 3:
         sys.exit("Too many command-line arguments")
     f1 = os.path.splitext(sys.argv[1])[1].lower()
-    f2 = os.path.splittxt(sys.argv[2])[1].lower()
+    f2 = os.path.splitext(sys.argv[2])[1].lower()
     if f1 != ".jpg" and f1 != ".jpeg" and f1 == ".png":
         sys.exit("Files must be of type JPEG or PNG")
     if f1 != f2:
