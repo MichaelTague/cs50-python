@@ -13,9 +13,9 @@ def main():
         print("cs50", cs50.format, cs50.size, cs50.mode)
         print("before", before.format, before.size, before.mode)
 
-        before.resize(cs50.size)
+        after = before.resize(cs50.size)
 
-        print("before", before.format, before.size, before.mode)
+        print("after", after.format, after.size, after.mode)
     except FileNotFoundError:
         sys.exit("Could not open " + filename)
 
