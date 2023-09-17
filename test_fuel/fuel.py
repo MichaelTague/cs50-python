@@ -1,7 +1,14 @@
 def main():
-    fraction = input("Fraction: ")
-    percentage = convert(fraction)
-    percentage = x / y * 100
+    while True:
+        try:
+            fraction = input("Fraction: ")
+            percentage = convert(fraction)
+            print("percentage", percentage)
+            break
+        except ValueError:
+            pass
+        except ZeroDivisionError:
+            pass
     if percentage <= 1:
         print("E")
     elif percentage >= 99:
@@ -11,11 +18,15 @@ def main():
 
 
 def convert(fraction):
-    x, y = input(prompt).split("/")
+    x, y = fraction.split("/")
     x = int(x)
     y = int(y)
-    if y != 0 and x <= y:
-        return x, y
+    print(x, y)
+    if x > y:
+        raise ValueError
+    if y == 0:
+        raise ZeroDivisionError
+    return int(x * 100.0 / y + .5)
 
-if __name_ == "__main__":
+if __name__ == "__main__":
     main()
