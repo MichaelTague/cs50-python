@@ -8,12 +8,13 @@ def main():
         with open(filename1, "r") as file1, open(filename2, "w") as file2:
             reader = csv.reader(file1)
             first_row = next(reader)
-            print(")
+            print("first,last,house", file=file2)
             for something in reader:
-                print(something)
+                last, first = something[0].split(",")
+                first = first.strip()
+                print(first, last, something[1], sep=",", file=file2)
     except FileNotFoundError:
         sys.exit("Could not read " + filename)
-    print(file1, file2)
 
 def get_csv_filenames():
     if len(sys.argv) < 3:
