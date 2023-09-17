@@ -1,13 +1,24 @@
-from bank import value
+from plates import is_valid
 
-def test_hello():
-    assert value("hello there") == 0
+def test_no_letters():
+    assert is_valid("123") == False
 
-def test_h_word():
-    assert value("help me!") == 20
+def test_one_letter():
+    assert is_valid("A23") == False
 
-def test_other():
-    assert value("76 trombones") == 100
+def test_two_letters():
+    assert is_valid("AB3") == True
 
-def test_upper_case():
-    assert value("Hello") == 0
+def test_leading_zero():
+    assert is_valid("AB0123") == False
+
+def test_leading_digit():
+    assert is_valid("AB123") == True
+
+def test_short():
+    assert is_valid("A") == False
+    assert is_valid("AA") == False
+
+dev test_too_long():
+    assert is_valid("AAAAAAA") == False
+    assert is_valid("AAAAAA") == True
