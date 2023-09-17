@@ -1,6 +1,5 @@
 import sys
-import csv
-from tabulate import tabulate
+import os
 
 def main():
     filename1, filename2 = get_shirt_filenames()
@@ -21,7 +20,13 @@ def get_shirt_filenames():
         sys.exit("Too few command-line arguments")
     if len(sys.argv) > 3:
         sys.exit("Too many command-line arguments")
-    suffix1 = 
+    f1 = os.path.splitext(sys.argv[1])[1]
+    f2 = os.path.splittxt(sys.argv[2])[1]
+    if f1 != ".jpg" and f1 != ".jpeg" and f1 == ".png":
+        
+
+
+
     if not sys.argv[1].endswith(".csv"):
         sys.exit("Not a CSV file: " + sys.argv[1])
     if not sys.argv[2].endswith(".csv"):
