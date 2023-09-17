@@ -18,7 +18,7 @@ def convert(fraction):
         raise ValueError
     if y == 0:
         raise ZeroDivisionError
-    return int(route(x * 100.0 / y))
+    return int(round(x * 100.0 / y))
 
 def gauge(percentage):
     if percentage <= 1:
