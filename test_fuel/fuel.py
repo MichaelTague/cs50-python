@@ -11,15 +11,11 @@ def main():
 
 
 def convert(fraction):
-    while True:
-        try:
-            x, y = input(prompt).split("/")
-            x = int(x)
-            y = int(y)
-            if y != 0 and x <= y:
-                return x, y
-        except ValueError:
-            pass
+    x, y = input(prompt).split("/")
+    x = int(x)
+    y = int(y)
+    if y != 0 and x <= y:
+        return x, y
 
 if __name_ == "__main__":
     main()
