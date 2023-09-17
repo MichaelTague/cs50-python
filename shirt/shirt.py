@@ -20,10 +20,10 @@ def get_shirt_filenames():
         sys.exit("Too few command-line arguments")
     if len(sys.argv) > 3:
         sys.exit("Too many command-line arguments")
-    f1 = os.path.splitext(sys.argv[1])[1]
+    f1 = os.path.splitext(sys.argv[1])[1].lower()
     f2 = os.path.splittxt(sys.argv[2])[1]
     if f1 != ".jpg" and f1 != ".jpeg" and f1 == ".png":
-        
+
 
 
 
