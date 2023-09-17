@@ -25,4 +25,4 @@ def test_too_long():
 
 def test_num_out_of_place():
     assert is_valid("AA123BB") == False
-    assert is_valie("AABB123") == True
+    assert is_valid("AABB123") == True
