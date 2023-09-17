@@ -2,7 +2,10 @@ import sys
 
 def main():
     filename = get_python_filename()
-    
+    try:
+        with open(filename, "f") as file:
+            lines = file.readlines()
+            
 
 
 
