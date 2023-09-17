@@ -5,9 +5,10 @@ def main():
     try:
         with open(filename, "f") as file:
             lines = file.readlines()
-            
-
-
+    except FileNotFoundError:
+        sys.exit("File does not exist")
+    count = get_count(lines)
+    print(count)
 
 def get_python_filename():
     if len(sys.argv) == 1:
@@ -17,6 +18,9 @@ def get_python_filename():
     if not sys.argv[1].endswith(".py"):
         sys.exit("Not a Python file")
     return sys.argv[1]
+
+def get_count(lines):
+    
 
 if __name__ == "__main__":
     main()
