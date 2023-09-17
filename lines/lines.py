@@ -11,11 +11,6 @@ def get_python_file():
         sys.exit("Too many command-line arguments")
     if not sys.argv.endswith(".py"):
         sys.exit("Not a Python file")
-    
-
-
-    while True:
-        file = input(")
 
 if __name__ == "__main__":
     main()
