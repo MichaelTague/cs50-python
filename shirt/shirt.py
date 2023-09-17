@@ -1,20 +1,18 @@
 import sys
 import os
-import PIL
+from PIL import Image
 
 def main():
-    filename1, filename2 = get_shirt_filenames()
+    before_filename, after_filename = get_shirt_filenames()
     try:
-        with open(filename1, "r") as file1, open(filename2, "w") as file2:
-            reader = csv.reader(file1)
-            first_row = next(reader)
-            print("first,last,house", file=file2)
-            for something in reader:
-                last, first = something[0].split(",")
-                first = first.strip()
-                print(first, last, something[1], sep=",", file=file2)
+        filename = "shirt.png"
+        cs50 = Image.open(filename)
+        filename = before_filename
+        before = Image.open(before_filename)
+        print("cs50", cs50.format, cs50.size, cs50.mode)
+        print("before", before.format, before.size, before.mode)
     except FileNotFoundError:
-        sys.exit("Could not read " + filename)
+        sys.exit("Could not open " + filename)
 
 def get_shirt_filenames():
     if len(sys.argv) < 3:
