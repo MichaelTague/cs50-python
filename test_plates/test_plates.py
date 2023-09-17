@@ -17,8 +17,8 @@ def test_leading_digit():
 
 def test_short():
     assert is_valid("A") == False
-    assert is_valid("AA") == False
+    assert is_valid("AA") == True
 
-dev test_too_long():
+def test_too_long():
     assert is_valid("AAAAAAA") == False
     assert is_valid("AAAAAA") == True
