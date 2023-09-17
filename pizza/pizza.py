@@ -17,8 +17,8 @@ def get_python_filename():
         sys.exit("Too few command-line arguments")
     if len(sys.argv) > 2:
         sys.exit("Too many command-line arguments")
-    if not sys.argv[1].endswith(".py"):
-        sys.exit("Not a Python file")
+    if not sys.argv[1].endswith(".csv"):
+        sys.exit("Not a CSV file")
     return sys.argv[1]
 
 def get_count(lines):
