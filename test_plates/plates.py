@@ -38,5 +38,5 @@ def are_digits_right(s):
             seen_digit = True
     return True
 
-if __name__ == "__main__"
-main()
+if __name__ == "__main__":
+    main()
