@@ -1,9 +1,9 @@
 import sys
-
+# This is a test
 def main():
     filename = get_python_filename()
     try:
-        with open(filename, "f") as file:
+        with open(filename, "r") as file:
             lines = file.readlines()
     except FileNotFoundError:
         sys.exit("File does not exist")
@@ -22,10 +22,15 @@ def get_python_filename():
 def get_count(lines):
     count = 0
     for line in lines:
-        lstripline = line.lstrip()
-        if lstripline.startswith(")
-
-
+        stripped_line = line.lstrip().rstrip()
+        if stripped_line.startswith("#"):
+            print("Skipping:", stripped_line)
+            continue
+        if lstripline == "":
+            print("Skipping empty line:", stripped_line)
+            continue
+        count += 1
+    return count
 
 if __name__ == "__main__":
     main()
