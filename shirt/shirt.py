@@ -16,14 +16,10 @@ def main():
         shirt_width, shirt_height = shirt.size
         before_width, before_height = before.size
         scale = before_width / shirt_width
-
-        after = before.resize((cs50_width, int(before_height / width_ratio)))
-        after_crop = after
-        after_crop = after.crop((0,100, 600,700)) # Crop Box: Left-Top (0, 100), Right-Bottom (600, 700)
-
-        after_crop.paste(cs50, (0, 0), cs50)
-
-        after_crop.save(after_filename)
+        after_resize = before.resize((shirt_width, int(before_height / scale)))
+        after_resize_crop = after_resize.crop((0,100, 600,700)) # Crop Box: Left-Top (0, 100), Right-Bottom (600, 700)
+        after_resize_crop.paste(shirt, (0, 0), shirt)
+        after_resize_crop.save(after_filename)
 
         print("after", after.format, after.size, after.mode)
     except FileNotFoundError:
