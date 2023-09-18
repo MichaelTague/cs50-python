@@ -6,23 +6,22 @@ def main():
     before_filename, after_filename = get_shirt_filenames()
     try:
         filename = "shirt.png"
-        cs50 = Image.open(filename)
+        shirt = Image.open(filename)
         filename = before_filename
         before = Image.open(before_filename)
 
-        print("cs50", cs50.format, cs50.size, cs50.mode)
+        print("shirt", shirt.format, shirt.size, shirt.mode)
         print("before", before.format, before.size, before.mode)
 
-        cs50_width, cs50_height = cs50.size
+        shirt_width, shirt_height = shirt.size
         before_width, before_height = before.size
-
-        width_ratio = before_width / cs50_width
+        scale = before_width / shirt_width
 
         after = before.resize((cs50_width, int(before_height / width_ratio)))
         after_crop = after
-#        after_crop = after.crop((0,200, 800, 800))
+        after_crop = after.crop((0,100, 600,700)) # Crop Box: Left-Top (0, 100), Right-Bottom (600, 700)
 
- #       after_crop.paste(cs50, (0, 0), cs50)
+        after_crop.paste(cs50, (0, 0), cs50)
 
         after_crop.save(after_filename)
 
