@@ -10,18 +10,18 @@ def main():
         filename = before_filename
         before = Image.open(before_filename)
 
-        print("shirt", shirt.format, shirt.size, shirt.mode)
-        print("before", before.format, before.size, before.mode)
+#        print("shirt", shirt.format, shirt.size, shirt.mode)
+#        print("before", before.format, before.size, before.mode)
 
         shirt_width, shirt_height = shirt.size
         before_width, before_height = before.size
         scale = before_width / shirt_width
-        after_resize = before.resize((shirt_width, int(before_height / scale)))
-        after_resize_crop = after_resize.crop((0,100, 600,700)) # Crop Box: Left-Top (0, 100), Right-Bottom (600, 700)
-        after_resize_crop.paste(shirt, (0, 0), shirt)
-        after_resize_crop.save(after_filename)
+        after = before.resize((shirt_width, int(before_height / scale)))
+        after = after.crop((0,100, 600,700)) # Crop Box: Left-Top (0, 100), Right-Bottom (600, 700)
+        after.paste(shirt, (0, 0), shirt)
+        after.save(after_filename)
 
-        print("after", after.format, after.size, after.mode)
+#        print("after", after.format, after.size, after.mode)
     except FileNotFoundError:
         sys.exit("Could not open " + filename)
 
