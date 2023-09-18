@@ -19,7 +19,8 @@ def main():
         width_ratio = before_width / cs50_width
 
         after = before.resize((cs50_width, int(before_height / width_ratio)))
-        after_crop = after.crop((0,100, 800, 700))
+        after_crop = after
+#        after_crop = after.crop((0,200, 800, 800))
 
  #       after_crop.paste(cs50, (0, 0), cs50)
 
