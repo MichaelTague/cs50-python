@@ -6,7 +6,7 @@ class Jar:
         self.cookies = 0
 
     def __str__(self):
-        return 🍪 * self.cookies
+        return "🍪" * self.cookies
 
     def deposit(self, n):
         if self.cookies + n > self.capacity:
@@ -25,3 +25,10 @@ class Jar:
     @property
     def size(self):
         return self.cookies
+
+def main():
+    jar = Jar()
+    print(jar)
+
+if __name__ == "__main__":
+    main()
