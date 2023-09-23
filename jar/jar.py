@@ -1,6 +1,8 @@
 class Jar:
     def __init__(self, capacity=12):
-        if type(capacity) 
+        if not isinstance(capacity, int) or capacity < 0:
+            raise ValueError
+        
         ...
 
     def __str__(self):
