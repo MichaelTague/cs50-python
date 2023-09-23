@@ -5,13 +5,13 @@ import sys
 def main():
     dob = input("Dat of Birth: ")
     try:
-        minutes = minutes_since(date.today(),isoformat(), dob)
+        minutes = minutes_since(date.today().isoformat(), dob)
     except ValueError:
         sys.exit("Invalid date")
     print(int_to_minutes_string(minutes))
 
 def minutes_since(today, dob):
-    return int((today - date.fromisoformat(dob)).total_seconds() / 60)
+    return int((date.fromisoformat(today) - date.fromisoformat(dob)).total_seconds() / 60)
 
 def int_to_minutes_string(minutes):
     p = inflect.engine()
