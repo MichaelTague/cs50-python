@@ -15,7 +15,7 @@ def minutes_since(dob):
 
 def int_to_minutes_string(minutes):
     p = inflect.engine()
-    words = p.number_to_words(minutes)
+    words = p.number_to_words(minutes, andword="")
     capitalized_words = words.capitalize()
     return capitalized_words + " minutes"
 
