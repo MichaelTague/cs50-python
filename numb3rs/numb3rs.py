@@ -7,9 +7,8 @@ def main():
 def validate(ip):
     if match := re.search(r"^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$", ip):
         for i in range(1, 5):
-            print(match[i])
             if not (0 <= int(match[i]) <= 255):
-                break
+                return False
         return True
     return False
 
