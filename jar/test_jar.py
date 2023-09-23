@@ -16,7 +16,13 @@ def test_str():
 
 def test_deposit():
     jar = Jar()
-    
+    jar.deposit(5)
+    assert jar.size == 5
 
 def test_withdraw():
-    pass
+    jar = Jar()
+    jar.deposit(10)
+    jar.withdraw(4)
+    assert jar.size == 6
+    with pytest.raises(ValueError):
+        jar.withdraw(12)
