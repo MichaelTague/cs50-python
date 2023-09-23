@@ -39,7 +39,7 @@ def convert(s):
         if match[6] == "A":
             if hour2 == 12:
                 hour2 = 0
-        else:
+        else: # PM
             if hour2 != 12:
                 hour2 += 12
     else:
