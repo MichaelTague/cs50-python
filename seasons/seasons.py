@@ -8,13 +8,16 @@ def main():
         minutes = minutes_since(dob)
     except ValueError:
         sys.exit("Invalid date")
-    p = inflect.engine()
-    words = p.number_to_words(minutes)
-    capitalized_words = words.capitalize()
-    print(capitalized_words + " minutes")
+    print(int_to_minutes_string(minutes))
 
 def minutes_since(dob):
     return int((date.today() - date.fromisoformat(dob)).total_seconds() / 60)
+
+def int_to_minutes_string(minutes):
+    p = inflect.engine()
+    words = p.number_to_words(minutes)
+    capitalized_words = words.capitalize()
+    return capitalized_words + " minutes"
 
 if __name__ == "__main__":
     main()
