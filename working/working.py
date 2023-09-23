@@ -43,8 +43,10 @@ def convert(s):
         else:
             if hour2 != 12:
                 hour2 += 12
+    else:
+        raise ValueError
 
-        return f"{hour1:02}:{minute1:02} to {hour2:02}:{minute2:02}"
+    return f"{hour1:02}:{minute1:02} to {hour2:02}:{minute2:02}"
 
 if __name__ == "__main__":
     main()
