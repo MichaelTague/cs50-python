@@ -29,8 +29,17 @@ def convert(s):
             minutes2 = int(match[5])
 
         # Adjust hour based upon AM / PM
-        hours1 = int(match)
-        if match[1] =
+        hours1 = int(match[1])
+        if hours1 == 12 and match[3] == "A":
+            hours1 = 0
+        if match[3] == "P":
+            hours1 += 12
+        hours2 = int(match[4])
+        if hours2 == 12 and match[6] == "A":
+            hours2 = 0
+        if match[6] == "P":
+            hours2 += 12
+
 
         if match[3] == "P":
             match[1] = str(int(match[1]) + 12)
