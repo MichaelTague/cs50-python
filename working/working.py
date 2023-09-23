@@ -30,18 +30,19 @@ def convert(s):
 
         # Adjust hour based upon AM / PM
         hours1 = int(match[1])
-        if hours1 == 12:
-            if match[3] == "A":
-                hours1 = 0
-            else:
-                hours1 = 
-        if match[3] == "P":
-            hours1 += 12
-        hours2 = int(match[4])
-        if hours2 == 12 and match[6] == "A":
-            hours2 = 0
-        if match[6] == "P":
-            hours2 += 12
+        if match[3] == "A":
+            if hour1 == 12:
+                hour1 = 0
+        else:
+            if hour1 != 12:
+                hour1 += 12
+        hours1 = int(match[1])
+        if match[3] == "A":
+            if hour1 == 12:
+                hour1 = 0
+        else:
+            if hour1 != 12:
+                hour1 += 12
 
         return f"{hours1:02}:{minutes1:02} to {hours2:02}:{minutes2:02}"
 
