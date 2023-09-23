@@ -28,7 +28,7 @@ class Jar:
 
     @size.setter
     def size(self, cookies):
-        if cookies > self._size:
+        if cookies > self.size:
             raise ValueError
         self._size == cookies
 
