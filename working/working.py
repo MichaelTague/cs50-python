@@ -20,7 +20,7 @@ def convert(s):
                 raise ValueError
         if match[6] != "A" and match[6] != "P":
             raise ValueError
-        time1 = f"
+        time1 = f"{match[1]:02}"
 
 
 
