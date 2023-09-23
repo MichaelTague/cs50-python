@@ -6,7 +6,7 @@ def main():
 
 def count(s):
     match = re.findall("\b[Uu][Mm]\b", s)
-    print(match.groups())
+    print(match)
 
 if __name__ == "__main__":
     main()
