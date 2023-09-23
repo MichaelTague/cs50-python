@@ -4,13 +4,13 @@ class Jar:
         self._size = 0
 
     def __str__(self):
-        return "🍪" * self.size
+        return "🍪" * self._size
 
     def deposit(self, n):
-        self.size += n
+        self._size += n
 
     def withdraw(self, n):
-        self.size -= n
+        self._size -= n
 
     @property
     def capacity(self):
@@ -28,12 +28,14 @@ class Jar:
 
     @size.setter
     def size(self, cookies):
-        if cookies > self.size:
+        if cookies > self._size:
             raise ValueError
         self._size == cookies
 
 def main():
     jar = Jar()
+    jar.deposit(3)
+    jar.withdraw(5)
     print(jar)
 
 if __name__ == "__main__":
