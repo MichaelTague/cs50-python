@@ -1,6 +1,8 @@
 import sys
+import validators
 
 def main():
+    
     print(count(input("Text: ")))
 
 def count(s):
