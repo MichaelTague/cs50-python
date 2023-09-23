@@ -2,12 +2,11 @@ import sys
 import validators
 
 def main():
-    
-    print(count(input("Text: ")))
-
-def count(s):
-    match = re.findall(r"\b([Uu][Mm])\b", s)
-    return len(match)
+    valid = validators.email(input("What's your email address: "))
+    if valid:
+        print("Valid")
+    else:
+        print("Invalid")
 
 if __name__ == "__main__":
     main()
