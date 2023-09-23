@@ -5,8 +5,8 @@ def main():
     print(count(input("Text: ")))
 
 def count(s):
-    match = re.findall("\b([Uu][Mm])\b", s)
-    print(match)
+    match = re.findall(r"\b([Uu][Mm])\b", s)
+    return len(match)
 
 if __name__ == "__main__":
     main()
