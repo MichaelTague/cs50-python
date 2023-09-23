@@ -9,3 +9,7 @@ def test_minutes_since():
 def test_int_to_minutes():
     assert int_to_minutes_string(1440) = "One thousand, four hundred forty minutes"
     assert int_to_minutes_string(525600) = "Five hundred twenty-five thousand, six hundred minutes"
+
+def test_invalid():
+    with pytest.raises(ValueError):
+        

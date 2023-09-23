@@ -4,11 +4,17 @@ import sys
 
 def main():
     dob = input("Dat of Birth: ")
+
+    print(int_to_minutes_string(minutes))
+
+def convert_dob(dob):
     try:
+        valid_dob = date.fromisoformat(dob)
+
+
         minutes = minutes_since(date.today().isoformat(), dob)
     except ValueError:
         sys.exit("Invalid date")
-    print(int_to_minutes_string(minutes))
 
 def minutes_since(today, dob):
     return int((date.fromisoformat(today) - date.fromisoformat(dob)).total_seconds() / 60)
