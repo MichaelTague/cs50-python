@@ -1,9 +1,13 @@
 from datetime import date
 import inflect
+import sys
 
 def main():
     dob = input("Dat of Birth: ")
-    minutes = minutes_since(dob)
+    try:
+        minutes = minutes_since(dob)
+    except ValueError:
+        sys.exit("Invalid date")
     p = inflect.engine()
     words = p.number_to_words(minutes)
     capitalized_words = words.capitalize()
