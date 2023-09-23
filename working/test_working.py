@@ -17,4 +17,4 @@ def test_bad_numbers():
         convert("9 AM to 5:95 PM")
 
 def test_hours():
-    assert conver("3 PM to 12 AM") == "15:00 to 00:00"
+    assert convert("3 PM to 12 AM") == "15:00 to 00:00"
