@@ -5,7 +5,7 @@ import sys
 def main():
     dob = input("Dat of Birth: ")
     try:
-        minutes = minutes_since(date.today(), dob)
+        minutes = minutes_since(date.today(),isoformat(), dob)
     except ValueError:
         sys.exit("Invalid date")
     print(int_to_minutes_string(minutes))
