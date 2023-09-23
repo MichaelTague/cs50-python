@@ -25,12 +25,14 @@ def convert(s):
 
         if match[3] == "P":
             match[1] = str(int(match[1]) + 12)
+        elif match[1] == "12":
+            match[1] = "0"
         if match[6] == "P":
             match[4] = str(int(match[4]) + 12)
+        elif match[4] == "12":
+            match[4] = "0"
 
-        time1 = f"{match[1]:02}:"
-
-
+        return f"{match[1]:02}:{match[2]:02} to {match[4]:02}:{match[5]:02}"
 
 if __name__ == "__main__":
     main()
