@@ -22,21 +22,21 @@ def convert(s):
         if match[2] == None:
             minute1 = 0
         else:
-            minutes1 = int(match[2])
+            minute1 = int(match[2])
         if match[5] == None:
-            minutes2 = 0
+            minute2 = 0
         else:
-            minutes2 = int(match[5])
+            minute2 = int(match[5])
 
         # Adjust hour based upon AM / PM
-        hours1 = int(match[1])
+        hour1 = int(match[1])
         if match[3] == "A":
             if hour1 == 12:
                 hour1 = 0
         else: # PM
             if hour1 != 12:
                 hour1 += 12
-        hours2 = int(match[4])
+        hour2 = int(match[4])
         if match[6] == "A":
             if hour2 == 12:
                 hour2 = 0
@@ -44,7 +44,7 @@ def convert(s):
             if hour2 != 12:
                 hour2 += 12
 
-        return f"{hours1:02}:{minutes1:02} to {hours2:02}:{minutes2:02}"
+        return f"{hour1:02}:{minute1:02} to {hour2:02}:{minute2:02}"
 
 if __name__ == "__main__":
     main()
