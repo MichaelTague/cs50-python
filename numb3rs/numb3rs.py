@@ -7,7 +7,10 @@ def main():
 
 
 def validate(ip):
-    if not match := re.search(r"^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$", ip):
+    if match := re.search(r"^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$", ip):
+        for i in range(4):
+            if 0 <= match[i]
+        if 0 <= match[1]
 
 
 
