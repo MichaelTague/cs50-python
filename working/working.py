@@ -20,7 +20,7 @@ def convert(s):
 
         # Extract or set optional minutes
         if match[2] == None:
-            minutes1 = 0
+            minute1 = 0
         else:
             minutes1 = int(match[2])
         if match[5] == None:
@@ -33,16 +33,16 @@ def convert(s):
         if match[3] == "A":
             if hour1 == 12:
                 hour1 = 0
-        else:
+        else: # PM
             if hour1 != 12:
                 hour1 += 12
-        hours1 = int(match[1])
-        if match[3] == "A":
-            if hour1 == 12:
-                hour1 = 0
+        hours2 = int(match[4])
+        if match[6] == "A":
+            if hour2 == 12:
+                hour2 = 0
         else:
-            if hour1 != 12:
-                hour1 += 12
+            if hour2 != 12:
+                hour2 += 12
 
         return f"{hours1:02}:{minutes1:02} to {hours2:02}:{minutes2:02}"
 
