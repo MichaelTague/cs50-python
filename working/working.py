@@ -5,7 +5,7 @@ def main():
     print(convert(input("Hours: ")))
 
 def convert(s):
-    if match := re.search(r"^([0-9]{1,2})(?::([0-9]{2}))? ([AP])M to ([0-9]{1,2})(?::([0-9]{2})) ([AP])M$"):
+    if match := re.search(r"^([0-9]{1,2})(?::([0-9]{2}))? ([AP])M to ([0-9]{1,2})(?::([0-9]{2})) ([AP])M$", s):
         if not (1 <= int(match[1]) <= 12):
             raise ValueError
         if match[2] == None:
