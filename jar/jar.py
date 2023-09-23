@@ -7,10 +7,10 @@ class Jar:
         return "🍪" * self._size
 
     def deposit(self, n):
-        self.size(self._size + n)
+        self.size += n
 
     def withdraw(self, n):
-        self.size(self._size - n)
+        self.size -= n
 
     @property
     def capacity(self):
@@ -35,7 +35,7 @@ class Jar:
 def main():
     jar = Jar()
     jar.deposit(3)
-    jar.withdraw(5)
+    jar.withdraw(1)
     print(jar)
 
 if __name__ == "__main__":
