@@ -12,9 +12,9 @@ def test_bad_numbers():
     with pytest.raises(ValueError):
         convert("1 AM to 13 PM")
     with pytest.raises(ValueError):
-        convert("0 AM to 5 PM")
+        convert("9:60 AM to 5 PM")
     with pytest.raises(ValueError):
-        convert("0 AM to 5 PM")
+        convert("9 AM to 5:95 PM")
 
 def test_zero_division():
     with pytest.raises(ZeroDivisionError):

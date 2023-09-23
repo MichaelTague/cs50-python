@@ -16,8 +16,6 @@ def convert(s):
             raise ValueError
         if match[5] != None and not (0 <= int(match[5]) <= 59):
             raise ValueError
-        if match[6] != "A" and match[6] != "P":
-            raise ValueError
 
         # Extract or set optional minutes
         if match[2] == None:
