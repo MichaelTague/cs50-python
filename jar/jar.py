@@ -14,7 +14,7 @@ class Jar:
 
     @property
     def capacity(self):
-        return self.capacity
+        return self._capacity
 
     @capacity.setter
     def capacity(self, capacity):
@@ -28,7 +28,7 @@ class Jar:
 
     @size.setter
     def size(self, cookies):
-        if cookies 
+        if cookies
             raise ValueError
 
 
