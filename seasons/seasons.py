@@ -2,9 +2,11 @@ from datetime import date
 
 def main():
     dob = input("Dat of Birth: ")
-    today = date.today()
-    birth = date.fromisoformat(dob)
-    print(type(today - birth).total_seconds())
+    minutes = minutes_since(dob)
+    print(minutes)
+
+def minutes_since(dob):
+    return (date.today() - date.fromisoformat(dob)) / 60
 
 if __name__ == "__main__":
     main()
