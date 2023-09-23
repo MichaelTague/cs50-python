@@ -1,6 +1,6 @@
 import pytest
 
-from sessons import minutes_since, int_to_minutes_string
+from seasons import minutes_since, int_to_minutes_string
 
 def test_minutes_since():
     assert minutes_since("2023-09-01", "2022-09-01") == 525600
