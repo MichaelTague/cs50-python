@@ -18,3 +18,9 @@ def test_bad_numbers():
 
 def test_hours():
     assert convert("3 PM to 12 AM") == "15:00 to 00:00"
+
+def test_missing_to():
+    with pytest.raises(ValueError):
+        convert("1 AM 9 PM")
+    with pytest.raises(ValueError):
+        convert("1 AM - 9 PM")
