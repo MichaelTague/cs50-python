@@ -11,5 +11,6 @@ def test_int_to_minutes():
     assert int_to_minutes_string(525600) == "Five hundred twenty-five thousand, six hundred minutes"
 
 def test_invalid():
-    with pytest.raises(ValueError):
+    with pytest.raises(SystemExit) as exit_info:
         minutes_since("2000-01-01", "Dec 31, 1999")
+    assert exit_info.value.args[0] == "Invalid date"
