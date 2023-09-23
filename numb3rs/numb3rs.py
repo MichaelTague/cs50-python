@@ -7,7 +7,8 @@ def main():
 
 
 def validate(ip):
-    ...
+    if not match := re.search("^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$", ip):
+
 
 
 ...
