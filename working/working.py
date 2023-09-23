@@ -30,8 +30,11 @@ def convert(s):
 
         # Adjust hour based upon AM / PM
         hours1 = int(match[1])
-        if hours1 == 12 and match[3] == "A":
-            hours1 = 0
+        if hours1 == 12:
+            if match[3] == "A":
+                hours1 = 0
+            else:
+                hours1 = 
         if match[3] == "P":
             hours1 += 12
         hours2 = int(match[4])
