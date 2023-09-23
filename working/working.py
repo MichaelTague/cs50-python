@@ -18,6 +18,20 @@ def convert(s):
         if match[6] != "A" and match[6] != "P":
             raise ValueError
 
+        # Extract or set optional minutes
+        if match[2] == None:
+            minutes1 = 0
+        else:
+            minutes1 = int(match[2])
+        if match[5] == None:
+            minutes2 = 0
+        else:
+            minutes2 = int(match[5])
+
+        # Adjust hour based upon AM / PM
+        hours1 = int(match)
+        if match[1] =
+
         if match[3] == "P":
             match[1] = str(int(match[1]) + 12)
         elif match[1] == "12":
