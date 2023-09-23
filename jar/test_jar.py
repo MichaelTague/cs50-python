@@ -1,6 +1,49 @@
 import pytest
 
-from jar import minutes_since, int_to_minutes_string
+from jar import Jar
+
+def test_init():
+    
+
+def test_str():
+    jar = Jar()
+    assert str(jar) == ""
+    jar.deposit(1)
+    assert str(jar) == "🍪"
+    jar.deposit(11)
+    assert str(jar) == "🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪"
+
+
+def test_deposit():
+    ...
+
+
+def test_withdraw():
+    ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from jar import Jar
 
 def test_minutes_since():
     assert minutes_since("2023-09-01", "2022-09-01") == 525600
