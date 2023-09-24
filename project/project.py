@@ -4,7 +4,7 @@ INT_ROUND_DECIMAL_DIGITS=6
 def main():
     amount = float(input("Amount: "))
     interest = float(input("Interest per annum: "))
-    rate = round(interest / 1200, INT_ROUND_DECIMAL_DIGITS)
+    rate = interest / 1200 #round(interest / 1200, INT_ROUND_DECIMAL_DIGITS)
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
     print(f"Monthly payment: {payment:.2f}")
@@ -13,7 +13,7 @@ def main():
 def calc_payment(amount: float, rate: float, term: int) -> float:
     payment = rate * amount / (1 - (1 + rate)**(-term))
     print(payment)
-    return math.floor(payment * 100) / 100
+    return math.ceil(payment * 100) / 100
 
 def final_payment(amount, rate, term, payment):
     for i in range(1, term + 1):
