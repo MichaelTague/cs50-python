@@ -56,14 +56,21 @@ def validate_input(principal_str, interest_str, term_str, payment_str):
         sys.exit("One, and only one, of Principal, Interest, Term, and Payment should be left empty")
     return principal, interest, term, payment
 
-def calc_payment(principal: Decimal, rate: Decimal, term: int) -> Decimal:
-    payment: Decimal = rate * principal / (1 - (1 + rate)**(-term))
-    return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
-
-def calc_principal(rate: Decimal, term: int, payment: Decimal) -> Decimal:
-    principal: Decimal = payment * (1 - (1 + rate)**(-term)) / rate
-    print(principal)
+def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
+    principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
     return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
+
+def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
+    interest = Decimal(0.01)
+    return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
+
+def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
+    interest = Decimal(0.01)
+    return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
+
+def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
+    payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
+    return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
 def final_payment(amount: Decimal, rate: Decimal, term: int, payment: Decimal, table=False):
     first_payment = payment
