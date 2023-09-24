@@ -3,16 +3,22 @@ import math
 def main():
     amount = float(input("Amount: "))
     interest = float(input("Interest per annum: "))
+    rate = round(interest / 1200, 6)
     term = int(input("Term (in months): "))
-    payment = math.floor(calc_payment(amount, interest, term) * 100) / 100
-    print(calc_payment(amount, interest, term))
-    print(f"Monthly payment: {monthly:.2f}", math.floor(amount))
+    payment = calc_payment(amount, rate, term)
+    print(f"Monthly payment: {payment:.2f}")
 
-def calc_payment(amount: float, interest: float, term: int) -> float:
-    # P = a ÷ { [ (1 + r) n ] - 1 } ÷ [ r (1 + r) n]
-    rate = interest/1200
+def calc_payment(amount: float, rate: float, term: int) -> float:
     payment = rate * amount / (1 - (1 + rate)**(-term))
-    return payment
+    print(payment)
+    return math.floor(payment * 100) / 100
+
+def final_payment(amount, rate, term, payment):
+    for i in range()
+
+
+
+    pass
 
 if __name__ == "__main__":
     main()
