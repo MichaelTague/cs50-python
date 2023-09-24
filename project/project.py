@@ -8,7 +8,7 @@ def main():
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
     print(f"Monthly payment: {payment:.2f}")
-    final_payment(amount, rate, term, payment)
+    print(final_payment(amount, rate, term, payment))
 
 def calc_payment(amount: float, rate: float, term: int) -> float:
     payment = rate * amount / (1 - (1 + rate)**(-term))
@@ -17,7 +17,7 @@ def calc_payment(amount: float, rate: float, term: int) -> float:
 
 def final_payment(amount, rate, term, payment):
     total_interest = 0
-
+    total_principal = 0
     for i in range(1, term + 1):
         interest_portion = round(amount * rate, 2)
         reduction_portion = payment - interest_portion
@@ -25,8 +25,10 @@ def final_payment(amount, rate, term, payment):
             reduction_portion = amount
             payment = amount + interest_portion
         amount -= reduction_portion
+        total_interest += interest_portion
+        total_principal += reduction_portion
 #        print(f"{i:3}  {payment:9.2f}   {interest_portion:9.2f}   {reduction_portion:9.2f}   {amount:9.2f}")
-    return i, payment, total_interest, total_principle 
+    return i, payment, amount, total_interest, total_principal
 
 if __name__ == "__main__":
     main()
