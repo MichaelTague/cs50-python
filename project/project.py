@@ -5,8 +5,8 @@ def cent_floor(value: float):
     return math.floor(value * 100) / 100
 
 def main():
-    amount = decimal.Decimal(input("Amount: "))
-    interest = decimal.Decimal(input("Interest per annum: "))
+    amount = Decimal(input("Amount: "))
+    interest = Decimal(input("Interest per annum: "))
     rate = interest / 1200
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
