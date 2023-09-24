@@ -12,7 +12,6 @@ def main():
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
     print(f"Monthly payment: {payment:.2f}")
-    print(final_payment(amount, rate, term, rounding(payment - Decimal(.01))))
     print(final_payment(amount, rate, term, payment))
     print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
 
