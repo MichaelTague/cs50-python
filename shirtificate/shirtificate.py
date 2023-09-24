@@ -2,7 +2,7 @@ from fpdf import FPDF
 
 def main():
     name = input("Name: ")
-    pdf = FPDF()
+    pdf = FPDF(orientation="portrait", format="A4")
     pdf.add_page()
     pdf.set_font("Arial", size=20)
     pdf.cell(txt="CS50 Shirtificate", center=True)
