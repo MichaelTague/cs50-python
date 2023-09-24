@@ -22,7 +22,7 @@ def final_payment(amount, rate, term, payment):
     total_interest = Decimal(0)
     total_principal = Decimal(0)
     for i in range(1, term + 1):
-        interest_portion = round(amount * rate, 2)
+        interest_portion = payment.quantize(Decimal('0.00'), rounding=ROUND_UP)round(amount * rate, 2)
         reduction_portion = payment - interest_portion
         if reduction_portion > amount:
             reduction_portion = amount
