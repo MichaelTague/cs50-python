@@ -1,10 +1,13 @@
 import math
 INT_ROUND_DECIMAL_DIGITS=6
 
+def cent_floor(value: float):
+    return math.floor(value * 100) / 100
+
 def main():
     amount = float(input("Amount: "))
     interest = float(input("Interest per annum: "))
-    rate = interest / 1200 #round(interest / 1200, INT_ROUND_DECIMAL_DIGITS)
+    rate = round(interest / 1200, INT_ROUND_DECIMAL_DIGITS)
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
     print(f"Monthly payment: {payment:.2f}")
@@ -28,7 +31,7 @@ def final_payment(amount, rate, term, payment):
         total_interest += interest_portion
         total_principal += reduction_portion
 #        print(f"{i:3}  {payment:9.2f}   {interest_portion:9.2f}   {reduction_portion:9.2f}   {amount:9.2f}")
-    return i, math.payment, amount, total_interest, total_principal
+    return i, cent_floor(payment), cent_floor(amount), cent_floor(total_interest), cent_floor(total_principal)
 
 if __name__ == "__main__":
     main()
