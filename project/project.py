@@ -4,8 +4,9 @@ def main():
     amount = float(input("Amount: "))
     interest = float(input("Interest per annum: "))
     term = int(input("Term (in months): "))
-    payment = math.floor(payment(amount, interest, term) * 100) / 100
-    print(f"Monthly payment: {payment:.}", math.floor(amount))
+    monthly = math.floor(payment(amount, interest, term) * 100) / 100
+    print(payment(amount, interest, term))
+    print(f"Monthly payment: {monthly:.2f}", math.floor(amount))
 
 def payment(amount: float, interest: float, term: int) -> float:
     # P = a ÷ { [ (1 + r) n ] - 1 } ÷ [ r (1 + r) n]
