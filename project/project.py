@@ -1,4 +1,5 @@
 import sys
+import math
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 
 def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
@@ -65,6 +66,7 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
+    term = - math.log(principal * interest / payment) / math.log(1 - (1 + interest))
     interest = Decimal(0.01)
     return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
