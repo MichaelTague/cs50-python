@@ -14,7 +14,7 @@ def main():
 
     principal, interest, term, payment = validate_input(principal_str, interest_str, term_str, payment_str)
 
-    if principal_str == "":
+    if principal not== "":
         principal = calc_principal(rate, term, payment)
         print(f"Principal: {principal:.2f}")
     if interest_str == "":
