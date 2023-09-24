@@ -65,7 +65,7 @@ def print_final_payment(d: dict):
     total_principal = d["total principal"]
     total_payments = total_interest + total_principal
     remaining = d["remaining"]
-    print(f"Last payment: {last:,.2} at payment {term:,}, total interest: {total_interest:,.2}, total payments: {total_payments:,.2}, balloon (if any): {remaining:,.2}")
+    print(f"Last payment: {last:14,.2} at payment {term:1,}, total interest: {total_interest:1,.2}, total payments: {total_payments:1,.2}, balloon (if any): {remaining:1,.2}")
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
