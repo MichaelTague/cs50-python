@@ -6,11 +6,11 @@ def main():
     pdf.set_auto_page_break(auto=False)
     pdf.add_page()
     pdf.image("shirtificate.png", x=0.5, y=60)
-    pdf.set_font("Arial", size=20)
+    pdf.set_font("Arial", size=40)
     pdf.cell(txt="CS50 Shirtificate", center=True)
     pdf.set_text_color(255, 255, 255)
     pdf.set_y(100)
-    pdf.cell(txt=name + "took CS50", center=True)
+    pdf.cell(txt=name + " took CS50", center=True)
     pdf.output("shirtificate.pdf")
     print("pdf.eph, pdf.epw:", pdf.eph, pdf.epw)
 
