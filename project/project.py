@@ -1,7 +1,7 @@
 import math
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 
-def rounding(value: Decimal, round_type) -> Decimal:
+def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
     return value.quantize(Decimal('0.00'), rounding=round_type)
 
 def main():
@@ -12,17 +12,20 @@ def main():
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
     print(f"Monthly payment: {payment:.2f}")
+    print(final_payment(amount, rate, term, rounding(payment - Decimal(.01))))
     print(final_payment(amount, rate, term, payment))
+    print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
 
 def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
     payment: Decimal = rate * amount / (1 - (1 + rate)**(-term))
     print(payment)
     return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
-def final_payment(amount, rate, term, payment):
+def final_payment(amount, rate, term, payment, table=False):
     total_interest = Decimal(0)
     total_principal = Decimal(0)
-    print(f"{0:5,}                                                     {amount:14,.2f}")
+    if table:
+        print(f"{0:5,}                                                     {amount:14,.2f}")
     for i in range(1, term + 1):
         interest_portion = rounding(amount * rate, ROUND_HALF_UP)
         reduction_portion = payment - interest_portion
@@ -32,7 +35,8 @@ def final_payment(amount, rate, term, payment):
         amount -= reduction_portion
         total_interest += interest_portion
         total_principal += reduction_portion
-        print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {amount:14,.2f}")
+        if table:
+            print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {amount:14,.2f}")
     return i, payment, amount, total_interest, total_principal
 
 if __name__ == "__main__":
