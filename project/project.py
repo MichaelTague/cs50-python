@@ -12,12 +12,12 @@ def main():
     payment = calc_payment(amount, rate, term)
     print(type(amount), type(rate))
     print(f"Monthly payment: {payment:.2f}")
-    print(final_payment(amount, rate, term, payment))
+#    print(final_payment(amount, rate, term, payment))
 
-def calc_payment(amount: float, rate: float, term: int) -> float:
-    payment = rate * amount / (1 - (1 + rate)**(-term))
+def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
+    payment: Decimal = rate * amount / (1 - (1 + rate)**(-term))
     print(payment)
-    return math.ceil(payment * 100) / 100
+    return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
 def final_payment(amount, rate, term, payment):
     total_interest = 0
