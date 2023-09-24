@@ -80,7 +80,7 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     return rounding(principal, ROUND_UP)
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
-    interest = optimize.newton()
+#    interest = optimize.newton()
     interest = Decimal(0.01)
     return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
