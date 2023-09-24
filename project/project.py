@@ -6,7 +6,6 @@ def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
     return value.quantize(Decimal('0.00'), rounding=round_type)
 
 def main():
-    print(type(ROUND_DOWN))
     print("Input any 3 out of 4")
     principal_str = input("Principal: ")
     interest_str = input("Interest per annum: ")
@@ -15,19 +14,21 @@ def main():
 
     principal, interest, term, payment = validate_input(principal_str, interest_str, term_str, payment_str)
 
+    print(principal, interest, term, payment)
+    sys.exit()
     if principal != None:
-        principal = calc_principal(rate, term, payment)
+        principal = calc_principal(interest, term, payment)
         print(f"Principal: {principal:.2f}")
     if interest != None:
         interest = 0
     if term != None:
         term = 0
     if payment != None:
-        payment = calc_payment(principal, rate, term)
+        payment = calc_payment(principal, interest, term)
         print(f"Monthly payment: {payment:.2f}")
 
-#    print(final_payment(amount, rate, term, payment))
-#    print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
+#    print(final_payment(principal, interest, term, payment))
+#    print(final_payment(principal, interest, term, rounding(payment + Decimal(.01))))
 
 def validate_input(principal_str, interest_str, term_str, payment_str):
     empties = 0
