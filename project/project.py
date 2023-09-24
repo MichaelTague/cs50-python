@@ -20,7 +20,7 @@ def final_payment(amount, rate, term, payment):
         interest_portion = round(amount * rate, 2)
         reduction_portion = payment - interest_portion
         amount -= reduction_portion
-        print(f"{i:03}  {payment:07.2f}   {interest_portion:07.2f}   {reduction_portion:07.2f}   {amount:07.2f}")
+        print(f"{i:3}  {payment:9.2f}   {interest_portion:9.2f}   {reduction_portion:9.2f}   {amount:9.2f}")
 
 if __name__ == "__main__":
     main()
