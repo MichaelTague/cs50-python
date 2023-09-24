@@ -12,14 +12,17 @@ def main():
     term_str = input("Term (in months): ")
     payment_str = input("Monthly Payment: ")
 
-    if principal_str != "":
-        principal = Decimal(principal_str)
-    if interest_str != "":
-        rate = Decimal(interest_str) / Decimal(1200)
-    if term_str != "":
-        term = Decimal(term_str)
-    if payment_str != "":
-        payment = Decimal(payment_str)
+    try:
+        if principal_str != "":
+            principal = Decimal(principal_str)
+        if interest_str != "":
+            rate = Decimal(interest_str) / Decimal(1200)
+        if term_str != "":
+            term = Decimal(term_str)
+        if payment_str != "":
+            payment = Decimal(payment_str)
+    except decimal.InvalidOperation:
+        sys.exit(")
 
     if principal_str == "":
         principal = calc_principal(rate, term, payment)
