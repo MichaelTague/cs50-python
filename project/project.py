@@ -41,7 +41,7 @@ def validate_input(principal_str, interest_str, term_str, payment_str):
         if interest_str == "":
             empties += 1
         else:
-            rate = Decimal(interest_str) / Decimal(1200)
+            interest = Decimal(interest_str) / Decimal(1200)
         if term_str == "":
             empties += 1
         else:
