@@ -38,7 +38,7 @@ def final_payment(amount: Decimal, rate: Decimal, term: int, payment: Decimal, t
         total_principal += reduction_portion
         if table:
             print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {amount:14,.2f}")
-    return {"#": i, "payment": first_payment, "last payment": payment, "remaining": amount, "total interest": total_interest, "total_principal": total_principal}
+    return {"#": i, "payment": first_payment, "last payment": payment, "remaining": amount, "total interest": total_interest, "total principal": total_principal}
 
 if __name__ == "__main__":
     main()
