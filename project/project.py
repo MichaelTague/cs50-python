@@ -35,14 +35,14 @@ def main():
 #    print(final_payment(amount, rate, term, payment))
 #    print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
 
-def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
-    payment: Decimal = rate * amount / (1 - (1 + rate)**(-term))
+def calc_payment(principal: Decimal, rate: Decimal, term: int) -> Decimal:
+    payment: Decimal = rate * principal / (1 - (1 + rate)**(-term))
     return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
-def calc_amount(rate: Decimal, term: int, payment: Decimal) -> Decimal:
-    amount: Decimal = payment * (1 - (1 + rate)**(-term)) / rate
-    print(amount)
-    return amount.quantize(Decimal('0.00'), rounding=ROUND_UP)
+def calc_principal(rate: Decimal, term: int, payment: Decimal) -> Decimal:
+    principal: Decimal = payment * (1 - (1 + rate)**(-term)) / rate
+    print(principal)
+    return principal.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
 def final_payment(amount: Decimal, rate: Decimal, term: int, payment: Decimal, table=False):
     first_payment = payment
