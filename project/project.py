@@ -7,7 +7,7 @@ def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
 def main():
     print(type(ROUND_DOWN))
     print("Input any 3 out of 4")
-    principal_str = input("Amount: ")
+    principal_str = input("Principal: ")
     interest_str = input("Interest per annum: ")
     term_str = input("Term (in months): ")
     payment_str = input("Monthly Payment: ")
@@ -37,7 +37,6 @@ def main():
 
 def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
     payment: Decimal = rate * amount / (1 - (1 + rate)**(-term))
-    print(payment)
     return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
 def calc_amount(rate: Decimal, term: int, payment: Decimal) -> Decimal:
