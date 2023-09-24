@@ -16,7 +16,9 @@ def calc_payment(amount: float, rate: float, term: int) -> float:
 
 def final_payment(amount, rate, term, payment):
     for i in range(1, term + 1):
-        prin = payment - (amount * rate)
+        interest = round(amount * rate, 2)
+        prin = round(payment - (amount * rate), 2)
+
         print()
 
 
