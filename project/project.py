@@ -88,7 +88,7 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
     total_interest = Decimal(0)
     total_principal = Decimal(0)
     if table:
-        print(f"{0:5,}                                                     {amount:14,.2f}")
+        print(f"{0:5,}                                                     {principal:14,.2f}")
     for i in range(1, term + 1):
         if principal == Decimal(0):
             break
