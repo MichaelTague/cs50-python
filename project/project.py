@@ -81,6 +81,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
+    print(payment)
     return rounding(payment, ROUND_UP)
 
 def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal, table=False):
