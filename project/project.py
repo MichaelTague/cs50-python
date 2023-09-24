@@ -21,7 +21,8 @@ def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
     print(payment)
     return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
-def final_payment(amount, rate, term, payment, table=False):
+def final_payment(amount: Decimal, rate: Decimal, term: int, payment: Decimal, table=False):
+    first_payment = payment
     total_interest = Decimal(0)
     total_principal = Decimal(0)
     if table:
@@ -37,7 +38,7 @@ def final_payment(amount, rate, term, payment, table=False):
         total_principal += reduction_portion
         if table:
             print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {amount:14,.2f}")
-    return i, payment, amount, total_interest, total_principal
+    return {"#": i, "last payment": payment, "remaining": amount, "total interest": total_interest, "total_principal": total_principal}
 
 if __name__ == "__main__":
     main()
