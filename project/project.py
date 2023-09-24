@@ -15,33 +15,25 @@ def main():
     if principal_str == "":
         principal = Decimal(principal_str)
     if interest_str == "":
-        interest = Decimal(interest_str)
+        rate = Decimal(interest_str) / Decimal(1200)
     if term_str == "":
         term = Decimal(term_str)
     if payment_str == "":
         payment = Decimal(payment_str)
 
     if principal_str == "":
-        amount = calc_payment(amount, rate, term)
-        print(f"Monthly payment: {payment:.2f}")
+        principal = calc_principal(rate, term, payment)
+        print(f"Principal: {principal:.2f}")
     if interest_str == "":
         interest = Decimal(interest_str)
     if term_str == "":
         term = Decimal(term_str)
     if payment_str == "":
-        payment = calc_payment(amount, rate, term)
+        payment = calc_payment(principal, rate, term)
         print(f"Monthly payment: {payment:.2f}")
 
-
-
-
-
-
-    rate = interest / 1200
-    payment = calc_payment(amount, rate, term)
-    print(f"Monthly payment: {payment:.2f}")
-    print(final_payment(amount, rate, term, payment))
-    print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
+#    print(final_payment(amount, rate, term, payment))
+#    print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
 
 def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
     payment: Decimal = rate * amount / (1 - (1 + rate)**(-term))
