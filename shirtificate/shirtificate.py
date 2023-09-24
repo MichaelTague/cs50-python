@@ -10,6 +10,7 @@ def main():
     pdf.cell(txt=name + "took CS50", center=True)
     pdf.image("shirtificate.png", x=20, y=60)
     pdf.output("shirtificate.pdf")
+    print("pdf.eph, pdf.epw:", pdf.eph, pdf.epw)
 
 if __name__ == "__main__":
     main()
