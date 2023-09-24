@@ -25,7 +25,7 @@ def main():
     elif payment == None:
         payment = calc_payment(principal, interest, term)
         print(f"Monthly payment: ${payment:,.2f}")
-        print(final_payment(principal, interest, term, payment))
+        print_final_payment(final_payment(principal, interest, term, payment))
 
 #    print(final_payment(principal, interest, term, payment))
 #    print(final_payment(principal, interest, term, rounding(payment + Decimal(.01))))
@@ -57,6 +57,15 @@ def validate_input(principal_str, interest_str, term_str, payment_str):
     if empties != 1:
         sys.exit("One, and only one, of Principal, Interest, Term, and Payment should be left empty")
     return principal, interest, term, payment
+
+def print_final_payment(d: dict):
+    term = d["#"]
+    last = d["last payment"]
+    total_interest = d["total interest"]
+    total_principal = d["total principal"]
+    total_payments = total_interest + total_principal
+    remaining = d["remaining"]
+    print(f"Last payment: {last:,.2} at payment {term:,}, total interest: {total_interest:,.2}, total payments: {total_payments:,.2}, balloon (if any): {remaining:,.2}")
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
