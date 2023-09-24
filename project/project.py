@@ -1,13 +1,14 @@
 import math
-INT_ROUND=6
+INT_ROUND_DECIMAL_DIGITS=6
 
 def main():
     amount = float(input("Amount: "))
     interest = float(input("Interest per annum: "))
-    rate = round(interest / 1200, INT_ROUND)
+    rate = round(interest / 1200, INT_ROUND_DECIMAL_DIGITS)
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
     print(f"Monthly payment: {payment:.2f}")
+    final_payment(amount, rate, term, payment)
 
 def calc_payment(amount: float, rate: float, term: int) -> float:
     payment = rate * amount / (1 - (1 + rate)**(-term))
@@ -16,14 +17,10 @@ def calc_payment(amount: float, rate: float, term: int) -> float:
 
 def final_payment(amount, rate, term, payment):
     for i in range(1, term + 1):
-        interest = round(amount * rate, 2)
-        prin = round(payment - (amount * rate), 2)
-
-        print()
-
-
-
-    pass
+        interest_portion = round(amount * rate, 2)
+        reduction_portion = payment - interest_portion
+        amount -= reduction_portion
+        print(f"{i:3}  {payment:7.2f}   {interest_portion:7.2f}   {reduction_portion:7.2f}   {amount:7.2f}")
 
 if __name__ == "__main__":
     main()
