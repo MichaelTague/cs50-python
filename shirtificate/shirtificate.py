@@ -4,7 +4,7 @@ def main():
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=20)
-    pdf.cell(100, 20, txt="Michael Tague", ln=True, align='C')
+    pdf.cell(txt="Michael Tague", new_x=100, new_y=20)
     pdf.image("shirtificate.png", x=10, y=30, w=190)
     pdf.output("shirtificate.pdf")
 
