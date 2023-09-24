@@ -20,6 +20,11 @@ def calc_payment(amount: Decimal, rate: Decimal, term: int) -> Decimal:
     print(payment)
     return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
 
+def calc_amount(rate: Decimal, term: int, payment: Decimal) -> Decimal:
+    payment: Decimal = rate * amount / (1 - (1 + rate)**(-term))
+    print(payment)
+    return payment.quantize(Decimal('0.00'), rounding=ROUND_UP)
+
 def final_payment(amount: Decimal, rate: Decimal, term: int, payment: Decimal, table=False):
     first_payment = payment
     total_interest = Decimal(0)
