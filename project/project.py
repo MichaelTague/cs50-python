@@ -10,7 +10,6 @@ def main():
     rate = interest / 1200
     term = int(input("Term (in months): "))
     payment = calc_payment(amount, rate, term)
-    print(type(amount), type(rate))
     print(f"Monthly payment: {payment:.2f}")
 #    print(final_payment(amount, rate, term, payment))
 
