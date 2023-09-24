@@ -25,7 +25,7 @@ def main():
     elif payment == None:
         payment = calc_payment(principal, interest, term)
         print(f"Monthly payment: ${payment:,.2f}")
-        print_final_payment(final_payment(principal, interest, term, payment))
+        print_final_payment(final_payment(principal, interest, term, payment, True))
 
 #    print(final_payment(principal, interest, term, payment))
 #    print(final_payment(principal, interest, term, rounding(payment + Decimal(.01))))
