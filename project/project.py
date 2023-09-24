@@ -22,7 +22,9 @@ def main():
         if payment_str != "":
             payment = Decimal(payment_str)
     except decimal.InvalidOperation:
-        sys.exit(")
+        sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
+    except ValueError:
+        sys.exit("Term can only be an Integer")
 
     if principal_str == "":
         principal = calc_principal(rate, term, payment)
