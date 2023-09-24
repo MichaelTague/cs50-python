@@ -28,6 +28,8 @@ def final_payment(amount: Decimal, rate: Decimal, term: int, payment: Decimal, t
     if table:
         print(f"{0:5,}                                                     {amount:14,.2f}")
     for i in range(1, term + 1):
+        if amount == Decimal(0):
+            break
         interest_portion = rounding(amount * rate, ROUND_HALF_UP)
         reduction_portion = payment - interest_portion
         if reduction_portion > amount:
