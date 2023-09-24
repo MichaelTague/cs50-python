@@ -6,12 +6,35 @@ def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
 
 def main():
     print(type(ROUND_DOWN))
-    print("Answer 3 out of 4")
-    amount = Decimal(input("Amount: "))
-    interest = Decimal(input("Interest per annum: "))
-    term = int(input("Term (in months): "))
-    payment = Decimal(int("Monthly Payment: "))
-    if payment
+    print("Input any 3 out of 4")
+    principal_str = input("Amount: ")
+    interest_str = input("Interest per annum: ")
+    term_str = input("Term (in months): ")
+    payment_str = input("Monthly Payment: ")
+
+    if principal_str == "":
+        principal = Decimal(principal_str)
+    if interest_str == "":
+        interest = Decimal(interest_str)
+    if term_str == "":
+        term = Decimal(term_str)
+    if payment_str == "":
+        payment = Decimal(payment_str)
+
+    if principal_str == "":
+        amount = calc_payment(amount, rate, term)
+        print(f"Monthly payment: {payment:.2f}")
+    if interest_str == "":
+        interest = Decimal(interest_str)
+    if term_str == "":
+        term = Decimal(term_str)
+    if payment_str == "":
+        payment = calc_payment(amount, rate, term)
+        print(f"Monthly payment: {payment:.2f}")
+
+
+
+
 
 
     rate = interest / 1200
