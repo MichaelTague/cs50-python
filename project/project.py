@@ -31,6 +31,7 @@ def main():
         payment = calc_payment(principal, interest, term)
         print(f"Monthly payment: ${payment:,.2f}")
         print_final_payment(final_payment(principal, interest, term, payment, table=False))
+        print(decimal.getcontext())
 
 #    print(final_payment(principal, interest, term, payment))
 #    print(final_payment(principal, interest, term, rounding(payment + Decimal(.01))))
