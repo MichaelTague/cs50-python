@@ -1,5 +1,5 @@
 import math
-import decimal
+from decimal import Decimal
 
 def cent_floor(value: float):
     return math.floor(value * 100) / 100
