@@ -14,16 +14,15 @@ def main():
 
     principal, interest, term, payment = validate_input(principal_str, interest_str, term_str, payment_str)
 
-    print(principal, interest, term, payment)
-    sys.exit()
     if principal != None:
         principal = calc_principal(interest, term, payment)
         print(f"Principal: {principal:.2f}")
-    if interest != None:
+    elif interest != None:
         interest = 0
-    if term != None:
-        term = 0
-    if payment != None:
+    elif term != None:
+        term = calc_term(principal, interest, payment)
+        print(f"Term: {term:,.2f}")
+    elif payment != None:
         payment = calc_payment(principal, interest, term)
         print(f"Monthly payment: {payment:.2f}")
 
