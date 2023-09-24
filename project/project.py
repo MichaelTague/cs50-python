@@ -1,4 +1,4 @@
-import math
+import sys
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 
 def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
@@ -12,19 +12,7 @@ def main():
     term_str = input("Term (in months): ")
     payment_str = input("Monthly Payment: ")
 
-    try:
-        if principal_str != "":
-            principal = Decimal(principal_str)
-        if interest_str != "":
-            rate = Decimal(interest_str) / Decimal(1200)
-        if term_str != "":
-            term = Decimal(term_str)
-        if payment_str != "":
-            payment = Decimal(payment_str)
-    except decimal.InvalidOperation:
-        sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
-    except ValueError:
-        sys.exit("Term can only be an Integer")
+    principal, interest, term, payment = validate_input(principal_str, interest_str, term_str, payment_str)
 
     if principal_str == "":
         principal = calc_principal(rate, term, payment)
@@ -39,6 +27,26 @@ def main():
 
 #    print(final_payment(amount, rate, term, payment))
 #    print(final_payment(amount, rate, term, rounding(payment + Decimal(.01))))
+
+def validate_input(principal_str, interest_str, term_str, payment_str)
+    try:
+        if principal_str != "":
+            principal = Decimal(principal_str)
+        if interest_str != "":
+            rate = Decimal(interest_str) / Decimal(1200)
+        if term_str != "":
+            term = Decimal(term_str)
+        if payment_str != "":
+            payment = Decimal(payment_str)
+    except decimal.InvalidOperation:
+        sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
+    except ValueError:
+        sys.exit("Term can only be an Integer")
+
+)
+
+
+
 
 def calc_payment(principal: Decimal, rate: Decimal, term: int) -> Decimal:
     payment: Decimal = rate * principal / (1 - (1 + rate)**(-term))
