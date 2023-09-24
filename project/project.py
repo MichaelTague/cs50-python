@@ -1,8 +1,11 @@
+import math
+
 def main():
     amount = float(input("Amount: "))
     interest = float(input("Interest per annum: "))
     term = int(input("Term (in months): "))
-    print("Monthly payment: )
+    payment = math.floor(payment(amount, interest, term) * 100) / 100
+    print(f"Monthly payment: {payment:.}", math.floor(amount))
 
 def payment(amount: float, interest: float, term: int) -> float:
     # P = a ÷ { [ (1 + r) n ] - 1 } ÷ [ r (1 + r) n]
