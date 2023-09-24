@@ -8,7 +8,7 @@ def main():
     pdf.set_font("Arial", size=20)
     pdf.cell(txt="CS50 Shirtificate", center=True)
     pdf.cell(txt=name + "took CS50", center=True)
-    pdf.image("shirtificate.png")
+    pdf.image("shirtificate.png", x=20, y=60)
     pdf.output("shirtificate.pdf")
 
 if __name__ == "__main__":
