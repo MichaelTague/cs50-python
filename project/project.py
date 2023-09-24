@@ -45,7 +45,7 @@ def validate_input(principal_str, interest_str, term_str, payment_str):
         if term_str == "":
             empties += 1
         else:
-            term = Decimal(term_str)
+            term = int(term_str)
         if payment_str == "":
             empties += 1
         else:
