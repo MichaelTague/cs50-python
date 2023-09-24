@@ -17,7 +17,7 @@ def calc_payment(amount: float, rate: float, term: int) -> float:
 
 def final_payment(amount, rate, term, payment):
     total_interest = 0
-    
+
     for i in range(1, term + 1):
         interest_portion = round(amount * rate, 2)
         reduction_portion = payment - interest_portion
@@ -26,7 +26,7 @@ def final_payment(amount, rate, term, payment):
             payment = amount + interest_portion
         amount -= reduction_portion
 #        print(f"{i:3}  {payment:9.2f}   {interest_portion:9.2f}   {reduction_portion:9.2f}   {amount:9.2f}")
-    return i, payment,
+    return i, payment, total_interest, total_principle 
 
 if __name__ == "__main__":
     main()
