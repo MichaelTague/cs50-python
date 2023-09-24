@@ -28,7 +28,7 @@ def final_payment(amount, rate, term, payment):
         total_interest += interest_portion
         total_principal += reduction_portion
 #        print(f"{i:3}  {payment:9.2f}   {interest_portion:9.2f}   {reduction_portion:9.2f}   {amount:9.2f}")
-    return i, payment, amount, total_interest, total_principal
+    return i, math.payment, amount, total_interest, total_principal
 
 if __name__ == "__main__":
     main()
