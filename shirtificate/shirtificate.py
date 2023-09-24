@@ -1,7 +1,7 @@
 from fpdf import FPDF
 
 def main():
-    pdf = pdf()
+    pdf = FPDF()
     pdf.add_page()
     pdf_set_font("Arial", size=20)
     pdf.cell(100, 20, txt="Michael Tague", ln=True, align='C')
