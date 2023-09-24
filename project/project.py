@@ -1,9 +1,11 @@
 import sys
 import math
+import decimal
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 
 ctx = decimal.getcontext()
 ctx.rounding = ROUND_HALF_UP
+print(decimal.getcontext())
 
 def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
     return value.quantize(Decimal('0.00'), rounding=round_type)
