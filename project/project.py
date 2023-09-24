@@ -19,6 +19,9 @@ def final_payment(amount, rate, term, payment):
     for i in range(1, term + 1):
         interest_portion = round(amount * rate, 2)
         reduction_portion = payment - interest_portion
+        if reduction_portion > amount:
+            reduction_portion = amount
+            payment = amount + interest_portion
         amount -= reduction_portion
         print(f"{i:3}  {payment:9.2f}   {interest_portion:9.2f}   {reduction_portion:9.2f}   {amount:9.2f}")
 
