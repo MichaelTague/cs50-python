@@ -44,7 +44,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     final = final_payment(principal, interest, term, payment)
     print(f"Final Payment:  ${final['last payment']:,.2f}", end="")
     if final['#'] != term:
-            print(f" on payment #{final['#']}", end="")
+            print(f" on payment #{final['#']} ({term - final['#']} short of full term)", end="")
     if final['remaining'] != Decimal(0):
         print(f" with ${final['remaining']:,.2f} principal remaining", end="")
     print()
