@@ -50,21 +50,16 @@ def pretty_term(term: int):
         term = str(months) + " Month"
         if months != 1:
             term += "s"
-        return str(months) + " M
-    term = ""
-    if years != 0:
-        term = str(years) + " Year"
-        if years != 1:
-            term += "s"
-        term += ",
-    if years == 0:
-        return str(term) + " Months"
-    if months == 0:
-        return str(years) + " Years"
-    pretty = str(years) + "Year"
+        return term
+    term = str(years) + " Year"
     if years != 1:
-        pretty += "s"
-    return str(years) + " Years, " + str(months) + " Months"
+        term += "s"
+    if months == 0:
+        return term
+    term += ", " + str(months) + " Month"
+    if months != 1:
+        term += "s"
+    return term
 
 def convert_input(principal_str, interest_str, term_str, payment_str):
     provided = 0
