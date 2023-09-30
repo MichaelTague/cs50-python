@@ -36,6 +36,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     interest_annual = interest * 1200
     interest_annual = interest_annual.normalize()
     term_pretty = pretty_term(term)
+    print()
     print(f"Loan Principal: ${principal:,.2f}")
     print(f"Loan Interest:  {interest_annual:0,f}%")
     print(f"Loan Term:      {term_pretty}")
