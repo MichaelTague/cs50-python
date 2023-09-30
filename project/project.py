@@ -16,10 +16,10 @@ def rounding(value: Decimal, type=ROUND_DOWN, digits=2) -> Decimal:
 def main():
     print("Loan Calculations")
     print("Enter the loan information, leave blank any that you would like calculated:")
-    principal_str = input("Principal Amount:         ")
-    interest_str  = input("Interest per Annum:       ")
+    principal_str = input("        Principal Amount: ")
+    interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and months: ")
-    payment_str   = input("Monthly Payment Amount:   ")
+    payment_str   = input("  Monthly Payment Amount: ")
 
     principal, interest, term, payment = convert_input(principal_str, interest_str, term_str, payment_str)
 
