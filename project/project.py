@@ -33,13 +33,14 @@ def main():
     print_loan(principal, interest, term, payment)
 
 def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
-    interest *= 1200
-    interest = interest.normalize()
-    term = pretty_term(term)
+    interest_annual = interest * 1200
+    interest_annual = interest_annual.normalize()
+    term_pretty = pretty_term(term)
     print(f"Loan Principal: ${principal:,.2f}")
-    print(f"Loan Interest:  {interest:0,f}%")
-    print(f"Loan Term:      {term}")
+    print(f"Loan Interest:  {interest_annual:0,f}%")
+    print(f"Loan Term:      {term_pretty}")
     print(f"Loan Payment:   ${payment:,.2f}")
+    print(final_payment(principal, interest, term, payment))
 
 def pretty_term(term: int):
     years = term // 12
