@@ -136,8 +136,7 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
-    print(interest, payment)
-    return Decimal(payment)
+    return payment
 
 def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal, table=False):
     first_payment = payment
