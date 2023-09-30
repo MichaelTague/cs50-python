@@ -123,7 +123,10 @@ def print_final_payment(d: dict):
     print(f"Last payment: ${last:,.2f} at payment: {term:,}, total interest: ${total_interest:,.2f}, total payments: ${total_payments:,.2f}, balloon (if any): ${remaining:,.2f}")
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
-    principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
+    if interest != Decimal(0):
+        principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
+    else:
+        principal: Decimal = payment * term
     return rounding(principal, ROUND_UP)
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
