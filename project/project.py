@@ -51,7 +51,7 @@ def pretty_term(term: int):
         term = str(years) + " Year"
         if years != 1:
             term += "s"
-            
+        term += ", 
     if years == 0:
         return str(term) + " Months"
     if months == 0:
