@@ -41,7 +41,9 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     print(f"Loan Interest:  {interest_annual:0,f}%")
     print(f"Loan Term:      {term_pretty}")
     print(f"Loan Payment:   ${payment:,.2f}")
-    print(final_payment(principal, interest, term, payment))
+    final = final_payment(principal, interest, term, payment)
+    print(f"Final Payment:  ${final['last payment']:,.2f} on payment #{final['#']}")
+    print(f"Total Interest: ${final['total interest']:,.2f}")
 
 def pretty_term(term: int):
     years = term // 12
