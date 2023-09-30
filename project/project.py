@@ -50,7 +50,10 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     if final['remaining'] != Decimal(0):
         print(f" (a balloon payment which includes ${final['remaining']:,.2f} of remaining principal)", end="")
     print()
-    percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
+    if principal != Decimal(0):
+        percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
+    else:
+        percent_interest = Decimal(0)
     percent_interest = percent_interest.normalize()
     print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
 
