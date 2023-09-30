@@ -42,8 +42,8 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     print(f"Loan Term:      {term_pretty}")
     print(f"Loan Payment:   ${payment:,.2f}")
     final = final_payment(principal, interest, term, payment)
-    baloon = final['remaining'] + final['last payment']
-    print(f"Final Payment:  ${baloon:,.2f}", end="")
+    balloon = final['remaining'] + final['last payment']
+    print(f"Final Payment:  ${balloon:,.2f}", end="")
     if final['#'] != term:
             print(f" on payment #{final['#']} ({term - final['#']} short of full term)", end="")
     if final['remaining'] != Decimal(0):
