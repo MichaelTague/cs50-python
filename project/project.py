@@ -15,7 +15,9 @@ def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
 
 def main():
     d = Decimal(sys.argv[1])
-    print(str(d))
+    d.quantize(Decimal('0.00'), rounding=ROUND_DOWN)
+    print(str(d), len(str(d)))
+    print(d)
     sys.exit(0)
 
     print("Enter the loan information, leave blank any that you would like calculated:")
