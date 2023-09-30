@@ -10,12 +10,12 @@ ctx.rounding = ROUND_HALF_UP
 #print(decimal.getcontext())
 
 
-def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
-    return value.quantize(Decimal('0.00'), rounding=round_type)
+def rounding(value: Decimal, type=ROUND_DOWN, digits=2) -> Decimal:
+    return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
 def main():
     d = Decimal(sys.argv[1])
-    e = d.quantize(Decimal('0.00'), rounding=ROUND_UP)
+    e = rounding(d, digits=0)
     print(str(d), len(str(d)))
     print(str(e), len(str(e)))
     print(e)
