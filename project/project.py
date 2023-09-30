@@ -158,6 +158,7 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
         print(f"{0:5,}                                                     {principal:14,.2f}")
     for i in range(1, term + 1):
         if principal == Decimal(0):
+            i -= 1
             break
         interest_portion = rounding(principal * interest, ROUND_HALF_UP)
         reduction_portion = payment - interest_portion
