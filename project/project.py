@@ -90,8 +90,8 @@ def convert_input(principal_str, interest_str, term_str, payment_str):
         sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
     except ValueError:
         sys.exit("Term must be greater than zero and similar to these:  30 yrs; 60 months; 3 years, 6 months")
-    if provided != 3:
-        sys.exit("One, and only one, of Principal, Interest, Term, and Payment should be left empty")
+    if provided < 3:
+        sys.exit("Only one of Principal, Interest, Term, and Payment may be left empty")
     return principal, interest, term, payment
 
 def parse_term_str(term_str: str):
