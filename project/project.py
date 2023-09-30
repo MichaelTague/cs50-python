@@ -9,7 +9,6 @@ ctx = decimal.getcontext()
 ctx.rounding = ROUND_HALF_UP
 #print(decimal.getcontext())
 
-
 def rounding(value: Decimal, type=ROUND_DOWN, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
@@ -35,13 +34,10 @@ def main():
 
 def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
     interest *= 1200
+    interest = interest.normalize()
     term = pretty_term(term)
     print(f"Loan Principal: ${principal:,.2f}")
-    if interest == interest.to_integral():
-        print(f"Loan Interest:  {interest:0,.0f}%")
-    else:
-        print("Loan Interest:", interest)
-#        print(f"Loan Interest:  {interest:,.2f}%")
+    print(f"Loan Interest:  {interest:0,f}%")
     print(f"Loan Term:      {term}")
     print(f"Loan Payment:   ${payment:,.2f}")
 
