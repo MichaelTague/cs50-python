@@ -46,6 +46,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     if final['#'] != term:
             print(f" on payment #{final['#']} ({term - final['#']} short of full term)", end="")
     if final['remaining'] != Decimal(0):
+        baloon = final['remaining'] + final['last payment']
         print(f" with ${final['remaining']:,.2f} principal remaining", end="")
     print()
     percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
