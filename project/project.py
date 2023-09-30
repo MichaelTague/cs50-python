@@ -39,7 +39,8 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     if interest == interest.to_integral():
         print(f"Loan Interest:  {interest:0,.0f}%")
     else:
-        print(f"Loan Interest:  {interest:,.2f}%")
+        print("Loan Interest:", interest)
+#        print(f"Loan Interest:  {interest:,.2f}%")
     print(f"Loan Term:      {term}")
     print(f"Loan Payment:   ${payment:,.2f}")
 
