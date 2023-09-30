@@ -46,12 +46,17 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
 def pretty_term(term: int):
     years = term // 12
     months = term % 12
+    if years == 0:
+        term = str(months) + " Month"
+        if months != 1:
+            term += "s"
+        return str(months) + " M
     term = ""
     if years != 0:
         term = str(years) + " Year"
         if years != 1:
             term += "s"
-        term += ", 
+        term += ",
     if years == 0:
         return str(term) + " Months"
     if months == 0:
