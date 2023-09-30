@@ -50,7 +50,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     print()
     percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
     percent_interest = percent_interest.normalize()
-    print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of the sum of all payments)")
+    print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
 
 def pretty_term(term: int):
     years = term // 12
