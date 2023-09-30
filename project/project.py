@@ -114,15 +114,6 @@ def parse_term_str(term_str: str):
         raise ValueError("Zero term")
     return term
 
-def print_final_payment(d: dict):
-    term = d["#"]
-    last = d["last payment"]
-    total_interest = d["total interest"]
-    total_principal = d["total principal"]
-    total_payments = total_interest + total_principal
-    remaining = d["remaining"]
-    print(f"Last payment: ${last:,.2f} at payment: {term:,}, total interest: ${total_interest:,.2f}, total payments: ${total_payments:,.2f}, balloon (if any): ${remaining:,.2f}")
-
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     if interest != Decimal(0):
         principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
