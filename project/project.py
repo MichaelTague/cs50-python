@@ -14,7 +14,11 @@ def rounding(value: Decimal, round_type=ROUND_DOWN) -> Decimal:
     return value.quantize(Decimal('0.00'), rounding=round_type)
 
 def main():
-    print("Enter the loan information, leave blank any that you would like calculated:)
+    d = Decimal(sys.argv[1])
+    print(str(d))
+    sys.exit(0)
+
+    print("Enter the loan information, leave blank any that you would like calculated:")
     principal_str = input("Principal Amount:         ")
     interest_str  = input("Interest per Annum:       ")
     term_str      = input("Term in Years and months: ")
