@@ -104,11 +104,11 @@ def convert_input(principal_str: str, interest_str: str, term_str: str, payment_
         sys.exit("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months")
     if provided < 3:
         sys.exit("Only one of Principal, Interest, Term, and Payment may be left empty")
-    if principal < ZERO_CENTS:
+    if principal != None and principal < ZERO_CENTS:
         sys.exit("Principal cannot be negative")
-    if interest < ZERO_CENTS:
+    if interest != None and interest < ZERO_CENTS:
         sys.exit("Interest cannot be negative")
-    if term < 0:
+    if term != None and term < 0:
         sys.exit("Term cannot be negative")
     return principal, interest, term, payment
 
