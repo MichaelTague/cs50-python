@@ -49,4 +49,4 @@ def test_calc_payment():
 
 def final_payment():
     assert final_payment(principal, interest, term, payment)['last payment'] == Decimal("1004.37")
-    assert final_payment(principal, interest, 180, payment)['last payment'] == Decimal()
+    assert final_payment(principal, interest, 180, payment)['last payment'] == Decimal('86730.93')
