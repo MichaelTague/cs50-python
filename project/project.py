@@ -33,8 +33,7 @@ def main():
     print_loan(principal, interest, term, payment)
 
 def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
-    interest_annual = round(interest * 1200
-    interest_annual = interest_annual.normalize()
+    interest_annual = str(rounding(interest * 1200)).rstrip('0').rstrip('.')
     term_pretty = pretty_term(term)
     print()
     print(f"Loan Principal: ${principal:,.2f}")
