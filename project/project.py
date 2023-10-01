@@ -144,6 +144,9 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     return payment
 
 def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+    for i in range(-3, 3):
+        print(i)
+
     return payment
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
