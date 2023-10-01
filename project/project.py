@@ -133,7 +133,7 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = rounding(Decimal(interest) * Decimal(1200)) / Decimal(1200)
     new_interest = adjust_interest(principal, interest, term, payment)
     if interest != new_interest:
-        print('Adjust Paymnet, old, new:', payment, new_payment)
+        print('Adjust Interest, old, new:', interest, new_interest)
     return interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
@@ -164,6 +164,37 @@ def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, te
         while True:
             old_principal = new_principal
             new_principal += ONE_CENT
+            new_final = final_payment(new_principal, interest, term, payment)
+            if new_final['remaining'] != ZERO_CENTS:
+                return old_principal
+    if final['remaining'] != ZERO_CENTS:
+        new_principal = principal
+        while True:
+            new_principal -= ONE_CENT
+            new_final = final_payment(new_principal, interest, term, payment)
+            if new_final['remaining'] != ZERO_CENTS:
+                return new_principal
+    if final['#'] != term:
+        new_principal = principal
+        while True:
+            old_principal = new_principal
+            new_principal += ONE_CENT
+            new_final = final_payment(new_principal, interest, term, payment)
+            if new_final['remaining'] != ZERO_CENTS:
+                return old_principal
+    return principal
+
+def adjust_interest(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+    final = final_payment(principal, interest, term, payment)
+    if final['#'] == 0:
+        return interest
+    annual_interest = rounding(interest * Decimal(1200))
+    if final['#'] == term and final['remaining'] == ZERO_CENTS:
+        interest_add = ZERO_CENTS
+        while True:
+            old_interest_add = 
+            interest_add += ONE_CENT
+            new_interest = rounding(interest * Decimal(1200) + ONE_CENT, ROUND_DOWN) / Decimal(1200)
             new_final = final_payment(new_principal, interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
                 return old_principal
