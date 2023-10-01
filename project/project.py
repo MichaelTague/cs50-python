@@ -12,6 +12,9 @@ ctx.rounding = ROUND_HALF_UP
 def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
+ONE_CENT = rounding(Decimal("0.01"))
+ZERO_CENTS = rounding(Decimal("0.00"))
+
 def main():
     print("Loan Calculations")
     print("If one of the following four is left empty, it will be calculated")
