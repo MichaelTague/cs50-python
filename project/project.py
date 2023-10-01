@@ -108,7 +108,7 @@ def convert_input(principal_str: str, interest_str: str, term_str: str, payment_
         sys.exit("Term cannot be negative")
     return principal, interest, term, payment
 
-def parse_term_str(term_str: str): int:
+def parse_term_str(term_str: str) -> int:
     years: int = 0
     months: int = 0
     matches = re.findall(r'(\d+)\s*(\w+)?', term_str)
@@ -133,7 +133,7 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     else:
         principal: Decimal = payment * term
     principal = rounding(principal, ROUND_DOWN)
-    new_principal = adjust_principal(principal, interest, term, payment)
+    new_principal: Decimal = adjust_principal(principal, interest, term, payment)
     if DEBUG and principal != new_principal:
         print("adjust_principal, principal was adjusted from", principal, "to", new_principal)
     return new_principal
@@ -144,7 +144,7 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = Decimal(interest)
     interest = rounding(Decimal(interest) * TWELVE_HUNDRED) / TWELVE_HUNDRED
     interest = rounding(Decimal("12.01")) / TWELVE_HUNDRED
-    new_interest = adjust_interest(principal, interest, term, payment)
+    new_interest: Decimal = adjust_interest(principal, interest, term, payment)
     if DEBUG and interest != new_interest:
         print('calc_interest, interest was adjusted from', interest, 'to', new_interest)
     return new_interest
@@ -164,7 +164,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
     payment = rounding(payment, ROUND_UP)
-    new_payment = adjust_payment(principal, interest, term, payment)
+    new_payment: Decimal = adjust_payment(principal, interest, term, payment)
     if DEBUG and payment != new_payment:
         print('calc_payment, payment was adjusted from', payment, 'to', new_payment)
     return new_payment
