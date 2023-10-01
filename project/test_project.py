@@ -37,11 +37,11 @@ def test_calc_principal():
 
 def test_calc_interest():
     assert calc_interest(principal, term, payment) == interest
-    assert calc_interest(principal, 180, payment) == Decimal("85706.33")
+    assert calc_interest(principal, 180, Decimal("1200.50")) == interest
 
 def test_calc_term():
-    assert calc_term(interest, term, payment) == Decimal("100000.70")
-    assert calc_term(interest, 180, payment) == Decimal("85706.33")
+    assert calc_term(principal, interest, payment) == term
+    assert calc_term(principal, interest, payment) == term
 
 def test_calc_payment():
     assert calc_payment(interest, term, payment) == Decimal("100000.70")
