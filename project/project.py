@@ -80,19 +80,22 @@ def pretty_term(term: int) -> str:
 
 def convert_input(principal_str: str, interest_str: str, term_str: str, payment_str: str) -> tuple:
     provided: int = 0
-    principal = interest = term = payment = None
+    principal: Decimal = None
+    interest: Decimal = None
+    term: int = None
+    payment: Decimal = None
     try:
         if principal_str != "":
-            principal: Decimal = Decimal(principal_str)
+            principal = Decimal(principal_str)
             provided += 1
         if interest_str != "":
-            interest: Decimal = Decimal(interest_str) / TWELVE_HUNDRED
+            interest = Decimal(interest_str) / TWELVE_HUNDRED
             provided += 1
         if term_str != "":
-            term: int = parse_term_str(term_str)
+            term = parse_term_str(term_str)
             provided += 1
         if payment_str != "":
-            payment: Decimal = Decimal(payment_str)
+            payment = Decimal(payment_str)
             provided += 1
     except decimal.InvalidOperation:
         sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
