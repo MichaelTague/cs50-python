@@ -11,17 +11,6 @@ ZERO_CENTS = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
-ninty = rounding(Decimal("90"))
-onetwo = rounding(Decimal("1.2"))
-onetwofour = rounding(Decimal("1.24"))
-print("ninty", len(str(ninty)))
-print("onetwo", len(str(onetwo)))
-print("onetwofour", len(str(onetwofour)))
-print(format(ninty).rstrip('0').rstrip('.'))
-print(format(onetwo).rstrip('0').rstrip('.'))
-print(format(onetwofour).rstrip('0').rstrip('.'))
-sys.exit(1)
-
 def main():
     print("Loan Calculations")
     print("If one of the following four is left empty, it will be calculated")
