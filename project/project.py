@@ -118,13 +118,14 @@ def parse_term_str(term_str: str):
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     if interest != ZERO_CENTS:
-        principal: Decimal = rounding(payment * (1 - (1 + interest)**(-term)) / interest)
+        principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
     else:
-        principal: Decimal = rounding(payment * term)
+        principal: Decimal = payment * term
+    principal = rounding(principal, ROUND_DOWN)
     new_principal = adjust_principal(principal, interest, term, payment)
     if principal != new_principal:
-        print(adjust_principal:", principal, new_principal)
-    return principal
+        print("adjust_principal:", principal, new_principal)
+    return new_principal
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = float(0.006) # 6% guess, then use Newton's method to find the a better guess
@@ -136,12 +137,12 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
     final = final_payment(principal, interest, MAX_TERM, payment)
     return int(final['#'])
 
-def adjust_term(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
-        return term
+        return principal
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
-        new_payment = payment
+        new_principal = principal
         while True:
             old_payment = new_payment
             new_payment -= ONE_CENT
