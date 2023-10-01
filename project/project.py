@@ -144,6 +144,8 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     return payment
 
 def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+    final = final_payment(principal, interest, term, payment)
+    if final[']
     for i in range(-3, 3):
         print(i)
 
