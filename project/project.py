@@ -142,21 +142,22 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
     if payment == ZERO_CENTS or principal == ZERO_CENTS or interest == ZERO_CENTS:
-        top = 0.0
+        term = 0
     else:
         top = - math.log(float(1 - principal * interest / payment))
-    bottom = math.log(float(1 + interest))
-    term = int(Decimal(top / bottom), ROUND_UP, 0)
+        bottom = math.log(float(1 + interest))
+        term = math.ceil(top / bottom)
     final = final_payment(principal, interest, MAX_TERM, payment)
-    if DEBUG and term
+    if DEBUG and term != final['#']:
+        print('calc_term, term was adjusted from', term, 'to', new_term
     return int(final['#'])
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
     payment = rounding(payment, ROUND_UP)
     new_payment = adjust_payment(principal, interest, term, payment)
-    if payment != new_payment:
-        print('Adjust Paymnet, old, new:', payment, new_payment)
+    if DEBUG and payment != new_payment:
+        print('calc_payment, payment was adjusted from', payment, 'to', new_payment)
     return new_payment
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
