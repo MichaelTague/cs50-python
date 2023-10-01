@@ -14,16 +14,19 @@ MAX_TERM: int           = int(1000000000)
 TWELVE_HUNDRED: Decimal = Decimal("1200")
 EMPTY: Decimal          = Decimal("-1")
 RED: str                = "\033[91m"
-RED_END: str            = "\033[0m"
+BLUE: str               = "\033[94m"
+LIGHT_BLUE: str         = "\033[96m"
+GREEN: str              = "\033[92m"
+COLOR_END: str          = "\033[0m"
 
 def rounding(value: Decimal, type: str = ROUND_HALF_UP, digits: int = 2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
 def red(string: str) -> str:
-    return RED + string + RED_END
+    return RED + string + COLOR_END
 
 def main():
-    print(red("Loan Calculations.  Enter 3 or 4 of the following:"))
+    print(GREEN + "Loan Calculations.  Enter 3 or 4 of the following:" + COLOR_END)
     principal_str = input("        Principal Amount: ")
     interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and Months: ")
@@ -144,7 +147,7 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     principal = rounding(principal, ROUND_DOWN)
     new_principal: Decimal = adjust_principal(principal, interest, term, payment)
     if DEBUG and principal != new_principal:
-        print(RED + "adjust_principal, principal was adjusted from", principal, "to", new_principal, RED_END)
+        print(RED + "adjust_principal, principal was adjusted from", principal, "to", new_principal, COLOR_END)
     return new_principal
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
@@ -155,7 +158,7 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = rounding(Decimal("12.01")) / TWELVE_HUNDRED
     new_interest: Decimal = adjust_interest(principal, interest, term, payment)
     if DEBUG and interest != new_interest:
-        print(RED + 'calc_interest, interest was adjusted from', interest, 'to', new_interest, RED_END)
+        print(RED + 'calc_interest, interest was adjusted from', interest, 'to', new_interest, COLOR_END)
     return new_interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
@@ -167,7 +170,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
         term = math.ceil(top / bottom)
     final = final_payment(principal, interest, MAX_TERM, payment)
     if DEBUG and term != final['#']:
-        print(RED + 'calc_term, term was adjusted from', term, 'to', new_term, RED_END)
+        print(RED + 'calc_term, term was adjusted from', term, 'to', new_term, COLOR_END)
     return int(final['#'])
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
@@ -175,7 +178,7 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = rounding(payment, ROUND_UP)
     new_payment: Decimal = adjust_payment(principal, interest, term, payment)
     if DEBUG and payment != new_payment:
-        print(RED + 'calc_payment, payment was adjusted from', payment, 'to', new_payment, RED_END)
+        print(RED + 'calc_payment, payment was adjusted from', payment, 'to', new_payment, COLOR_END)
     return new_payment
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
