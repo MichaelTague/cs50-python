@@ -25,6 +25,7 @@ def red(string: str) -> str:
 def main():
     print("Loan Calculations")
     print("If one of the following four is left empty, it will be calculated")
+                           Enter 3 or 4 of these:
     principal_str = input("        Principal Amount: ")
     interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and Months: ")
