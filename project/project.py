@@ -134,8 +134,38 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
     else:
         term = principal / payment
     term = int(rounding(Decimal(term), ROUND_UP, 0))
-#    new_term = adjust_term_for_final(principal, interest, payment, term)
+#    new_term = adjust_term(principal, interest, payment, term)
     return term
+
+def adjust_term(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+    final = final_payment(principal, interest, term, payment)
+    if final['#'] == 0:
+        return term
+    if final['#'] == term and final['remaining'] == ZERO_CENTS:
+        new_payment = payment
+        while True:
+            old_payment = new_payment
+            new_payment -= ONE_CENT
+            new_final = final_payment(principal, interest, term, new_payment)
+            if new_final['remaining'] != ZERO_CENTS:
+                return old_payment
+    if final['remaining'] != ZERO_CENTS:
+        new_payment = payment
+        while True:
+            new_payment += rounding(ONE_CENT)
+            new_final = final_payment(principal, interest, term, new_payment)
+            if new_final['remaining'] == ZERO_CENTS:
+                return new_payment
+    if final['#'] != term:
+        new_payment = payment
+        while True:
+            old_payment = new_payment
+            new_payment -= ONE_CENT
+            new_final = final_payment(principal, interest, term, new_payment)
+            if new_final['remaining'] != ZERO_CENTS:
+                return old_payment
+    return payment
+
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
