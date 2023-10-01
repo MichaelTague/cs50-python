@@ -44,6 +44,7 @@ def main():
     elif payment == None:
         payment = calc_payment(principal, interest, term)
     print_loan(principal, interest, term, payment)
+    if DEBUG: print()
 
 def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> None:
     interest_annual: str = str(rounding(interest * TWELVE_HUNDRED)).rstrip('0').rstrip('.')
