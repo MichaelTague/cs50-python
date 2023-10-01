@@ -176,7 +176,7 @@ def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> 
         payment: Decimal = principal / term
     return payment
 
-def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
+def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return principal
@@ -208,7 +208,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
                 return old_principal
     return principal
 
-def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
+def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return interest
@@ -247,7 +247,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
                 return old_interest
     return interest
 
-def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
+def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return payment
@@ -279,13 +279,13 @@ def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: De
                 return old_payment
     return payment
 
-def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal, table=False):
+def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal, table=False) -> dict:
     if principal < payment:
         payment = principal
-    first_payment = payment
-    total_interest = ZERO_CENTS
-    total_principal = ZERO_CENTS
-    i = 0
+    first_payment: Decimal = payment
+    total_interest: Decimal = ZERO_CENTS
+    total_principal: Decimal = ZERO_CENTS
+    i: int = 0
     if table:
         print()
         print("    #         Monthly         Interest        Reduction        Principal")
