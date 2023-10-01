@@ -8,8 +8,9 @@ from scipy import optimize
 def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
-ONE_CENT = rounding(Decimal("0.01"))
-ZERO_CENTS = rounding(Decimal("0.00"))
+ONE_CENT = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
+ZERO_CENTS = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
+TWELE
 
 def main():
     print("Loan Calculations")
@@ -46,13 +47,13 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     print(f"Final Payment:  ${balloon:,.2f}", end="")
     if final['#'] != term:
             print(f" on payment #{final['#']} ({term - final['#']} short of full term)", end="")
-    if final['remaining'] != Decimal(0):
+    if final['remaining'] != ZERO_CENTS:
         print(f" (a balloon payment which includes ${final['remaining']:,.2f} of remaining principal)", end="")
     print()
-    if principal != Decimal(0):
+    if principal != ZERO_CENTS:
         percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
     else:
-        percent_interest = Decimal(0)
+        percent_interest = ZERO_CENTS
     percent_interest = percent_interest.normalize()
     print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
 
