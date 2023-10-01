@@ -222,6 +222,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
     return principal
 
 def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> Decimal:
+    if DEBUG: print(RED + "adjust_interst, starting interest:", Rounding(interest * TWELVE_HUNDRED), COLOR_END)
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return interest
