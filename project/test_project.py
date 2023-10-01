@@ -2,19 +2,10 @@ import pytest
 
 import project
 
-def test_
-def test_not_4():
-    assert validate("1.2.3.4.5") == False
-    assert validate("1.2.3") == False
-
-def test_range():
-    assert validate("0.0.0.0") == True
-    assert validate("255.255.255.255") == True
-    assert validate("-1.2.4.5") == False
-    assert validate("255.255.255.256") == False
-    assert validate("275.3.6.28") == False
-
-def test_invalid_chars():
-    assert validate("a.2.3.4") == False
-    assert validate("1.2.c.4") == False
-    assert validate("1.2b.3.4") == False
+def test_pretty_term():
+    assert pretty_term(360) == "30 Years"
+    assert pretty_term(363) == "30 Years, 3 Months"
+    assert pretty_term(1) == "1 Month"
+    assert pretty_term(2) == "2 Months"
+    assert pretty_term(12) == "1 Year"
+    assert pretty_term(13) == "1 Year, 1 Month"
