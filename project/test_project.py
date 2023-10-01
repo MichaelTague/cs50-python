@@ -33,5 +33,17 @@ def test_parse_term_string():
 
 def test_calc_principal():
     assert calc_principal(interest, term, payment) == Decimal("100000.70")
-    assert calc_principal(interest, term, payment) == Decimal("100000.70")
+    assert calc_principal(interest, 180, payment) == Decimal("85706.33")
+
+def test_calc_interest():
+    assert calc_interest(principal, term, payment) == Decimal("100000.70")
+    assert calc_interest(principal, 180, payment) == Decimal("85706.33")
+
+def test_calc_term():
+    assert calc_term(interest, term, payment) == Decimal("100000.70")
+    assert calc_term(interest, 180, payment) == Decimal("85706.33")
+
+def test_calc_payment():
+    assert calc_payment(interest, term, payment) == Decimal("100000.70")
+    assert calc_payment(interest, 180, payment) == Decimal("85706.33")
 
