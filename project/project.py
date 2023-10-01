@@ -37,7 +37,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     term_pretty = pretty_term(term)
     print()
     print(f"Loan Principal: ${principal:,.2f}")
-    print(f"Loan Interest:  {interest_annual:0,f}%")
+    print(f"Loan Interest:  {interest_annual}%")
     print(f"Loan Term:      {term_pretty}")
     print(f"Loan Payment:   ${payment:,.2f}")
     final = final_payment(principal, interest, term, payment)
