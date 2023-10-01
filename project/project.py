@@ -107,7 +107,7 @@ def convert_input(principal_str: str, interest_str: str, term_str: str, payment_
     except decimal.InvalidOperation:
         sys.exit(red("Principal, Interest, and Payment must be Integer or Decimal Number"))
     except ValueError:
-        sys.exit(red("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months")
+        sys.exit(red("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months"))
     if provided < 3:
         sys.exit(red("Only one of Principal, Interest, Term, and Payment may be left empty"))
     if principal != None and principal < ZERO_CENTS:
