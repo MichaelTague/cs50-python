@@ -118,7 +118,7 @@ def parse_term_str(term_str: str):
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, MAX_TERM, payment)
-    return final['
+    return final['total principal']
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = float(0.006) # 6% guess, then use Newton's method to find the a better guess
