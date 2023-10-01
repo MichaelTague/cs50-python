@@ -35,9 +35,9 @@ def main():
         payment = calc_payment(principal, interest, term)
     print_loan(principal, interest, term, payment)
 
-def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
-    interest_annual = str(rounding(interest * 1200)).rstrip('0').rstrip('.')
-    term_pretty = pretty_term(term)
+def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> None:
+    interest_annual: str = str(rounding(interest * TWELVE_HUNDRED)).rstrip('0').rstrip('.')
+    term_pretty: str = pretty_term(term)
     print()
     print(f"Loan Principal: ${principal:,.2f}")
     print(f"Loan Interest:  {interest_annual}%")
@@ -60,26 +60,26 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     if response in ["yes", "y"]:
         final_payment(principal, interest, term, payment, True)
 
-def pretty_term(term: int):
+def pretty_term(term: int) -> str:
     years = term // 12
     months = term % 12
     if years == 0:
-        term = str(months) + " Month"
+        term_str = str(months) + " Month"
         if months != 1:
-            term += "s"
-        return term
-    term = str(years) + " Year"
+            term_str += "s"
+        return term_str
+    term_str = str(years) + " Year"
     if years != 1:
-        term += "s"
+        term_str += "s"
     if months == 0:
-        return term
-    term += ", " + str(months) + " Month"
+        return term_str
+    term_str += ", " + str(months) + " Month"
     if months != 1:
-        term += "s"
-    return term
+        term_str += "s"
+    return term_str
 
-def convert_input(principal_str, interest_str, term_str, payment_str):
-    provided = 0
+def convert_input(principal_str: str, interest_str: str, term_str: str, payment_str: str) -> tuple:
+    provided: int = 0
     principal = interest = term = payment = None
     try:
         if principal_str != "":
