@@ -7,6 +7,7 @@ from scipy import optimize
 
 ONE_CENT = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 ZERO_CENTS = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
+MAX_TERM = int(1000000000)
 
 def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
