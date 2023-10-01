@@ -200,20 +200,24 @@ def adjust_interest(principal: Decimal, interest: Decimal, payment: Decimal, ter
             if new_final['remaining'] != ZERO_CENTS:
                 return old_interest
     if final['remaining'] != ZERO_CENTS:
-        new_principal = principal
+        interest_add = ZERO_CENTS
+        new_interest = annual_interest / Decimal(1200)
         while True:
-            new_principal -= ONE_CENT
-            new_final = final_payment(new_principal, interest, term, payment)
+            interest_add += ONE_CENT
+            new_interest = (annual_interest + interest_add) / Decimal(1200)
+            new_final = final_payment(principal, new_interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
-                return new_principal
+                return new_interest
     if final['#'] != term:
-        new_principal = principal
+        interest_add = ZERO_CENTS
+        new_interest = annual_interest / Decimal(1200)
         while True:
-            old_principal = new_principal
-            new_principal += ONE_CENT
-            new_final = final_payment(new_principal, interest, term, payment)
+            old_interest = new_interest
+            interest_add -= ONE_CENT
+            new_interest = (annual_interest + interest_add) / Decimal(1200)
+            new_final = final_payment(principal, new_interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
-                return old_principal
+                return old_interest
     return principal
 
 def adjust_payment(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
