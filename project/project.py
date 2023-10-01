@@ -132,11 +132,11 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = optimize.newton(lambda x: float(calc_unrounded_payment(principal, Decimal(x), term) - payment), interest)
     interest = Decimal(interest)
     interest = rounding(Decimal(interest) * Decimal(1200)) / Decimal(1200)
-    interest = rounding(Decimal("11.99")) / Decimal(1200)
+    interest = rounding(Decimal("12.01")) / Decimal(1200)
     new_interest = adjust_interest(principal, interest, term, payment)
     if interest != new_interest:
         print('Adjust Interest, old, new:', interest, new_interest)
-    return interest
+    return new_interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, MAX_TERM, payment)
@@ -192,6 +192,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
         return interest
     annual_interest = rounding(interest * Decimal(1200))
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
+        print("int normal")
         interest_add = ZERO_CENTS
         new_interest = annual_interest / Decimal(1200)
         while True:
@@ -202,15 +203,17 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
             if new_final['remaining'] != ZERO_CENTS or new_final['#'] != term:
                 return old_interest
     if final['remaining'] != ZERO_CENTS:
+        print("int remaining")
         interest_add = ZERO_CENTS
         new_interest = annual_interest / Decimal(1200)
         while True:
-            interest_add += ONE_CENT
+            interest_add -= ONE_CENT
             new_interest = (annual_interest + interest_add) / Decimal(1200)
             new_final = final_payment(principal, new_interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
                 return new_interest
     if final['#'] != term:
+        print("int #")
         interest_add = ZERO_CENTS
         new_interest = annual_interest / Decimal(1200)
         while True:
