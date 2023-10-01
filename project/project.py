@@ -309,7 +309,10 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
         total_principal += reduction_portion
         if table:
             print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {principal:14,.2f}")
-    return {"#": i, "payment": first_payment, "last payment": payment, "remaining": principal, "total interest": total_interest, "total principal": total_principal}
+    result: dict = {"#": i, "payment": first_payment, "last payment": payment, "remaining": principal, "total interest": total_interest, "total principal": total_principal}
+    if DEBUG:
+        print("final_payment:", result)
+    return result
 
 if __name__ == "__main__":
     main()
