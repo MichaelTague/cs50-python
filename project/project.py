@@ -164,8 +164,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, te
             new_final = final_payment(new_principal, interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
                 return old_principal
-    return payment
-
+    return principal
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
