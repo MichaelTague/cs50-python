@@ -12,10 +12,14 @@ TWELVE_HUNDRED: Decimal = Decimal("1200")
 EMPTY: Decimal          = Decimal("-1")
 DEBUG: bool             = True
 DEBUG_FINAL: bool       = False
-RED: str                = 
+RED: str                = "\033[91m"
+RED_END: str            = "\033[0m"
 
 def rounding(value: Decimal, type: str = ROUND_HALF_UP, digits: int = 2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
+
+def red(string: str) -> str:
+    return RED + string + RED_END
 
 def main():
     print("Loan Calculations")
@@ -101,17 +105,17 @@ def convert_input(principal_str: str, interest_str: str, term_str: str, payment_
             payment = Decimal(payment_str)
             provided += 1
     except decimal.InvalidOperation:
-        sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
+        sys.exit(red("Principal, Interest, and Payment must be Integer or Decimal Number"))
     except ValueError:
-        sys.exit("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months")
+        sys.exit(red("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months")
     if provided < 3:
-        sys.exit("Only one of Principal, Interest, Term, and Payment may be left empty")
+        sys.exit(red("Only one of Principal, Interest, Term, and Payment may be left empty"))
     if principal != None and principal < ZERO_CENTS:
-        sys.exit("Principal cannot be negative")
+        sys.exit(red("Principal cannot be negative"))
     if interest != None and interest < ZERO_CENTS:
-        sys.exit("Interest cannot be negative")
+        sys.exit(red("Interest cannot be negative"))
     if term != None and term < 0:
-        sys.exit("Term cannot be negative")
+        sys.exit(red("Term cannot be negative"))
     return principal, interest, term, payment
 
 def parse_term_str(term_str: str) -> int:
