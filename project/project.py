@@ -19,6 +19,7 @@ def main():
     interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and months: ")
     payment_str   = input("  Monthly Payment Amount: ")
+    print()
 
     principal, interest, term, payment = convert_input(principal_str, interest_str, term_str, payment_str)
 
@@ -195,6 +196,7 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
             i -= 1
             break
         interest_portion = rounding(principal * interest, ROUND_HALF_UP)
+        print("interest_portion", length(str(interest_portion)))
         reduction_portion = payment - interest_portion
         if reduction_portion > principal:
             reduction_portion = principal
