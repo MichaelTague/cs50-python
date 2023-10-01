@@ -57,10 +57,8 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
         percent_interest = rounding(ZERO_CENTS, ROUND_DOWN, 0)
     print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
     response = input("Amortization Table (Y/N)? ").lower()
-    if response in ["yes", "y"]
-        
-
-    if
+    if response in ["yes", "y"]:
+        final_payment(principal, interest, term, payment, True)
 
 def pretty_term(term: int):
     years = term // 12
