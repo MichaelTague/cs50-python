@@ -194,7 +194,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
             if new_final['remaining'] != ZERO_CENTS:
                 return old_principal
     if final['remaining'] != ZERO_CENTS:
-        if DEBUG: print("adjust_prindicpal, remaining")
+        if DEBUG: print("adjust_principal, remaining")
         new_principal = principal
         while True:
             new_principal -= ONE_CENT
@@ -202,7 +202,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
             if new_final['remaining'] != ZERO_CENTS:
                 return new_principal
     if final['#'] != term:
-        if DEBUG: print("adjust_prindicpal, term")
+        if DEBUG: print("adjust_principal, term")
         new_principal = principal
         while True:
             old_principal = new_principal
