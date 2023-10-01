@@ -193,7 +193,8 @@ def adjust_interest(principal: Decimal, interest: Decimal, payment: Decimal, ter
         interest_add = ZERO_CENTS
         while True:
             old_interest_add = interest_add
-            interest_add += ONE_CENT
+            interest_add -= ONE_CENT
+            new_interest = (annual_interest + interest_add) / Decimal(1200)
             new_interest = rounding(interest * Decimal(1200) + ONE_CENT, ROUND_DOWN) / Decimal(1200)
             new_final = final_payment(new_principal, interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
