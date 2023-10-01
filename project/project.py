@@ -9,6 +9,7 @@ ONE_CENT: Decimal       = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROU
 ZERO_CENTS: Decimal     = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 MAX_TERM: int           = int(1000000000)
 TWELVE_HUNDRED: Decimal = Decimal("1200")
+EMPTY: Decimal          = Decimal("-1")
 DEBUG: bool             = True
 
 def rounding(value: Decimal, type: str = ROUND_HALF_UP, digits: int = 2) -> Decimal:
