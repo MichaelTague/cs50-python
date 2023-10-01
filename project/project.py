@@ -172,13 +172,6 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
                 return old_payment
     return payment
 
-
-
-    for i in range(-3, 3):
-        print(i)
-
-    return payment
-
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     if interest != Decimal(0):
         payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
