@@ -113,7 +113,7 @@ def parse_term_str(term_str: str):
         else:
             raise ValueError("Invalid Term format")
     term: int = years * 12 + months
-    if term <= 0:
+    if term < 0:
         raise ValueError("Zero term")
     return term
 
