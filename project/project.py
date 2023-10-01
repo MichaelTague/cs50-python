@@ -5,12 +5,11 @@ import decimal
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 from scipy import optimize
 
-def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
-    return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
-
 ONE_CENT = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 ZERO_CENTS = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
-TWELE
+
+def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
+    return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
 def main():
     print("Loan Calculations")
@@ -119,7 +118,7 @@ def parse_term_str(term_str: str):
     return term
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
-    if interest != Decimal(0):
+    if interest != ZERO_CENTS:
         principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
     else:
         principal: Decimal = payment * term
@@ -132,7 +131,7 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     return rounding(interest, ROUND_HALF_UP)
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
-    if interest != Decimal(0):
+    if interest != ZERO_CENTS:
         term = - math.log(1 - (principal * interest / payment)) / math.log(1 + interest)
     else:
         term = principal / payment
@@ -151,40 +150,40 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return payment
-    if final['#'] == term and final['remaining'] == Decimal(0):
+    if final['#'] == term and final['remaining'] == ZERO_CENTS:
         new_payment = payment
         while True:
             old_payment = new_payment
-            new_payment -= Decimal(0.01)
+            new_payment -= ONE_CENT
             new_final = final_payment(principal, interest, term, new_payment)
-            if new_final['remaining'] != Decimal(0):
+            if new_final['remaining'] != ZERO_CENTS:
                 return old_payment
-    if final['remaining'] != Decimal(0):
+    if final['remaining'] != ZERO_CENTS:
         print("adjust remaing section")
         new_payment = payment
         print("adjust/remaining/payment 0", len(str(payment)))
         print("adjust/remaining/new_payment 1", len(str(new_payment)))
         while True:
             print("adjust/remaining/new_payment 2", len(str(new_payment)))
-            new_payment += rounding(Decimal(0.01))
+            new_payment += rounding(ONE_CENT)
             print("adjust/remaining/new_payment 3", len(str(new_payment)))
             print("adjust/remaining/new_payment 4", len(str(new_payment)))
             new_final = final_payment(principal, interest, term, new_payment)
-            if new_final['remaining'] == Decimal(0):
+            if new_final['remaining'] == ZERO_CENTS:
                 return new_payment
     if final['#'] != term:
         print("adjust # section")
         new_payment = payment
         while True:
             old_payment = new_payment
-            new_payment -= Decimal(0.01)
+            new_payment -= ONE_CENT
             new_final = final_payment(principal, interest, term, new_payment)
-            if new_final['remaining'] != Decimal(0):
+            if new_final['remaining'] != ZERO_CENTS:
                 return old_payment
     return payment
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
-    if interest != Decimal(0):
+    if interest != ZERO_CENTS:
         payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
     else:
         payment: Decimal = principal / term
@@ -195,13 +194,13 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
     if principal < payment:
         payment = principal
     first_payment = payment
-    total_interest = Decimal(0)
-    total_principal = Decimal(0)
+    total_interest = ZERO_CENTS
+    total_principal = ZERO_CENTS
     i = 0
     if table:
         print(f"{0:5,}                                                     {principal:14,.2f}")
     for i in range(1, term + 1):
-        if principal == Decimal(0):
+        if principal == ZERO_CENTS:
             i -= 1
             break
         interest_portion = rounding(principal * interest, ROUND_HALF_UP)
