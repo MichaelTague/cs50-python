@@ -93,7 +93,7 @@ def convert_input(principal_str, interest_str, term_str, payment_str):
     except decimal.InvalidOperation:
         sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
     except ValueError:
-        sys.exit("Term must be greater than zero and similar to these:  30 yrs; 60 months; 3 years, 6 months")
+        sys.exit("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months")
     if provided < 3:
         sys.exit("Only one of Principal, Interest, Term, and Payment may be left empty")
     return principal, interest, term, payment
@@ -114,7 +114,7 @@ def parse_term_str(term_str: str):
             raise ValueError("Invalid Term format")
     term: int = years * 12 + months
     if term < 0:
-        raise ValueError("Zero term")
+        raise ValueError("Negative term")
     return term
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
