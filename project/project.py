@@ -125,8 +125,8 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
         principal: Decimal = payment * term
     principal = rounding(principal, ROUND_DOWN)
     new_principal = adjust_principal(principal, interest, term, payment)
-    if principal != new_principal:
-        print("adjust_principal:", principal, new_principal)
+    if DEBUG and principal != new_principal:
+        print("adjust_principal, principal was adjusted from", principal, "to", new_principal)
     return new_principal
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
