@@ -12,6 +12,7 @@ TWELVE_HUNDRED: Decimal = Decimal("1200")
 EMPTY: Decimal          = Decimal("-1")
 DEBUG: bool             = True
 DEBUG_FINAL: bool       = False
+RED: str                = 
 
 def rounding(value: Decimal, type: str = ROUND_HALF_UP, digits: int = 2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
