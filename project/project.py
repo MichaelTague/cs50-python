@@ -168,11 +168,11 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
         top = - math.log(float(1 - principal * interest / payment))
         bottom = math.log(float(1 + interest))
         term = math.ceil(top / bottom)
-    term = 362
     final = final_payment(principal, interest, MAX_TERM, payment)
-    if DEBUG and term != final['#']:
+    new_term: int = int(final['#'])
+    if DEBUG and term != new_term:
         print(RED + 'calc_term, term was adjusted from', term, 'to', new_term, COLOR_END)
-    return int(final['#'])
+    return new_term
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
