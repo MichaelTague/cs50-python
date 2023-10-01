@@ -118,10 +118,10 @@ def parse_term_str(term_str: str):
 
 def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     if interest != ZERO_CENTS:
-        principal: Decimal = payment * (1 - (1 + interest)**(-term)) / interest
+        principal: Decimal = rounding(payment * (1 - (1 + interest)**(-term)) / interest)
     else:
-        principal: Decimal = payment * term
-    
+        principal: Decimal = rounding(payment * term)
+    new_principal = adjust_principal(principal, interest, term, payment)
     return rounding(principal, ROUND_DOWN)
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
