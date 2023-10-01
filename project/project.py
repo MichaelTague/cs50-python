@@ -220,7 +220,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
                 return old_interest
     return interest
 
-def adjust_payment(principal: Decimal, interest: term: int, Decimal, payment):
+def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return payment
