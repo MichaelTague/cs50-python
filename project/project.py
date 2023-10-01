@@ -200,7 +200,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
             print("interest_add", interest_add)
             print("new_interest", new_interest)
             print(new_final)
-            if new_final['remaining'] != ZERO_CENTS:
+            if new_final['remaining'] != ZERO_CENTS or new_final['#'] != term:
                 return old_interest
     if final['remaining'] != ZERO_CENTS:
         interest_add = ZERO_CENTS
