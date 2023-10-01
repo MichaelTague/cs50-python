@@ -155,7 +155,6 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = optimize.newton(lambda x: float(calc_unrounded_payment(principal, Decimal(x), term) - payment), interest)
     interest = Decimal(interest)
     interest = rounding(Decimal(interest) * TWELVE_HUNDRED) / TWELVE_HUNDRED
-    interest = rounding(Decimal("11.95")) / TWELVE_HUNDRED
     new_interest: Decimal = adjust_interest(principal, interest, term, payment)
     if DEBUG and interest != new_interest:
         print(RED + 'calc_interest, interest was adjusted from', interest, 'to', new_interest, COLOR_END)
