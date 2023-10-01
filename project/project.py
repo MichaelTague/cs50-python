@@ -5,10 +5,6 @@ import decimal
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 from scipy import optimize
 
-ctx = decimal.getcontext()
-ctx.rounding = ROUND_HALF_UP
-#print(decimal.getcontext())
-
 def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
