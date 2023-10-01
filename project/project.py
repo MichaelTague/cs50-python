@@ -130,7 +130,11 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = float(0.006) # 6% guess, then use Newton's method to find the a better guess
     interest = optimize.newton(lambda x: float(calc_unrounded_payment(principal, Decimal(x), term) - payment), interest)
     interest = Decimal(interest)
-    return rounding(interest, ROUND_HALF_UP)
+    interest = rounding(Decimal(interest) * Decimal(1200)) / Decimal(1200)
+    new_interest = adjust_interest(principal, interest, term, payment)
+    if interest != new_interest:
+        print('Adjust Paymnet, old, new:', payment, new_payment)
+    return interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, MAX_TERM, payment)
