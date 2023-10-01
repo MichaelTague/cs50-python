@@ -129,6 +129,8 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     return rounding(interest, ROUND_HALF_UP)
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
+    final = final_payment(principal, interest, term, payment)
+    return int(final['#'])
     if interest != ZERO_CENTS:
         term = - math.log(1 - (principal * interest / payment)) / math.log(1 + interest)
     else:
