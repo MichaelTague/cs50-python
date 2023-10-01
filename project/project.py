@@ -19,7 +19,6 @@ def main():
     interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and months: ")
     payment_str   = input("  Monthly Payment Amount: ")
-    print()
 
     principal, interest, term, payment = convert_input(principal_str, interest_str, term_str, payment_str)
 
