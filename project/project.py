@@ -143,7 +143,7 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     new_payment = adjust_payment_for_final(principal, interest, payment, term)
     if payment != new_payment:
         print('Adjust Paymnet, old, new:', payment, new_payment)
-    return payment
+    return new_payment
 
 def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
     final = final_payment(principal, interest, term, payment)
