@@ -5,7 +5,7 @@ import decimal
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 from scipy import optimize
 
-DEBUG: bool             = True
+DEBUG: bool             = False
 DEBUG_FINAL: bool       = False
 
 ONE_CENT: Decimal       = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
@@ -29,7 +29,6 @@ def main():
     interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and Months: ")
     payment_str   = input("  Monthly Payment Amount: ")
-    print()
 
     principal, interest, term, payment = convert_input(principal_str, interest_str, term_str, payment_str)
 
