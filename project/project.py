@@ -26,7 +26,7 @@ def main():
     print("If one of the following four is left empty, it will be calculated")
     principal_str = input("        Principal Amount: ")
     interest_str  = input("      Interest per Annum: ")
-    term_str      = input("Term in Years and months: ")
+    term_str      = input("Term in Years and Months: ")
     payment_str   = input("  Monthly Payment Amount: ")
     print()
 
