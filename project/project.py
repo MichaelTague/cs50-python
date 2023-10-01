@@ -83,7 +83,7 @@ def convert_input(principal_str, interest_str, term_str, payment_str):
             principal = Decimal(principal_str)
             provided += 1
         if interest_str != "":
-            interest = Decimal(interest_str) / Decimal(1200)
+            interest = Decimal(interest_str) / TWELVE_HUNDRED
             provided += 1
         if term_str != "":
             term = parse_term_str(term_str)
@@ -133,11 +133,11 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = float(0.006) # 6% guess, then use Newton's method to find the a better guess
     interest = optimize.newton(lambda x: float(calc_unrounded_payment(principal, Decimal(x), term) - payment), interest)
     interest = Decimal(interest)
-    interest = rounding(Decimal(interest) * Decimal(1200)) / Decimal(1200)
-    interest = rounding(Decimal("12.01")) / Decimal(1200)
+    interest = rounding(Decimal(interest) * TWELVE_HUNDRED) / TWELVE_HUNDRED
+    interest = rounding(Decimal("12.01")) / TWELVE_HUNDRED
     new_interest = adjust_interest(principal, interest, term, payment)
     if DEBUG and interest != new_interest:
-        print('calc_interest, interest was adjusted from', interest, 'to', new_interest
+        print('calc_interest, interest was adjusted from', interest, 'to', new_interest)
     return new_interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
@@ -149,7 +149,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
         term = math.ceil(top / bottom)
     final = final_payment(principal, interest, MAX_TERM, payment)
     if DEBUG and term != final['#']:
-        print('calc_term, term was adjusted from', term, 'to', new_term
+        print('calc_term, term was adjusted from', term, 'to', new_term)
     return int(final['#'])
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
@@ -200,25 +200,25 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return interest
-    annual_interest = rounding(interest * Decimal(1200))
+    annual_interest = rounding(interest * TWELVE_HUNDRED)
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
         print("int normal")
         interest_add = ZERO_CENTS
-        new_interest = annual_interest / Decimal(1200)
+        new_interest = annual_interest / TWELVE_HUNDRED
         while True:
             old_interest = new_interest
             interest_add -= ONE_CENT
-            new_interest = (annual_interest + interest_add) / Decimal(1200)
+            new_interest = (annual_interest + interest_add) / TWELVE_HUNDRED
             new_final = final_payment(principal, new_interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS or new_final['#'] != term:
                 return old_interest
     if final['remaining'] != ZERO_CENTS:
         print("int remaining")
         interest_add = ZERO_CENTS
-        new_interest = annual_interest / Decimal(1200)
+        new_interest = annual_interest / TWELVE_HUNDRED
         while True:
             interest_add -= ONE_CENT
-            new_interest = (annual_interest + interest_add) / Decimal(1200)
+            new_interest = (annual_interest + interest_add) / TWELVE_HUNDRED
             new_final = final_payment(principal, new_interest, term, payment)
             print("add", interest_add)
             print("new_interest", new_interest)
@@ -228,11 +228,11 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
     if final['#'] != term:
         print("int #")
         interest_add = ZERO_CENTS
-        new_interest = annual_interest / Decimal(1200)
+        new_interest = annual_interest / TWELVE_HUNDRED
         while True:
             old_interest = new_interest
             interest_add += ONE_CENT
-            new_interest = (annual_interest + interest_add) / Decimal(1200)
+            new_interest = (annual_interest + interest_add) / TWELVE_HUNDRED
             new_final = final_payment(principal, new_interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
                 return old_interest
