@@ -32,4 +32,6 @@ def test_parse_term_string():
     assert parse_term_str("100 yr") == 1200
 
 def test_calc_principal():
-    assert()
+    assert calc_principal(interest, term, payment) == Decimal("100000.70")
+    assert calc_principal(interest, term, payment) == Decimal("100000.70")
+
