@@ -155,7 +155,7 @@ def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> 
         payment: Decimal = principal / term
     return payment
 
-def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return principal
@@ -184,7 +184,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, te
                 return old_principal
     return principal
 
-def adjust_interest(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: Decimal):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return interest
@@ -220,7 +220,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, payment: Decimal, ter
                 return old_interest
     return interest
 
-def adjust_payment(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+def adjust_payment(principal: Decimal, interest: term: int, Decimal, payment):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return payment
