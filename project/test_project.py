@@ -2,7 +2,7 @@ import pytest
 
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 
-from project import rounding, pretty_term, parse_term_str, calc_principal, calc_interest, calc_term, calc_payment
+from project import rounding, pretty_term, parse_term_str, calc_principal, calc_interest, calc_term, calc_payment. final_payment
 
 principal = Decimal("100000.00")
 interest = Decimal("0.01")
@@ -47,3 +47,6 @@ def test_calc_payment():
     assert calc_payment(principal, interest, term) == payment
     assert calc_payment(principal, interest, 180) == Decimal("1200.17")
 
+def final_payment():
+    assert final_payment(principal, interest, term, payment)['last payment'] == Decimal("1004.37")
+    assert final_payment(principal, interest, 180, payment)['last payment'] == Decimal()
