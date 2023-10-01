@@ -218,7 +218,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, payment: Decimal, ter
             new_final = final_payment(principal, new_interest, term, payment)
             if new_final['remaining'] != ZERO_CENTS:
                 return old_interest
-    return principal
+    return interest
 
 def adjust_payment(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
     final = final_payment(principal, interest, term, payment)
