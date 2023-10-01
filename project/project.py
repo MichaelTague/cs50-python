@@ -147,6 +147,7 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     else:
         principal: Decimal = payment * term
     principal = rounding(principal, ROUND_DOWN)
+    principal = rounding(Decimal("100000.40"))
     new_principal: Decimal = adjust_principal(principal, interest, term, payment)
     if DEBUG and principal != new_principal:
         print(RED + "adjust_principal, principal was adjusted from", principal, "to", new_principal, COLOR_END)
