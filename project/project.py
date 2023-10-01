@@ -136,6 +136,21 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
     final = final_payment(principal, interest, MAX_TERM, payment)
     return int(final['#'])
 
+def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
+    payment = calc_unrounded_payment(principal, interest, term)
+    payment = rounding(payment, ROUND_UP)
+    new_payment = adjust_payment(principal, interest, payment, term)
+    if payment != new_payment:
+        print('Adjust Paymnet, old, new:', payment, new_payment)
+    return new_payment
+
+def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
+    if interest != ZERO_CENTS:
+        payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
+    else:
+        payment: Decimal = principal / term
+    return payment
+
 def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
@@ -165,15 +180,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, te
                 return old_principal
     return principal
 
-def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
-    payment = calc_unrounded_payment(principal, interest, term)
-    payment = rounding(payment, ROUND_UP)
-    new_payment = adjust_payment_for_final(principal, interest, payment, term)
-    if payment != new_payment:
-        print('Adjust Paymnet, old, new:', payment, new_payment)
-    return new_payment
-
-def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
+def adjust_payment(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
     final = final_payment(principal, interest, term, payment)
     if final['#'] == 0:
         return payment
@@ -200,13 +207,6 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
             new_final = final_payment(principal, interest, term, new_payment)
             if new_final['remaining'] != ZERO_CENTS:
                 return old_payment
-    return payment
-
-def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
-    if interest != ZERO_CENTS:
-        payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
-    else:
-        payment: Decimal = principal / term
     return payment
 
 def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal, table=False):
