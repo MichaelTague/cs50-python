@@ -282,7 +282,8 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
     i = 0
     if table:
         print()
-        print("    Monthly   Interest     Reduction       Principal")
+        print("    #         Monthly         Interest        Reduction        Principal")
+        print("  ---     -----------      -----------      -----------      -----------")
         print(f"{0:5,}                                                     {principal:14,.2f}")
     for i in range(1, term + 1):
         if principal == ZERO_CENTS:
