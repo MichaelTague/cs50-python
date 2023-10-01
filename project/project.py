@@ -8,6 +8,8 @@ from scipy import optimize
 ONE_CENT = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 ZERO_CENTS = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 MAX_TERM = int(1000000000)
+TWELVE_HUNDRED = Decimal("1200")
+DEBUG = True
 
 def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
@@ -134,8 +136,8 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = rounding(Decimal(interest) * Decimal(1200)) / Decimal(1200)
     interest = rounding(Decimal("12.01")) / Decimal(1200)
     new_interest = adjust_interest(principal, interest, term, payment)
-    if interest != new_interest:
-        print('Adjust Interest, old, new:', interest, new_interest)
+    if DEBUG and interest != new_interest:
+        print('calc_interest, interest was adjusted from', interest, 'to', new_interest
     return new_interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
