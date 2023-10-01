@@ -164,9 +164,7 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
             new_final = final_payment(principal, interest, term, new_payment)
             if new_final['remaining'] != Decimal(0):
                 return old_payment
-            if new_final['#'] == term:
-                return new_payment
-
+    return payment
 
 
 
