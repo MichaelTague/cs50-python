@@ -141,8 +141,8 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     return new_interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
-    if payment == ZERO_CENTS:
-        term = 
+    if payment == ZERO_CENTS or principal == ZERO_CENTS or interest == ZERO_CENTS:
+        top = 0
     top = - math.log(1 - principal * interest / payment)
     final = final_payment(principal, interest, MAX_TERM, payment)
     return int(final['#'])
