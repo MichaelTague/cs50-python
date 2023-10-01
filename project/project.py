@@ -162,7 +162,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, payment: Decimal, te
             old_principal = new_principal
             new_principal += ONE_CENT
             new_final = final_payment(new_principal, interest, term, payment)
-            if new_final['#'] != term:
+            if new_final['remaining'] != ZERO_CENTS:
                 return old_principal
     return payment
 
