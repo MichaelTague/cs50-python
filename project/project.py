@@ -9,12 +9,12 @@ ctx = decimal.getcontext()
 ctx.rounding = ROUND_HALF_UP
 #print(decimal.getcontext())
 
-def rounding(value: Decimal, type=ROUND_DOWN, digits=2) -> Decimal:
+def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
 def main():
     print("Loan Calculations")
-    print("Enter the loan information, leave blank any that you would like calculated:")
+    print("If one of the following four is left empty, it will be calculated")
     principal_str = input("        Principal Amount: ")
     interest_str  = input("      Interest per Annum: ")
     term_str      = input("Term in Years and months: ")
