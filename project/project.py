@@ -5,13 +5,13 @@ import decimal
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 from scipy import optimize
 
-ONE_CENT = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
-ZERO_CENTS = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
-MAX_TERM = int(1000000000)
-TWELVE_HUNDRED = Decimal("1200")
-DEBUG = True
+ONE_CENT: Decimal       = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
+ZERO_CENTS: Decimal     = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
+MAX_TERM: int           = int(1000000000)
+TWELVE_HUNDRED: Decimal = Decimal("1200")
+DEBUG: bool             = True
 
-def rounding(value: Decimal, type=ROUND_HALF_UP, digits=2) -> Decimal:
+def rounding(value: Decimal, type: str = ROUND_HALF_UP, digits: int = 2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
 
 def main():
