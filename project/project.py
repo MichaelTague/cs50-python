@@ -160,13 +160,17 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
             if new_final['remaining'] != Decimal(0):
                 return old_payment
     if final['remaining'] != Decimal(0):
+        print("adjust remaing section")
         new_payment = payment
+           print("adjust/remaining/new_payment", len(str(new_payment)))
         while True:
             new_payment += Decimal(0.01)
+            print("adjust/remaining/new_payment", len(str(new_payment)))
             new_final = final_payment(principal, interest, term, new_payment)
             if new_final['remaining'] == Decimal(0):
                 return new_payment
     if final['#'] != term:
+        print("adjust # section")
         new_payment = payment
         while True:
             old_payment = new_payment
