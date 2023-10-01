@@ -1,6 +1,13 @@
 import pytest
 
-from project import pretty_term, parse_term_str
+from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
+
+from project import rounding, pretty_term, parse_term_str, calc_principal
+
+principal = Decimal("100000.00")
+interest = Decimal("0.01")
+term = 360
+payment = Decimal("1028.62")
 
 def test_pretty_term():
     assert pretty_term(360) == "30 Years"
@@ -24,3 +31,5 @@ def test_parse_term_string():
     assert parse_term_str("16 Years, 8 Months") == 200
     assert parse_term_str("100 yr") == 1200
 
+def test_calc_principal():
+    assert()
