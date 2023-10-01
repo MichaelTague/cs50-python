@@ -184,7 +184,6 @@ def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> 
     return payment
 
 def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Decimal, table=False):
-    print("final_payment payment", len(str(payment)), payment)
     if principal < payment:
         payment = principal
     first_payment = payment
