@@ -47,13 +47,13 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     interest_annual: str = str(rounding(interest * TWELVE_HUNDRED)).rstrip('0').rstrip('.')
     term_pretty: str = pretty_term(term)
     print()
-    print(f"Loan Principal: ${principal:,.2f}")
-    print(f"Loan Interest:  {interest_annual}%")
-    print(f"Loan Term:      {term_pretty}")
-    print(f"Loan Payment:   ${payment:,.2f}")
+    print(f"          Loan Principal: ${principal:,.2f}")
+    print(f"          Loan Interest:  {interest_annual}%")
+    print(f"          Loan Term:      {term_pretty}")
+    print(f"          Loan Payment:   ${payment:,.2f}")
     final = final_payment(principal, interest, term, payment)
     balloon = final['remaining'] + final['last payment']
-    print(f"Final Payment:  ${balloon:,.2f}", end="")
+    print(f"          Final Payment:  ${balloon:,.2f}", end="")
     if final['#'] != term:
             print(f" on payment #{final['#']} ({term - final['#']} short of full term)", end="")
     if final['remaining'] != ZERO_CENTS:
@@ -63,7 +63,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
         percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
     else:
         percent_interest = rounding(ZERO_CENTS, ROUND_DOWN, 0)
-    print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
+    print(f"          Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
     response = input("Amortization Table (Y/N)? ").lower()
     if response in ["yes", "y"]:
         final_payment(principal, interest, term, payment, True)
