@@ -11,6 +11,7 @@ MAX_TERM: int           = int(1000000000)
 TWELVE_HUNDRED: Decimal = Decimal("1200")
 EMPTY: Decimal          = Decimal("-1")
 DEBUG: bool             = True
+DEBUG_FINAL: bool       = False
 
 def rounding(value: Decimal, type: str = ROUND_HALF_UP, digits: int = 2) -> Decimal:
     return value.quantize(Decimal('0.' + '0' * digits), rounding=type)
@@ -310,7 +311,7 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
         if table:
             print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {principal:14,.2f}")
     result: dict = {"#": i, "payment": first_payment, "last payment": payment, "remaining": principal, "total interest": total_interest, "total principal": total_principal}
-    if DEBUG:
+    if DEBUG_FINAL:
         print("final_payment:", result)
     return result
 
