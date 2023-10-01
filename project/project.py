@@ -51,8 +51,7 @@ def print_loan(principal: Decimal, interest: Decimal, term: int, payment: Decima
     if principal != ZERO_CENTS:
         percent_interest = rounding(final['total interest'] * 100 / (principal + final['total interest']), ROUND_HALF_UP, 0)
     else:
-        percent_interest = ZERO_CENTS
-    percent_interest = percent_interest.normalize()
+        percent_interest = rounding(ZERO_CENTS, 0)
     print(f"Total Interest: ${final['total interest']:,.2f} ({percent_interest}% of payments)")
 
 def pretty_term(term: int):
