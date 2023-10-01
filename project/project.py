@@ -133,9 +133,9 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
         term = - math.log(1 - (principal * interest / payment)) / math.log(1 + interest)
     else:
         term = principal / payment
-    term = int(rounding(term, ROUND_UP, 0))
-    new_term = adjust_term_for_final(principal, interest, payment, term)
-    return int(rounding(term, ROUND_UP, 0))
+    term = int(rounding(Decimal(term), ROUND_UP, 0))
+#    new_term = adjust_term_for_final(principal, interest, payment, term)
+    return term
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
