@@ -83,16 +83,16 @@ def convert_input(principal_str: str, interest_str: str, term_str: str, payment_
     principal = interest = term = payment = None
     try:
         if principal_str != "":
-            principal = Decimal(principal_str)
+            principal: Decimal = Decimal(principal_str)
             provided += 1
         if interest_str != "":
-            interest = Decimal(interest_str) / TWELVE_HUNDRED
+            interest: Decimal = Decimal(interest_str) / TWELVE_HUNDRED
             provided += 1
         if term_str != "":
-            term = parse_term_str(term_str)
+            term: int = parse_term_str(term_str)
             provided += 1
         if payment_str != "":
-            payment = Decimal(payment_str)
+            payment: Decimal = Decimal(payment_str)
             provided += 1
     except decimal.InvalidOperation:
         sys.exit("Principal, Interest, and Payment must be Integer or Decimal Number")
@@ -100,9 +100,15 @@ def convert_input(principal_str: str, interest_str: str, term_str: str, payment_
         sys.exit("Term must not be negative, looks like: 30 yrs; 60 months; 3 years, 6 months")
     if provided < 3:
         sys.exit("Only one of Principal, Interest, Term, and Payment may be left empty")
+    if principal < ZERO_CENTS:
+        sys.exit("Principal cannot be negative")
+    if interest < ZERO_CENTS:
+        sys.exit("Interest cannot be negative")
+    if term < 0:
+        sys.exit("Term cannot be negative")
     return principal, interest, term, payment
 
-def parse_term_str(term_str: str):
+def parse_term_str(term_str: str): int:
     years: int = 0
     months: int = 0
     matches = re.findall(r'(\d+)\s*(\w+)?', term_str)
