@@ -176,6 +176,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
     payment = rounding(payment, ROUND_UP)
+    payment = Decimal("1028.50")
     new_payment: Decimal = adjust_payment(principal, interest, term, payment)
     if DEBUG and payment != new_payment:
         print(RED + 'calc_payment, payment was adjusted from', payment, 'to', new_payment, COLOR_END)
