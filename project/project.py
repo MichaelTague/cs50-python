@@ -143,7 +143,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = calc_unrounded_payment(principal, interest, term)
     payment = rounding(payment, ROUND_UP)
-    new_payment = adjust_payment(principal, interest, payment, term)
+    new_payment = adjust_payment(principal, interest, term, payment)
     if payment != new_payment:
         print('Adjust Paymnet, old, new:', payment, new_payment)
     return new_payment
