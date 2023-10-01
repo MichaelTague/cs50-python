@@ -122,7 +122,9 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     else:
         principal: Decimal = rounding(payment * term)
     new_principal = adjust_principal(principal, interest, term, payment)
-    return rounding(principal, ROUND_DOWN)
+    if principal != new_principal:
+        print(adjust_principal:", principal, new_principal)
+    return principal
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = float(0.006) # 6% guess, then use Newton's method to find the a better guess
