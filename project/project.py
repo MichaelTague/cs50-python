@@ -148,7 +148,6 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
     if final['#'] == 0:
         return payment
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
-        print("adjust normal")
         new_payment = payment
         while True:
             old_payment = new_payment
@@ -157,7 +156,6 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
             if new_final['remaining'] != ZERO_CENTS:
                 return old_payment
     if final['remaining'] != ZERO_CENTS:
-        print("adjust remaining")
         new_payment = payment
         while True:
             new_payment += rounding(ONE_CENT)
@@ -165,7 +163,6 @@ def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Dec
             if new_final['remaining'] == ZERO_CENTS:
                 return new_payment
     if final['#'] != term:
-        print("adjust #")
         new_payment = payment
         while True:
             old_payment = new_payment
