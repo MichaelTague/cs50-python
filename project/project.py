@@ -146,7 +146,7 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     principal = rounding(principal, ROUND_DOWN)
     new_principal: Decimal = adjust_principal(principal, interest, term, payment)
     if DEBUG and principal != new_principal:
-        print("adjust_principal, principal was adjusted from", principal, "to", new_principal)
+        print(RED + "adjust_principal, principal was adjusted from", principal, "to", new_principal, RED_END)
     return new_principal
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
@@ -157,7 +157,7 @@ def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
     interest = rounding(Decimal("12.01")) / TWELVE_HUNDRED
     new_interest: Decimal = adjust_interest(principal, interest, term, payment)
     if DEBUG and interest != new_interest:
-        print('calc_interest, interest was adjusted from', interest, 'to', new_interest)
+        print(RED + 'calc_interest, interest was adjusted from', interest, 'to', new_interest, RED_END)
     return new_interest
 
 def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decimal:
@@ -169,7 +169,7 @@ def calc_term(principal: Decimal, interest: Decimal, payment: Decimal) -> Decima
         term = math.ceil(top / bottom)
     final = final_payment(principal, interest, MAX_TERM, payment)
     if DEBUG and term != final['#']:
-        print('calc_term, term was adjusted from', term, 'to', new_term)
+        print(RED + 'calc_term, term was adjusted from', term, 'to', new_term, RED_END)
     return int(final['#'])
 
 def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
@@ -177,7 +177,7 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     payment = rounding(payment, ROUND_UP)
     new_payment: Decimal = adjust_payment(principal, interest, term, payment)
     if DEBUG and payment != new_payment:
-        print('calc_payment, payment was adjusted from', payment, 'to', new_payment)
+        print(RED + 'calc_payment, payment was adjusted from', payment, 'to', new_payment, RED_END)
     return new_payment
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
@@ -192,7 +192,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
     if final['#'] == 0:
         return principal
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
-        if DEBUG: print("adjust_principal, normal")
+        if DEBUG: print(red("adjust_principal, normal"))
         new_principal = principal
         while True:
             old_principal = new_principal
@@ -201,7 +201,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
             if new_final['remaining'] != ZERO_CENTS:
                 return old_principal
     if final['remaining'] != ZERO_CENTS:
-        if DEBUG: print("adjust_principal, remaining")
+        if DEBUG: print(red("adjust_principal, remaining"))
         new_principal = principal
         while True:
             new_principal -= ONE_CENT
@@ -209,7 +209,7 @@ def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: 
             if new_final['remaining'] == ZERO_CENTS:
                 return new_principal
     if final['#'] != term:
-        if DEBUG: print("adjust_principal, term")
+        if DEBUG: print(red("adjust_principal, term"))
         new_principal = principal
         while True:
             old_principal = new_principal
@@ -225,7 +225,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
         return interest
     annual_interest = rounding(interest * TWELVE_HUNDRED)
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
-        if DEBUG: print("adjust_interest, normal")
+        if DEBUG: print(red("adjust_interest, normal"))
         interest_add = ZERO_CENTS
         new_interest = annual_interest / TWELVE_HUNDRED
         while True:
@@ -236,7 +236,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
             if new_final['remaining'] != ZERO_CENTS or new_final['#'] != term:
                 return old_interest
     if final['remaining'] != ZERO_CENTS:
-        if DEBUG: print("adjust_interest, remaining")
+        if DEBUG: print(red("adjust_interest, remaining"))
         interest_add = ZERO_CENTS
         new_interest = annual_interest / TWELVE_HUNDRED
         while True:
@@ -246,7 +246,7 @@ def adjust_interest(principal: Decimal, interest: Decimal, term: int, payment: D
             if new_final['remaining'] == ZERO_CENTS:
                 return new_interest
     if final['#'] != term:
-        if DEBUG: print("adjust_interest, term")
+        if DEBUG: print(red("adjust_interest, term"))
         interest_add = ZERO_CENTS
         new_interest = annual_interest / TWELVE_HUNDRED
         while True:
@@ -263,7 +263,7 @@ def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: De
     if final['#'] == 0:
         return payment
     if final['#'] == term and final['remaining'] == ZERO_CENTS:
-        if DEBUG: print("adjust_payment, normal")
+        if DEBUG: print(red("adjust_payment, normal"))
         new_payment = payment
         while True:
             old_payment = new_payment
@@ -272,7 +272,7 @@ def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: De
             if new_final['remaining'] != ZERO_CENTS:
                 return old_payment
     if final['remaining'] != ZERO_CENTS:
-        if DEBUG: print("adjust_payment, remaining")
+        if DEBUG: print(red("adjust_payment, remaining"))
         new_payment = payment
         while True:
             new_payment += rounding(ONE_CENT)
@@ -280,7 +280,7 @@ def adjust_payment(principal: Decimal, interest: Decimal, term: int, payment: De
             if new_final['remaining'] == ZERO_CENTS:
                 return new_payment
     if final['#'] != term:
-        if DEBUG: print("adjust_payment, term")
+        if DEBUG: print(red("adjust_payment, term"))
         new_payment = payment
         while True:
             old_payment = new_payment
@@ -318,7 +318,7 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
             print(f"{i:5,}  {payment:14,.2f}   {interest_portion:14,.2f}   {reduction_portion:14,.2f}   {principal:14,.2f}")
     result: dict = {"#": i, "payment": first_payment, "last payment": payment, "remaining": principal, "total interest": total_interest, "total principal": total_principal}
     if DEBUG_FINAL:
-        print("final_payment:", result)
+        print(red("final_payment:"), result)
     return result
 
 if __name__ == "__main__":
