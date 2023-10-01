@@ -147,7 +147,6 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     else:
         principal: Decimal = payment * term
     principal = rounding(principal, ROUND_DOWN)
-#    principal = rounding(Decimal("102580"))
     new_principal: Decimal = adjust_principal(principal, interest, term, payment)
     if DEBUG and principal != new_principal:
         print(RED + "adjust_principal, principal was adjusted from", principal, "to", new_principal, COLOR_END)
@@ -305,7 +304,6 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
     if table:
         print()
         print("    #         Monthly         Interest        Reduction        Principal")
-#        print("  ---     -----------      -----------      -----------      -----------")
         print(f"{0:5,}     -----------      -----------      -----------   {principal:14,.2f}")
     for i in range(1, term + 1):
         if principal == ZERO_CENTS:
