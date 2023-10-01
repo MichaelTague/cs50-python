@@ -145,7 +145,12 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
 
 def adjust_payment_for_final(principal: Decimal, interest: Decimal, payment: Decimal, term: int):
     final = final_payment(principal, interest, term, payment)
-    if final[']
+    if final['#'] == term and final['remaining'] == Decimal(0):
+        return
+    if final['remaining'] != Decimal(0):
+        new_payment = payment + Decimal(0.01)
+        new_final = final_payment(principal, interest, term, new_payment)
+        
     for i in range(-3, 3):
         print(i)
 
