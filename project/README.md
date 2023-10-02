@@ -28,8 +28,17 @@ Whichever question is left blank will be calculated and the loan is summarized:
               Final Payment:  $273.47
               Total Interest: $2,793.88 (19% of payments)
 
-Due to dollar and cent rounding, the the last payment ("Final Payment") is usually
-a bit less than a full payment.
+The "Final Payment", the payment due for the last month of the loan is typically less than the monthly loan payment due to dollar and cent rounding.
+
+If any one of the four fields is not provided, it will be calculated.
+
+Additionally, care is made to adjust these calculations to ensure that:
+
+    1. The "Final Payment" is NEVER more than the "Loan Payment".
+    2. The "Final Paymnet" is as close as possible to the "Loan Payment" within rounding constraints.
+    3. 
+
+
 
 Any of the fields: Principal, Interest, Term, or Payment can be calculated from
 the other three.   Each of these fields is calculated but also adjusted (to the
