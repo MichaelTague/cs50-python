@@ -29,9 +29,13 @@ the other three.   Each of these fields is calculated but also adjusted so that
 the final payment is ALWAYS no more than the monthly loan payment, though as close
 as possible (within effects of rounding).
 
-In some cases, due to rounding, it is not possible to have the final payment occur
-on the last month of the term, is that case, the final payment line might look like
-this:
+In some cases, due to rounding and other conditions, it is not possible to have the
+final payment occur on the last month of the term, in that case, the final payment
+line will look like this:
+
+     Final Payment:  $708.16 on payment #359 (1 short of full term)
+
+
 
 
 
