@@ -75,7 +75,7 @@ Input errors for negative values, or number conversion errors, etc., are shown i
 * 5 imports: re, sys, math, decimal, and scipy
 * 16 functions overall
 * 327 lines long
-* Decimal arithmetic is used throughout to beter control rounding issues
+* Decimal arithmetic is used throughout to beter control rounding
 * scipy is used for it's numerical calculation using Newton's Method (optimize)
 
 The formula used to determine the calculated values is based upon this:
