@@ -99,7 +99,7 @@ All calculated values, interest as well as principal, term, and payment use a si
 
 - calc_unrounded_payment calculates the payment without rounding the result so that it can be used in the Newton Method for calculating interest.
 
-- adjust_principal, adjust_interest, and adjust_payment are called by their respective "calc" functions to make final adjustments of the values.  adjust_term is not needed as it uses final_payment directly to make its adjustment.
+- adjust_principal, adjust_interest, and adjust_payment are called by their respective "calc" functions to make final adjustments of the values.  adjust_term does not exist as calc_term uses final_payment directly to make its adjustment.
 
 - final_payment simulates the monthly payoff of the loan to determine the month and value of the final payment.  Along the way it also totals the interest and principal paid and finds any remaining unpaid principal.   As a side effect, final_payment is also used to print the amortization table.  final_payment is used by each of the adjust functions (and calc_term) to determine the impact of up/down adjustments in principal, interest, term. or payment.
 
