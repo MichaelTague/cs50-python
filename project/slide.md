@@ -2,7 +2,7 @@
 
 ## Final Project
 
-## Loan Calculations
+## Loan Calculations - with a flurish
 
     Michael Tague
     Lousiville, KY  United States
