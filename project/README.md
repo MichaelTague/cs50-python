@@ -1,4 +1,4 @@
-# Loan Calculations
+# Loan Calculations - with a flurish!
 #### Video Demo: TO-BE-Supplied
 #### Description:
 
