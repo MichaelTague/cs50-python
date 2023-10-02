@@ -25,7 +25,15 @@ Due to dollar and cent rounding, the the last payment ("Final Payment") is usual
 a bit less than a full payment.
 
 Any of the fields: Principal, Interest, Term, or Payment can be calculated from
-the other three.
+the other three.   Each of these fields is calculated but also adjusted so that
+the final payment is ALWAYS no more than the monthly loan payment, though as close
+as possible (within effects of rounding).
+
+In some cases, due to rounding, it is not possible to have the final payment occur
+on the last month of the term, is that case, the final payment line might look like
+this:
+
+
 
 
 327 lines
