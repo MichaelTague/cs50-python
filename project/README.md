@@ -43,6 +43,8 @@ Additionally, care is made to adjust any calculated value so that:
 
 This adjustment is made for any calculated field: Principal, Interest, Term, or Payment.
 
+The precision of each field is:  $0.01 for principal and payment, 0.01% per annum for interest, and whole months for term.
+
 If a "Final Payment" will end early, it is displayed like this:
 
      Final Payment:  $708.16 on payment #359 (1 short of full term)
