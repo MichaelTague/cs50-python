@@ -49,6 +49,8 @@ If a "Final Payment" will end early, it looks like this:
 
 If all four fieds are supplied, only the "Final Payment" is determined.   If the "Final Payment" exceeds "Loan Payment", it is considered a balloon payment and will be presented like this:
 
+      Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
+
 
 
 
