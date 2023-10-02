@@ -75,14 +75,14 @@ Input errors for negative values, or number conversion errors, etc., are shown i
 * 5 imports: re, sys, math, decimal, and scipy
 * 16 functions overall
 * 327 lines long
-* Decimal arithmetic is used throughout to avoid rounding issues
+* Decimal arithmetic is used throughout to beter control rounding issues
 * scipy is used for it's numerical calculation using Newton's Method (optimize)
 
 The formula used to determine the calculated values is based upon this:
 
     payment = principal * interest / (1 - (1 + interest)**(-term))
 
-This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined by guessing the interest rate, using the payment formula, and then adjusting that guess using Newton's Method as provided in the scipy optimize function.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
+This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined guessing the interest rate, using the payment formula, and then adjusting that guess using Newton's Method as provided in the scipy optimize function.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
 
 The interest thus determined, is then subject to adjustment, up or down in 0.01% increments using the final_payment function to find the optimal rate.
 
