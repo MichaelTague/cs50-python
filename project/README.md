@@ -41,9 +41,13 @@ Additionally, care is made to adjust any calculated value so that:
     3. In some cases, it may be necessary for the loan to end early by one or more months.
        This is always prefered over having the "Final Payment" exceed the "Loan Payment".
 
+This adjust is made for any calculated field: Principal, Interest, Term, or Payment.
+
 If a "Final Payment" will end early, it looks like this:
 
      Final Payment:  $708.16 on payment #359 (1 short of full term)
+
+If all four fieds are supplied, only the "Final Payment" is determined.   If the "Final Payment" exceeds "Loan Payment", it is considered a balloon payment and will be presented like this:
 
 
 
