@@ -80,9 +80,15 @@ The formula used to determine the calculated values is based upon this:
 
     payment = principal * interest / (1 - (1 + interest)**(-term))
 
-This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined by using the payment formula, guessing the interest value, and adjusting that guess using Newton's Method as provided in the scipi optimize function.
+This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined by guessing the interest rate, using the payment formula, and then adjusting that guess using Newton's Method as provided in the scipy optimize function.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
+
+The interest thus determined, is then subject to adjustment, up or down in 0.01% increments using the final_payment function to find the optimal rate.
+
+All calculated values, interest as well as principal, term, and payment use a similar adjustment method, up or down, in the least significant digit of each value to get the best value.
 
 ##### Key Functions
-- The main function asks the four questions, calls "calc_(principal interest term payment)" for any unanswered questions and then calls "print_loan" to summaarize the loan.  It then asks the user about the amortization table and prints that if desired.
+- The main function asks the four questions, calls "calc_(principal interest term payment)" for any unanswered question and then calls "print_loan" to summaarize the loan.  It then asks the user about the amortization table and prints that if desired.
 
-- calc_principal, calc_interest, calc_term, and calc_payment calculate their respective values based upon the other three provided parameters.  Each also
+- calc_principal, calc_interest, calc_term, and calc_payment calculate their respective values based upon the other three provided parameters.  Each also adjusts the answer up or down in the least significant digit of its value as described above.
+
+- adjust_principal, adjust_interest, and adjust_payment are called by their respective "calc" functions to make final adjustments of the values.  adjust_term is not needed as it uses final_payment directly to make its adjustment.
