@@ -47,11 +47,13 @@ If a "Final Payment" will end early, it is displayed like this:
 
      Final Payment:  $708.16 on payment #359 (1 short of full term)
 
-If all four fieds are supplied, only the "Final Payment" is determined, no adjustments to stated Principal, Interest, Term, or Payment is made.   If as a result, the "Final Payment" exceeds the "Loan Payment", it is considered a balloon payment and will be presented like this:
+If all four questions are supplied, no calculation (or adjustment) is performed, only the "Final Payment" is determined.
+
+If as a result, the "Final Payment" exceeds the "Loan Payment", it is considered a balloon payment and will be presented like this:
 
       Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
 
-After the loan summary, the user is asked if they want an "Amortization Table (Y/N)", if yes, one is provided:
+After the loan summary, the user is asked if they want an "Amortization Table (Y/N)", if yes, one is provided, e.g.:
 
     #        Payment         Interest        Reduction        Principal
     0    -----------      -----------      -----------         3,000.00
@@ -73,3 +75,4 @@ Input errors for negative values, or number conversion errors, etc., are shown i
 * 16 functions overall
 * Decimal arithmetic is used throughout to avoid rounding issues.
 * scipy is used for it numerical calculation Newton Method (optimize).
+
