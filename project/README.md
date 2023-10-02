@@ -12,7 +12,7 @@ The program is invoked from the command line:
 
     python project.py
 
-The user is asked to answer three (or four) of the following questions related to an amortizing monthly paid loan.  Example:
+The user is asked to answer at least three of the following four questions related to an amortizing monthly paid loan.  Example:
 
             Principal Amount: 12000
           Interest per Annum: 9.5
