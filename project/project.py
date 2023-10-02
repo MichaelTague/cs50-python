@@ -183,9 +183,12 @@ def calc_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
     return new_payment
 
 def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> Decimal:
-    if interest != ZERO_CENTS:
+    if term == 0:
+        return ZERO_CENTS
+    
+    if interest != ZERO_CENTS and term > 0:
         payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
-    else:
+    elif term > 0:
         payment: Decimal = principal / term
     return payment
 
