@@ -70,9 +70,10 @@ Input errors for negative values, or number conversion errors, etc., are shown i
 
 # Technical Details
 
-* 327 lines long
 * 5 imports: re, sys, math, decimal, and scipy
 * 16 functions overall
-* Decimal arithmetic is used throughout to avoid rounding issues.
-* scipy is used for it numerical calculation Newton Method (optimize).
+* 327 lines long
+* Decimal arithmetic is used throughout to avoid rounding issues
+* scipy is used for it's numerical calculation using Newton's Method (optimize)
 
+The main function asks the four questions, calls calc_(principal interest term payment) for any unanswered questions and then calls "print_loan" to summaarize the loan.
