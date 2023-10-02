@@ -101,16 +101,14 @@ All calculated values, interest as well as principal, term, and payment use a si
 
 - adjust_principal, adjust_interest, and adjust_payment are called by their respective "calc" functions to make final adjustments of the values.  adjust_term is not needed as it uses final_payment directly to make its adjustment.
 
-- final_payment simulates the monthly payoff of the loan to determine the month and value of the final payment.  Along the way it also totals the interest and principal paid and any remaining unpaid principal.   As a side effect, final_payment is also used to print the amortization table.  final_payment is used by each of the adjust functions (and calc_term) to determine the impact of up/down adjustments in principal, interest, term. or payment.
+- final_payment simulates the monthly payoff of the loan to determine the month and value of the final payment.  Along the way it also totals the interest and principal paid and finds any remaining unpaid principal.   As a side effect, final_payment is also used to print the amortization table.  final_payment is used by each of the adjust functions (and calc_term) to determine the impact of up/down adjustments in principal, interest, term. or payment.
 
 ##### Helper Functions
 
-- rounding() is used to round Decimal values to N decimal digits using one of ROUND_UP, ROUND_HALF_UP, or ROUND_DOWN.
+- rounding() is used to round Decimal values to N decimal digits using one of ROUND_UP, ROUND_HALF_UP, or ROUND_DOWN methods.
 
 - red() turns on and off red formatting of a string.
 
 - pretty_term converts the term as an int in months, to a format like this:  "30 Years", "4 Years, 6 Months", "1 Month"
 
-- parse_term_str converts strings like this: "30", "1 yr", "3 yrs", "4 Years, 6 mo", to an int number of months.
-
-
+- parse_term_str converts strings like this: "30", "1 yr", "3 yrs", "4 Years, 6 Months", to an int number of months.
