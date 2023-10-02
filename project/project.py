@@ -152,6 +152,9 @@ def calc_principal(interest: Decimal, term: int, payment: Decimal) -> Decimal:
     return new_principal
 
 def calc_interest(principal: Decimal, term: int, payment: Decimal) -> Decimal:
+    if principal == ZERO_CENTS:
+        return ZERO_CENTS
+    
     interest = float(0.006) # 6% guess, then use Newton's method to find the a better guess
     interest = optimize.newton(lambda x: float(calc_unrounded_payment(principal, Decimal(x), term) - payment), interest)
     interest = Decimal(interest)
