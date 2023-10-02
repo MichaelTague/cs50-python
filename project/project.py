@@ -4,8 +4,8 @@ import math
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
 from scipy import optimize
 
-DEBUG: bool             = True
-DEBUG_FINAL: bool       = True
+DEBUG: bool             = False
+DEBUG_FINAL: bool       = False
 
 ONE_CENT: Decimal       = Decimal("0.01").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
 ZERO_CENTS: Decimal     = Decimal("0.00").quantize(Decimal("0.00"), rounding=ROUND_HALF_UP)
