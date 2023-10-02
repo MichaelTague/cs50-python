@@ -1,4 +1,4 @@
-# CS50P - EdX / HarvardX CS50 Python
+# CS50P - edX / HarvardX CS50 Python
 
 ## Final Project
 
