@@ -35,8 +35,8 @@ If any one of the four fields is not provided, it will be calculated.
 Additionally, care is made to adjust any calculated value so that:
 
     1. The "Final Payment" will NEVER exceed the "Loan Payment".
-    2. But, the "Final Paymnet" will be as close as possible to the "Loan Payment" amount.
-       For example, the "Loan Payment" will be reduced as much as possible to yeild a "Final Payment"
+    2. But, the "Final Payment" will be as close as possible to the "Loan Payment" amount.
+       For example, the "Loan Payment" will be reduced as much as possible to yield a "Final Payment"
        as close as possible to the "Loan Payment", but not in excess of it.
     3. In some cases, it may be necessary for the loan to end early by one or more months.
        This is always prefered over having the "Final Payment" exceed the "Loan Payment".
