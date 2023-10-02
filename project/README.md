@@ -12,7 +12,7 @@ The program is invoked from command line:
 
     python project.py
 
-The user is asked to answer three (or four) of the following related to an amortizing monthly paid loan.  E.g.:
+The user is asked to answer three (or four) of the following related to an amortizing monthly paid loan.  Example:
 
             Principal Amount: 12000
           Interest per Annum: 9.5
@@ -28,7 +28,7 @@ Whichever question is left blank will be calculated and the loan summarized:
               Final Payment:  $273.47
               Total Interest: $2,793.88 (19% of payments)
 
-The "Final Payment", the payment due in the last month of the loan will is typically less than the monthly loan payment due to dollar and cent rounding.
+The "Final Payment", the payment due in the last month of the loan, is typically less than the monthly loan payment due to dollar and cent rounding.
 
 If any one of the four fields is not provided, it will be calculated.
 
