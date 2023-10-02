@@ -36,8 +36,8 @@ Additionally, care is made to adjust any calculated value so that:
 
     1. The "Final Payment" will NEVER exceed the "Loan Payment".
     2. But, the "Final Paymnet" will be as close as possible to the "Loan Payment" amount.
-       For example, the loan payment will be reduced as much as possible to to yeild a final payment
-       as close as possible to the Loan Payment as long as it does not exceed the Loan Payment.
+       For example, the "Loan Payment" will be reduced as much as possible to to yeild a "Final Payment"
+       as close as possible to the "Loan Payment as long as it does not exceed the Loan Payment.
     3. In some cases, it may be necessary for the loan to end one more more months early so as to
        not exceed the Loan Payment in the final month.  The "Final Payment" will never exceed the "Loan Payment".
 
