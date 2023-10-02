@@ -89,9 +89,9 @@ The interest thus determined, is then subject to adjustment, up or down in 0.01%
 All calculated values, interest as well as principal, term, and payment use a similar adjustment method, up or down, in the least significant digit of each value to get the best value.
 
 ##### Key Functions
-- The main function asks the four questions, calls "calc_(principal interest term payment)" for any unanswered question and then calls "print_loan" to summarize the loan.  It then asks the user about the amortization table and prints that if desired.
+- The main function asks the four questions, calls "calc_(principal interest term payment)" for any unanswered question and then calls "print_loan" to summarize the loan.  It then asks the user about the amortization table and prints that if desired using "final_payment".
 
-- print_loan prints the summary of the loan including early terminating loans or balloon payments.
+- print_loan prints the summary of the loan including the final payment with early terminating loans or balloon payments.
 
 - convert_input converts the input strings to Decimal or int values and checks for legitimate ranges.
 
