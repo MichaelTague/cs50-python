@@ -43,7 +43,7 @@ Additionally, care is made to adjust any calculated value so that:
 
 This adjustment is made for any calculated field: Principal, Interest, Term, or Payment.
 
-The precision of each field is:  $0.01 for principal and payment, 0.01% per annum for interest, and whole months for term.
+The precision of each field is:  $0.01 for principal and payment, 0.01% per annum for interest, and whole months for term.  Adjustments are made for any calculated value in the lowest units of it precision.
 
 If a "Final Payment" will end early, it is displayed like this:
 
@@ -51,11 +51,11 @@ If a "Final Payment" will end early, it is displayed like this:
 
 If all four questions are supplied, no calculation (or adjustment) is performed, only the "Final Payment" is determined.
 
-If as a result, the "Final Payment" exceeds the "Loan Payment", it is considered a balloon payment and will be presented like this:
+As a result, a "Final Payment" may exceed the "Loan Payment" and is considered a balloon payment which will be presented like this:
 
       Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
 
-After the loan summary, the user is asked if they want an "Amortization Table (Y/N)", if yes, one is provided, e.g.:
+"Amortization Table (Y/N)?"  After the loan summary, the user is asked if they want an amortization table, if yes, one is provided, e.g.:
 
     #        Payment         Interest        Reduction        Principal
     0    -----------      -----------      -----------         3,000.00
