@@ -187,11 +187,7 @@ def calc_unrounded_payment(principal: Decimal, interest: Decimal, term: int) -> 
         return ZERO_CENTS
     if interest == ZERO_CENTS:
         return principal / term
-    if interest != ZERO_CENTS and term > 0:
-        payment: Decimal = interest * principal / (1 - (1 + interest)**(-term))
-    elif term > 0:
-        payment: Decimal = principal / term
-    return payment
+    return interest * principal / (1 - (1 + interest)**(-term))
 
 def adjust_principal(principal: Decimal, interest: Decimal, term: int, payment: Decimal) -> Decimal:
     final = final_payment(principal, interest, term, payment)
