@@ -39,7 +39,7 @@ Additionally, care is made to adjust any calculated value so that:
        For example, the "Loan Payment" will be reduced as much as possible to yield a "Final Payment"
        as close as possible to the "Loan Payment", but not in excess of it.
     3. In some cases, it may be necessary for the loan to end early by one or more months.
-       This is always prefered over having the "Final Payment" exceed the "Loan Payment".
+       This is always preferred over having the "Final Payment" exceed the "Loan Payment".
 
 This adjustment is made for any calculated field: Principal, Interest, Term, or Payment.
 
@@ -75,16 +75,16 @@ Input errors for negative values, or number conversion errors, etc., are shown i
 * 5 imports: re, sys, math, decimal, and scipy
 * 16 functions overall
 * 327 lines long
-* Decimal arithmetic is used throughout to beter control rounding
+* Decimal arithmetic is used throughout to better control rounding
 * scipy is used for it's numerical calculation using Newton's Method (optimize)
 
 The formula used to determine the calculated values is based upon this:
 
     payment = principal * interest / (1 - (1 + interest)**(-term))
 
-This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined using the numerical technique of Newton's Method.   The interest is guessed, then by repeatedly apply the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
+This can easily be algebraically rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined using the numerical technique of Newton's Method.   The interest is guessed, then by repeatedly applying the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
 
-The interest thus determined, is then subject to adjustment, up or down in 0.01% per annum increments to find the optimal rate.
+The interest thus determined is then subject to adjustment, up or down in 0.01% per annum increments to find the optimal rate.
 
 All calculated values, interest as well as principal, term, and payment use a similar adjustment method, up or down, in the least significant digit of each value to get the best value.
 
