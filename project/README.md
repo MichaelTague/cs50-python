@@ -2,6 +2,10 @@
 #### Video Demo: TO-BE-Supplied
 #### Description:
 
+Author:   Michael Tague
+Location: Louisville, KY
+Date:     2023-10-01
+
 This CS50P final project program performs loan calculations,
 
 The basic design is that the the user is asked to answer 3 or 4 of these questions,
@@ -25,9 +29,9 @@ Due to dollar and cent rounding, the the last payment ("Final Payment") is usual
 a bit less than a full payment.
 
 Any of the fields: Principal, Interest, Term, or Payment can be calculated from
-the other three.   Each of these fields is calculated but also adjusted so that
-the final payment is ALWAYS no more than the monthly loan payment, though as close
-as possible (within effects of rounding).
+the other three.   Each of these fields is calculated but also adjusted (to the
+cent, month, or 100th of a percent) so that the final payment is ALWAYS no more
+than the monthly loan payment, though as close as possible (within effects of rounding).
 
 In some cases, due to rounding and other conditions, it is not possible to have the
 final payment occur on the last month of the term, in that case, the final payment
