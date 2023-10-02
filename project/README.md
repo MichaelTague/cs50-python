@@ -19,7 +19,7 @@ The user is asked to answer three (or four) of the following related to an amort
     Term in Years and Months: 4 years, 6 months
       Monthly Payment Amount:
 
-Whichever question is left blank will be calculated and the loan is summarized:
+Whichever question is left blank will be calculated and the loan summarized:
 
               Loan Principal: $12,000.00
               Loan Interest:  9.5%
@@ -28,15 +28,15 @@ Whichever question is left blank will be calculated and the loan is summarized:
               Final Payment:  $273.47
               Total Interest: $2,793.88 (19% of payments)
 
-The "Final Payment", the payment due for the last month of the loan is typically less than the monthly loan payment due to dollar and cent rounding.
+The "Final Payment", the payment due in the last month of the loan will is typically less than the monthly loan payment due to dollar and cent rounding.
 
 If any one of the four fields is not provided, it will be calculated.
 
-Additionally, care is made to adjust these calculations to ensure that:
+Additionally, care is made to adjust any calculated value so that:
 
     1. The "Final Payment" is NEVER more than the "Loan Payment".
-    2. The "Final Paymnet" is as close as possible to the "Loan Payment" within rounding constraints.
-    3. 
+    2. The "Final Paymnet" will be as close as possible to the "Loan Payment" amount.  I.e., 
+    3. In some cases, it may not be possible
 
 
 
