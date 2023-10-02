@@ -2,9 +2,9 @@
 #### Video Demo: TO-BE-Supplied
 #### Description:
 
-Author:   Michael Tague
-Location: Louisville, KY
-Date:     2023-10-01
+* Author:   Michael Tague
+* Location: Louisville, KY
+* Date:     2023-10-01
 
 This CS50P final project program performs loan calculations,
 
