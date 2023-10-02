@@ -82,9 +82,9 @@ The formula used to determine the calculated values is based upon this:
 
     payment = principal * interest / (1 - (1 + interest)**(-term))
 
-This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined guessing the interest rate, using the payment formula, and then adjusting that guess using Newton's Method as provided in the scipy optimize function.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
+This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined using the numerical technique of Newton's Method.   The interst is guessed, then by repeatedly apply the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
 
-The interest thus determined, is then subject to adjustment, up or down in 0.01% increments using the final_payment function to find the optimal rate.
+The interest thus determined, is then subject to adjustment, up or down in 0.01% per annum increments to find the optimal rate.
 
 All calculated values, interest as well as principal, term, and payment use a similar adjustment method, up or down, in the least significant digit of each value to get the best value.
 
