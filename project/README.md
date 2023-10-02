@@ -8,11 +8,11 @@
 
 This CS50 Python final project program performs loan calculations,
 
-The program is invoked from command line:
+The program is invoked from the command line:
 
     python project.py
 
-The user is asked to answer three (or four) of the following related to an amortizing monthly paid loan.  Example:
+The user is asked to answer three (or four) of the following questions related to an amortizing monthly paid loan.  Example:
 
             Principal Amount: 12000
           Interest per Annum: 9.5
