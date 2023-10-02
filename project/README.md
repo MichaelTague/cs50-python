@@ -28,7 +28,7 @@ Whichever question is left blank will be calculated and the loan summarized:
               Final Payment:  $273.47
               Total Interest: $2,793.88 (19% of payments)
 
-The "Final Payment", the payment due in the last month of the loan, is typically less than the monthly loan payment due to dollar and cent rounding.
+The "Final Payment", the payment due in the last month of the loan, is typically less than the monthly loan payment due to dollar and cent rounding as the loan is paid.
 
 If any one of the four fields is not provided, it will be calculated.
 
@@ -36,18 +36,18 @@ Additionally, care is made to adjust any calculated value so that:
 
     1. The "Final Payment" will NEVER exceed the "Loan Payment".
     2. But, the "Final Paymnet" will be as close as possible to the "Loan Payment" amount.
-       For example, the "Loan Payment" will be reduced as much as possible to to yeild a "Final Payment"
+       For example, the "Loan Payment" will be reduced as much as possible to yeild a "Final Payment"
        as close as possible to the "Loan Payment", but not in excess of it.
     3. In some cases, it may be necessary for the loan to end early by one or more months.
        This is always prefered over having the "Final Payment" exceed the "Loan Payment".
 
-This adjust is made for any calculated field: Principal, Interest, Term, or Payment.
+This adjustment is made for any calculated field: Principal, Interest, Term, or Payment.
 
-If a "Final Payment" will end early, it looks like this:
+If a "Final Payment" will end early, it is displayed like this:
 
      Final Payment:  $708.16 on payment #359 (1 short of full term)
 
-If all four fieds are supplied, only the "Final Payment" is determined.   If the "Final Payment" exceeds "Loan Payment", it is considered a balloon payment and will be presented like this:
+If all four fieds are supplied, only the "Final Payment" is determined, no adjustments to .   If the "Final Payment" exceeds "Loan Payment", it is considered a balloon payment and will be presented like this:
 
       Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
 
