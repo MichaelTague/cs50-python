@@ -68,7 +68,7 @@ The program then exits.
 
 Input errors for negative values, or number conversion errors, etc., are shown in red.
 
-# Technical Details
+#### Technical Details
 
 * 5 imports: re, sys, math, decimal, and scipy
 * 16 functions overall
@@ -76,4 +76,13 @@ Input errors for negative values, or number conversion errors, etc., are shown i
 * Decimal arithmetic is used throughout to avoid rounding issues
 * scipy is used for it's numerical calculation using Newton's Method (optimize)
 
-The main function asks the four questions, calls calc_(principal interest term payment) for any unanswered questions and then calls "print_loan" to summaarize the loan.
+The formula used to determine the calculated values is based upon this:
+
+    payment = principal * interest / (1 - (1 + interest)**(-term))
+
+This can easily be algebracially rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined by using the payment formula, guessing the interest value, and adjusting that guess using Newton's Method as provided in the scipi optimize function.
+
+##### Key Functions
+- The main function asks the four questions, calls "calc_(principal interest term payment)" for any unanswered questions and then calls "print_loan" to summaarize the loan.  It then asks the user about the amortization table and prints that if desired.
+
+- calc_principal, calc_interest, calc_term, and calc_payment calculate their respective values based upon the other three provided parameters.  Each also
