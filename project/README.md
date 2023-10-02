@@ -47,7 +47,7 @@ If a "Final Payment" will end early, it is displayed like this:
 
      Final Payment:  $708.16 on payment #359 (1 short of full term)
 
-If all four fieds are supplied, only the "Final Payment" is determined, no adjustments to .   If the "Final Payment" exceeds "Loan Payment", it is considered a balloon payment and will be presented like this:
+If all four fieds are supplied, only the "Final Payment" is determined, no adjustments to stated Principal, Interest, Term, or Payment is made.   If as a result, the "Final Payment" exceeds the "Loan Payment", it is considered a balloon payment and will be presented like this:
 
       Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
 
@@ -66,8 +66,10 @@ The program then exits.
 
 Input errors for negative values, or number conversion errors, etc., are shown in red.
 
+# Technical Details
 
-327 lines
-5 imports
-16 functions overall
-
+* 327 lines long
+* 5 imports: re, sys, math, decimal, and scipy
+* 16 functions overall
+* Decimal arithmetic is used throughout to avoid rounding issues.
+* scipy is used for it numerical calculation Newton Method (optimize).
