@@ -51,9 +51,20 @@ If all four fieds are supplied, only the "Final Payment" is determined.   If the
 
       Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
 
+After the loan summary, the user is asked if they want an "Amortization Table (Y/N)", if yes, one is provided:
 
+    #        Payment         Interest        Reduction        Principal
+    0    -----------      -----------      -----------         3,000.00
+    1         507.32            12.50           494.82         2,505.18
+    2         507.32            10.44           496.88         2,008.30
+    3         507.32             8.37           498.95         1,509.35
+    4         507.32             6.29           501.03         1,008.32
+    5         507.32             4.20           503.12           505.20
+    6         507.31             2.11           505.20             0.00
 
+The program then exits.
 
+Input errors for negative values, or number conversion errors, etc., are shown in red.
 
 
 327 lines
