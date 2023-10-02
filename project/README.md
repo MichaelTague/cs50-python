@@ -12,9 +12,8 @@ The program is invoked from command line:
 
     python project.py
 
-The basic design is that the the user is asked to answer 3 or 4 of these questions,
-pertaining to a ordinary monthly amortizing loan, auto, consumer, or mortgage.
-E.g.:
+The user is asked to answer three (or four) of the following related to an amortizing monthly paid loan.  E.g.:
+
             Principal Amount: 12000
           Interest per Annum: 9.5
     Term in Years and Months: 4 years, 6 months
