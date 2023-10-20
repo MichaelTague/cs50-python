@@ -17,7 +17,7 @@ def test_pretty_term():
     assert pretty_term(12)  == "1 Year"
     assert pretty_term(13)  == "1 Year, 1 Month"
 
-def test_parse_term_string():
+def test_parse_term_str():
     assert parse_term_str("30") == 360
     assert parse_term_str("30 yr") == 360
     assert parse_term_str("30 yrs") == 360

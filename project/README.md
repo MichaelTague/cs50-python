@@ -4,7 +4,7 @@
 
 * Author:   Michael Tague
 * Location: Louisville, KY
-* Date:     2023-10-01
+* Date:     2023-10-20
 
 This CS50 Python final project program performs loan calculations,
 
@@ -28,15 +28,15 @@ Whichever question is left blank will be calculated and the loan summarized:
               Final Payment:  $273.47
               Total Interest: $2,793.88 (19% of payments)
 
-The "Final Payment", the payment due in the last month of the loan, is typically less than the monthly loan payment due to dollar and cent rounding as the loan is paid.
+The "Final Payment", which is the payment due in the last month of the loan, is typically less than the monthly loan payment due to dollar and cent rounding as the loan is paid.
 
 If any one of the four fields is not provided, it will be calculated.
 
 Additionally, care is made to adjust any calculated value so that:
 
-    1. The "Final Payment" will NEVER exceed the "Loan Payment".
-    2. But, the "Final Payment" will be as close as possible to the "Loan Payment" amount.
-       For example, the "Loan Payment" will be reduced as much as possible to yield a "Final Payment"
+    1. The "Final Payment" will NEVER exceed the monthly "Loan Payment".
+    2. The "Final Payment" will be as close as possible to the "Loan Payment" amount.
+       The "Loan Payment" will be adjusted up or down to yield a "Final Payment"
        as close as possible to the "Loan Payment", but not in excess of it.
     3. In some cases, it may be necessary for the loan to end early by one or more months.
        This is always preferred over having the "Final Payment" exceed the "Loan Payment".
@@ -53,7 +53,7 @@ If all four questions are supplied, no calculation (or adjustment) is performed,
 
 As a result, a "Final Payment" may exceed the "Loan Payment" and is considered a balloon payment which will be presented like this:
 
-      Final Payment:  $3,167.96 (a balloon payment which included $2,139.96 of remaining principal)
+      Final Payment:  $3,167.96 (a balloon payment which includes $2,139.96 of remaining principal)
 
 "Amortization Table (Y/N)?"  After the loan summary, the user is asked if they want an amortization table, if yes, one is provided, e.g.:
 
@@ -82,7 +82,7 @@ The formula used to determine the calculated values is based upon this:
 
     payment = principal * interest / (1 - (1 + interest)**(-term))
 
-This can easily be algebraically rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead, interest is determined using the numerical technique of Newton's Method.   The interest is guessed, then by repeatedly applying the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
+This can easily be algebraically rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead interest is determined using the numerical technique of Newton's Method.   The interest is essentially guessed and then by repeatedly applying the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
 
 The interest thus determined is then subject to adjustment, up or down in 0.01% per annum increments to find the optimal rate.
 
@@ -101,7 +101,7 @@ All calculated values, interest as well as principal, term, and payment use a si
 
 - adjust_principal, adjust_interest, and adjust_payment are called by their respective "calc" functions to make final adjustments of the values.  adjust_term does not exist as calc_term uses final_payment directly to make its adjustment.
 
-- final_payment simulates the monthly payoff of the loan to determine the month and value of the final payment.  Along the way it also totals the interest and principal paid and finds any remaining unpaid principal.   As a side effect, final_payment is also used to print the amortization table.  final_payment is used by each of the adjust functions (and calc_term) to determine the impact of up/down adjustments in principal, interest, term. or payment.
+- final_payment simulates the monthly payoff of the loan to determine the month and value of the final payment.  Along the way it also totals the interest and principal paid and finds any remaining unpaid principal.   As a side effect, final_payment is also used to print the amortization table.  final_payment is used by each of the adjust functions (and calc_term) to determine the impact of up/down adjustments in principal, interest, term, or payment.
 
 ##### Helper Functions
 
