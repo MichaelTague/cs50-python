@@ -82,7 +82,7 @@ The formula used to determine the calculated values is based upon this:
 
     payment = principal * interest / (1 - (1 + interest)**(-term))
 
-This can easily be algebraically rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead interest is determined using the numerical technique of Newton's Method.   The interest is essentially guessed and then by repeatedly applying the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses, the interest can be determined to several digits of accuracy.
+This can easily be algebraically rearranged for payment, principal, and term, but not interest.  The formula cannot be solved for interest, so instead interest is determined using the numerical technique of Newton's Method.   The interest is essentially guessed and then by repeatedly applying the payment formula, adjusted until the guess is more accurate.  In typically 3-5 guesses the interest is determined to several digits of accuracy.
 
 The interest thus determined is then subject to adjustment, up or down in 0.01% per annum increments to find the optimal rate.
 
