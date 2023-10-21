@@ -1,6 +1,6 @@
 # Loan Calculations - with a flurish!
-#### Video Demo: TO-BE-Supplied
-#### Description:
+#### Video Demo: https://youtu.be/mdJR4WNrdIM
+#### Description: Loan Calculation
 
 * Author:   Michael Tague
 * Location: Louisville, KY
