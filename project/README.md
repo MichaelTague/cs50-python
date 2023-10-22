@@ -6,7 +6,7 @@
 * Location: Louisville, KY
 * Date:     2023-10-20
 
-This CS50 Python final project program performs loan calculations,
+This CS50 Python final project program performs loan calculations.
 
 The program is invoked from the command line:
 
