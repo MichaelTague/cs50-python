@@ -312,6 +312,7 @@ def final_payment(principal: Decimal, interest: Decimal, term: int, payment: Dec
             i -= 1
             break
         interest_portion = rounding(principal * interest, ROUND_HALF_UP)
+        if 
         reduction_portion = payment - interest_portion
         if reduction_portion > principal:
             reduction_portion = principal
