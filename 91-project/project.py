@@ -2,7 +2,7 @@ import re
 import sys
 import math
 from decimal import Decimal, ROUND_UP, ROUND_HALF_UP, ROUND_DOWN
-from scipy import optimize
+#from scipy import optimize
 
 DEBUG: bool             = False
 DEBUG_FINAL: bool       = False
